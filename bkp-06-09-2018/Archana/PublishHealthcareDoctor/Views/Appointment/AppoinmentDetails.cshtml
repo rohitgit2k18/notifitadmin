@@ -1,0 +1,517 @@
+﻿@model HealthcareSoft.Data.Model.AppoinmentDetailsModel
+
+@if (@ViewBag.Success != null)
+{
+    <script type="text/javascript" language="javascript">
+        alert('@ViewBag.Success');</script>}
+
+
+<link href="~/assets/css/style.css" rel="stylesheet" />
+<style>
+    .ui-autocomplete {
+        max-height: 100px;
+        overflow-y: auto;
+        /* prevent horizontal scrollbar */
+        overflow-x: hidden;
+    }
+    /* IE 6 doesn't support max-height
+     * we use height instead, but this forces the menu to always be this tall
+     */
+    * html .ui-autocomplete {
+        height: 100px;
+    }
+
+    .ui-autocomplete-input {
+        width: 300px;
+    }
+</style>
+
+
+<h2>@ViewBag.FileStatus</h2>
+<body>
+    @using (Html.BeginForm("", "", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.HiddenFor(m => m.AppointmentId)
+        @Html.AntiForgeryToken()
+        <div class="db-main-outer">
+            <div class="db-main-inner appoint-details-upper">
+                <div class="inner-menu-navigation">
+                    <p><a href="/Dashboard/Index">Dashboard</a> <span> > </span> <a class="active" href="#">Appointment Detail</a></p>
+                </div>
+                <div class="container patient-detail-header no-padding">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 no-padding">
+                            <div class="patient-profile">
+                                <figure>
+                                    <img src="@Model.ProfilePicture" alt="">
+                                </figure>
+                                <div class="pateint-details">
+                                    <h3>@Model.Name</h3>
+                                    <p>@Model.Age, @Model.Gender, @Model.Address</p>
+                                </div>
+                            </div>
+                        </div>
+                      
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 no-padding">
+                            <div class="pateint-body">
+                                <h4>Demographics</h4>
+                                <p>Height : &nbsp; @Html.TextBoxFor(model => model.Height, new { @style = "width:50px;", @id = "heightid" }) Ft</p>
+                                <p>Weight : &nbsp; @Html.TextBoxFor(model => model.weight, new { @style = "width:50px;", @id = "weightid" }) Kgs</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 no-padding">
+                            <div class="pateint-health">
+                                <h4>Vitals</h4>
+                                <p>Blood Pressure : &nbsp; @Html.TextBoxFor(model => model.BloodPressure, new { @style = "width:72px;", @id = "bp" }) </p>
+                                <p>Pulse : &nbsp; @Html.TextBoxFor(model => model.Pulse, new { @style = "width:72px;", @id = "pulse" }) </p>
+                            </div>
+                        </div>
+                        <button class="appoint-sub" type="submit" onclick="update();" id="savedemo">Update</button>
+
+                        
+                    </div>
+
+                    <div class="patient-history">
+                        <h3>Previous Illness</h3>                   
+                        @foreach (var item in Model.PatientPriviousIllness)
+                        {
+                           
+                                <div class="col-md-4 add-top-margin">
+                                    <div class="row">
+                                        <div class="col-md-4 no-padding">
+                                            <h4>@item.DiseaseName:</h4>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <ul class="list-unstyled patiantReport">
+                                                <li><span class="fa fa-briefcase"></span>@Html.ActionLink("View Report", "GetReportForPatient", "PrintReport", routeValues: new { appointmentId = item.AppointmentId }, htmlAttributes: null) </li>
+                                                <li><span class="fa fa-briefcase"></span>@Html.ActionLink("View Clinical Report", "GetClinicalReportForPatient", "PrintReport", routeValues: new { appointmentId = item.AppointmentId }, htmlAttributes: null) </li>
+                                                <li><a href="/GeneratePdf/GeneratePrescriptionPdf?AppointmentId=@item.AppointmentId"> <span class="fa fa-eye"></span> View priscription</a></li>
+                                                <li><a href="/Appointment/AppointmentHistoryByPatientId?AppointmentId=@item.AppointmentId"> <span class="fa fa-file-o"></span> View Encounter Page</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                           
+                        } 
+                    </div>
+                </div>
+            </div>
+            <div class="current-encounter-form">
+                <form>
+                    <h3>Current Encounter</h3>
+                    <div class="encounter-form-left">
+                        <div class="form-group">
+                            <label>Reason For Visit</label>
+                            @Html.TextBoxFor(model => model.ReasonForVisit, new { @readonly = "readonly" })
+                            @Html.ValidationMessageFor(model => model.ReasonForVisit, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-group">
+                            <label>Present Illness</label>
+                            @Html.TextBoxFor(model => model.Illness, new { @readonly = "readonly" })
+                            @Html.ValidationMessageFor(model => model.Illness, "", new { @class = "text-danger" })
+                        </div>
+
+                            <div class="form-group">
+                                <label>Disease</label>
+                                @Html.DropDownListFor(m => m.DiseaseId, Model.DiseaseList, new { @class = "form-control diseaselist", @placeholder = "Disease" })
+                            </div>
+
+                        <div class="form-group">
+                            <label>Symptoms</label>
+                            @Html.DropDownListFor(m => m.IllnessId, Model.IllnessList, new { @class = "form-control" })
+                       </div>
+                        <div class="form-group">
+                            <label>Allergy Type</label>
+                            @Html.DropDownListFor(m => m.AllergieId, new SelectList(Model.AllergieList, "Id", "Discription"), new { @class = "form-control", placeholder = "Allergy Type" })
+
+                        </div>
+
+                        <div class="form-group">
+                            <label>Allergies</label>
+                            @Html.DropDownListFor(m => m.AllergyTypeId, Model.AllergyTypeList, new { @class = "form-control", placeholder = "Allergies" })
+                        </div>
+
+                    <div class="form-group">
+                        <label>Prescribe Tests</label>
+                        @Html.DropDownListFor(m => m.PrescribeTestId, new SelectList(ViewBag.PrescribeList, "Id", "Details"),"Select Prescription List" ,new { @class = "form-control", @placeholder = "Test Name" , @onchange = "selectedvalue()", Id = "dropDownId" })
+                        @Html.HiddenFor(m => m.PrescribeTestId, new { Value = "",Id = "hdnfld" })
+                    </div>
+
+                    <div class="form-group">
+                        <label>Revisit Time</label>
+                        @Html.TextBoxFor(model => model.RevisitTime, new { @class = "form-control", @placeholder = "Revisit Time" })
+                    </div>
+                </div>
+
+                <div class="encounter-form-right">
+                    <div>
+                        @Html.TextAreaFor(model => model.ClinicalNotes, new { @class = "form-control", @placeholder = "Clinical Notes", @rows = "12", @cols = "70" })
+                        @Html.ValidationMessageFor(model => model.ClinicalNotes, "", new { @class = "text-danger" })
+                    </div>
+
+        @*<textarea rows="12" cols="70" placeholder="Clinical Notes"></textarea>*@
+
+                    </div>
+                    <div id="prescribbUpdate">
+                    <div class="prescrib col-md-12">
+                        <div class="prscrpt">
+                        <div class="col-md-4 pdd-left form-group">
+                            <label>Prescribe(Medicine)</label>
+
+                            @*<input type="text" id="txt" placeholder="Cetrizine-500mg Auto-suggestion">*@
+                            <div>
+                                @Html.TextBoxFor(model => model.PillsName, new { @class = "form-control test1", @placeholder = "First Character", @id = "0pillsName" })                                
+                                @Html.ValidationMessageFor(model => model.PillsName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="col-md-8 form-group">
+                            
+                            <div class="col-md-4 pdd-left form-group">
+                                <label>For(Days)</label>
+                                <div>
+                                 @Html.TextBoxFor(model => model.Days, new { @class = "form-control", @placeholder = "Days" })
+                                </div>
+                            </div>
+
+                           
+                               
+                                <div class="col-md-8 pdd-left form-group">
+                                    <label>Frequency (Twice a day/Thrice a day)</label>
+                                    <div class="col-md-8 pdd-left form-group" >
+                                         @Html.DropDownListFor(m => m.IntervalId, new SelectList(Model.IntervalList, "Id", "Interval"), new { @class = "form-control", @placeholder = "Intervals" })
+                                    </div>
+                                    <div class="col-md-4 pdd-left form-group">
+                                        <a href="javascript:void(0);" class="remove fa fa-trash fa-2x"></a>
+                                    </div>
+                                </div>
+                              
+
+                               
+                            </div>                       
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-md-12 ad-prfrc pdd-left form-group">
+                        <a href="javascript:void(0);" class="add-prescribe" id="addTablet"> + Add More Prescribe</a>
+                    </div>
+                    
+                    <div class="action-submit">
+                       <ul class="list-unstyled list-inline">
+                            <li><button class="appoint-sub" type="submit" id="submit">Submit</button></li>
+
+                            <!-- Report Upload-->
+                           <li><a href="#" class="appoint-detail-btn" data-toggle="modal" data-target="#AddReportModal">Add Report</a></li>
+
+                           <li><a href="#" class="appoint-detail-btn" data-toggle="modal" data-target="#Addclinical">Add Clinical Report</a></li>  
+
+
+                            <li><a href="/Patient/ReferPatient" class="appoint-detail-btn">Refer Patient</a></li>
+                        </ul>
+                        @* Add report Modal Start  *@
+                        <!-- Modal -->
+                        <div class="modal fade" id="AddReportModal" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Add Report</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="fa fa-user"></span>
+                                        <div class="Browse_btn">
+                                            @*<input id="file" name="file" type="file" value="">
+                                            <input class="loadup" type="submit" id="addReport" value="Upload" />*@
+                                            @Html.TextBox("file", "", new { type = "file" })
+                                            <input class="loadup" type="submit" id="addReport" value="Upload" />
+                                            <div class="warning-text">Only .PDF will be uploaded</div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        @* Add report Modal end  *@
+                        @* Add Clinical Modal Start  *@
+                        <!-- Modal -->
+                        <div class="modal fade" id="Addclinical" role="dialog">
+                            <div class="modal-dialog">
+
+                                <!-- Modal content-->
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title">Add Clinical Report</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <span class="fa fa-user"></span>
+                                        <div class="Browse_btn">
+                                            @*<input id="file" name="file" type="file" value="">
+                                            <input class="loadup" type="submit" id="addReport" value="Upload" />*@
+                                          @Html.TextBox("fileclinical", "", new { type = "file" })
+                                        <input class="loadup" type="submit" value="Upload" id="addClinicalReport" />
+                                            <div class="warning-text">Only .PDF will be uploaded</div>
+                                        </div>
+                                        
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        @* Add Clinical Modal end  *@
+
+                       </div>
+                </form>
+            </div>
+            <div class="bottom-copyright-text text-center">
+                <p>© Copyright2018 STETHO | All Rights Reserved.</p>
+            </div>
+        </div>
+    }
+</body>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        var t = $('.prescrib').clone();
+
+        $("body").on('click', '.remove', function () {
+            $(this).closest('.prscrpt').parent().remove();
+        });
+
+        $("body").on('click', '#addTablet', function () {
+            var a = $('.prescrib').length;
+
+            //console.log('aajs', $(t).find('#0pillsName'));
+            //$(t).find('#' + a + 'pillsName').attr('id', (a + 1) + 'pillsName');
+            console.log('tttt', a)
+            $('#prescribbUpdate').append(t);
+            $('.prescrib .test1').eq(a).attr('id', (a) + 'pillsName');
+
+            $('#' + a + 'pillsName').autocomplete({
+                //autocomplete: {
+                //    delay: 0,
+                minLength: 1,
+                source: function (request, response) {
+                    $.ajax({
+                        url: "/Appointment/GetPillsName",
+                        type: "POST",
+                        dataType: "json",
+                        data: { SearchName: request.term },
+                        success: function (data) {
+                            try {
+                                response($.map(data,
+                                    function (item) {
+                                        return { label: item.Details };
+                                    }));
+
+                            } catch (err) {
+                            }
+                        }
+                    });
+                },
+                messages:
+                    {
+                        noResults: "jhh", results: "jhjh"
+                    }
+
+            });
+            t = $('.prescrib:nth-child(' + a + ')').clone();
+
+        });
+
+        //========My Code for update demographics=========
+
+        $("#savedemo").click(function () {
+            var height = $("#heightid").val().toString();
+            var weight = $("#weightid").val().toString();
+            var bp = $("#bp").val();
+            var pulse = $("#pulse").val();
+            var Data = [];
+            Data.push({
+                height,
+                weight,
+                bp,
+                pulse
+
+            });
+
+            console.log(Data);
+            $.ajax({
+                url: '/Appointment/UpdateDemographicById',
+                type: 'POST',
+                traditional: true,
+                data: { Categories: [height, weight, bp, pulse] },
+                dataType: 'json',
+                success: function (result) {
+                    alert("Successfully Updated!");
+                    //window.location.href = result.Url;
+                    window.location.reload();
+
+
+                }
+            });
+
+        });
+
+        //========================================================
+    });
+
+
+    function selectedvalue()
+    {
+        var value = $('#dropDownId').val();
+        console.log(value)
+        $("#hdnfld").val(value);
+    }
+
+
+    $("#0pillsName").autocomplete({
+    //autocomplete: {
+        //    delay: 0,
+        minLength: 1,
+        source: function (request, response) {            
+            $.ajax({
+                url: "/Appointment/GetPillsName",
+                type: "POST",
+                dataType: "json",
+                data: { SearchName: request.term },
+                success: function (data) {                    
+                    try {
+                        response($.map(data,
+                            function (item) {                                
+                                return { label: item.Details };
+                            }));
+                        
+                    } catch (err) {
+                    }
+                }
+            });
+        },
+        messages:
+            {
+                noResults: "jhh", results: "jhjh"
+            }
+
+    });
+
+
+    $(document).ready(function () {
+
+        $("#submit").click(function () {
+            $("form").attr("action", "/Appointment/AppoinmentDetails");
+        });
+
+
+        $("#referPatient").click(function () {
+            $("form").attr("action", "/Patient/ReferPatient");
+        });
+
+        $("#addReport").click(function () {
+            $("form").attr("action", "/Patient/AddPatientReport");
+        });
+
+        $("#addClinicalReport").click(function () {
+            $("form").attr("action", "/Patient/AddPatientClinicalReport");
+        });
+
+
+    });
+
+    
+    $(function () {
+        $("#AllergieId").change(function () {
+            var selected = $(this).val();
+
+            var ddlAllergyType = $("#AllergyTypeId");
+            $.ajax({
+                type: "Post",
+                url: "GetAllergyTypeByAllergyId",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ 'AllergyId': selected }),
+                success: function (result) {
+                    ddlAllergyType.html('');
+                    ddlAllergyType.append(
+                        '<option value="Selects items">--------select Allergy Type--------</option>');
+                    $.each(result,
+                        function (id, option) {
+                            ddlAllergyType.append($('<option></option>').val(option.id).html(option.name));
+                        }
+                    );
+                }
+
+            });
+        });
+    });
+
+    ////for getting   Disease
+    $(document).ready(function () {
+       
+        var ddlDiseaseName = $("#DiseaseId");
+        $.ajax({
+            type: "GET",
+            url: "GetDiseaseNameByDepartmentId",
+            contentType: "application/json;charset=utf-8",
+            dataType: "json",
+            success: function (result) {
+                ddlDiseaseName.html('');
+                ddlDiseaseName.append(
+                   '<option value="Selects items">--------select Disease--------</option>');
+
+                $.each(result,
+                    function (id, option) {
+                        ddlDiseaseName.append($('<option></option>').val(option.id).html(option.name));
+                    }
+                );
+            }
+
+        });
+    });
+
+
+
+   
+
+    ////for getting   Symptoms
+    $(function () {
+        $("#DiseaseId").change(function () {
+            var selected = $(this).val();
+
+            var ddlIllnessName = $("#IllnessId");
+            $.ajax({
+                type: "Post",
+                url: "GetIllnesssNameByDiseaseId",
+                contentType: "application/json;charset=utf-8",
+                dataType: "json",
+                data: JSON.stringify({ 'DiseaseId': selected }),
+                success: function (result) {
+                    ddlIllnessName.html('');
+                    ddlIllnessName.append(
+                        '<option value="Selects items">--------select Illness--------</option>');
+                    $.each(result,
+                        function (id, option) {
+                            ddlIllnessName.append($('<option></option>').val(option.id).html(option.name));
+                        }
+                    );
+                }
+
+            });
+        });
+    });
+</script>

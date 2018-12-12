@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ablecommercelicense version="7.0.92" keytype="DEMO">
+  <customer>
+    <name>tarvinder</name>
+    <company>test</company>
+    <phone>9999301228</phone>
+    <email>tarvinder.singh@mail.vinove.com</email>
+  </customer>
+  <issuedate>02/01/2018</issuedate>
+  <domains>
+    <domain primary="true">allmarkdev.a2hosted.com</domain>
+  </domains>
+  <expiration>2018-03-03</expiration>
+  <BasePath>YzpcaW5ldHB1Ylx3d3dyb290XA==</BasePath>
+  <signature>uiK2lT2BweBhnX0R8ZMnmypxkNFYxhr1iRefl4gRwhasWp9jDXo+KCBoqSJNskhVDdKWT57U4XXg0Ohnd8qzPW3+803/oS9FKAW7pgZENRGUqxmSspPpn/DBH6/N1J369WzAkQSKSiSg2CkKqrCpZgHjSYZ9dry/Z1b5K6JxG3c=</signature>
+</ablecommercelicense>

@@ -1,0 +1,13 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Layouts/Fixed/Base.Master" AutoEventWireup="True" CodeFile="Account.master.cs" Inherits="AbleCommerce.Layouts.Fixed.Account" %>
+<%@ Register src="~/ConLib/BreadCrumbs.ascx" tagname="BreadCrumbs" tagprefix="uc1" %>
+<asp:Content ID="NestedMaster" ContentPlaceHolderID="NestedMaster" runat="server">
+    <div id="mainColumn" class="oneColumnLayout">
+        <div class="zone">
+<%--            <asp:ContentPlaceHolder ID="Breadcrumbs" runat="server">
+                <uc1:BreadCrumbs ID="BreadCrumbs1" runat="server" />
+            </asp:ContentPlaceHolder>--%>
+            <asp:ContentPlaceHolder ID="PageContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>

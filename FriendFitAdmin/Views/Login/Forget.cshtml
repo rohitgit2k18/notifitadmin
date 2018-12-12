@@ -1,0 +1,120 @@
+﻿@model FriendFitAdmin.Models.ResetPassword
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Forget</title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div>
+
+        <div class="form-gap"></div>
+        <div class="container">
+
+    @{ if (@TempData["Mgs"] != null)
+    {
+        <div id="HideMgs" class="alert alert-success fade in" style="text-align: center; margin: 22px 17px;">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Success!</strong> @TempData["Mgs"].ToString()
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#HideMgs').delay(5000).fadeOut();
+            });
+        </script>
+    }
+    else
+    {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#HideMgs').delay(5000).fadeOut();
+            });
+        </script>
+    }
+}
+            <div class="row" style="padding-top:100px">
+                <div class="col-md-4 col-md-offset-4">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div class="text-center">
+                                <h3><i class="fa fa-lock fa-4x"></i></h3>
+                                <h2 class="text-center">Set New Password?</h2>
+                                <p>You can set new password here.</p>
+                                <div class="panel-body">
+
+                                    <form id="register-form" role="form" autocomplete="off" class="form" method="post">
+
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                                <input id="email" name="email" placeholder="email address" class="form-control" type="email" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope color-blue"></i></span>
+                                                <input id="setnewpass" name="setnewpass" placeholder="Password here" class="form-control" type="password">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <input name="recover-submit" class="btn btn-lg btn-primary btn-block" id="btnlibkupdate" value="Update Password" type="submit">
+                                        </div>
+
+                                        <input type="hidden" class="hide" name="token" id="token" value="">
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+<script>
+    $(document).ready(function () {
+        debugger;
+        var url = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+        debugger;
+        var emailid = url.toString().split("="); 
+        $('#email').val(emailid[1])
+    })
+
+
+    $('#btnlibkupdate').click(function () {
+        var pass = $('#setnewpass').val();
+        if (pass=="") {
+            alert("Please Enter Password")
+            return false;
+        }
+        debugger
+        var emailId = $('#email').val();
+        $.ajax({
+            url: '@Url.Action("SetNewPassword", "Login")',
+            type: 'post',
+            data: { "email": $('#email').val(), "setnewpass": $("#setnewpass").val() },
+            success: function (data) {
+                debugger
+                if (data =="Your Password have been change sucessfully") {
+                    window.location.href = "../login/index";
+                }
+            },
+        });
+    });
+</script>

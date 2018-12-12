@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ablecommercelicense version="7.0.92" keytype="DEMO">
+  <customer>
+    <name>tarvinder</name>
+    <company>vinove</company>
+    <phone>9999301228</phone>
+    <email>tarvinder.singh@mail.vinove.com</email>
+  </customer>
+  <issuedate>12/07/2017</issuedate>
+  <domains>
+    <domain primary="true">localhost</domain>
+  </domains>
+  <expiration>2018-01-06</expiration>
+  <BasePath>YzpcaW5ldHB1Ylx3d3dyb290XA==</BasePath>
+  <signature>bWstv6XR0B/e25DjofLK4cECn+dYXiiI3jQT66HO3N61TJ55rAlCORBz4t4rZbarYnZkfjhORRX1y7Oa6wBWM82ulTR4p35J4liv1eA8b0rp3YGpVwZJAOAknscQi8oM/Kk9T8EUZ6OHNXQrEmwU3AXtYX9IYPpffKx3El4Y9rg=</signature>
+</ablecommercelicense>

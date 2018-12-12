@@ -1,0 +1,23 @@
+<html>
+<head>
+</head>
+<body>
+    <span style="font-size: medium;"><strong>Thank you for contacting us.</strong></span>
+    <br />
+    <br />
+    We have received your inquiry and will respond to you very soon. For urgent inquiries please call us at:
+    <br />
+    <br />${store.DefaultWarehouse.Phone}
+    <br /><br />
+    Our Business Address Is:
+    <br /><br />
+    ${store.DefaultWarehouse.FormatAddress(true)}
+    <br /><br />
+    You can also email us at ${store.Settings.DefaultEmailAddress}
+
+    <p>
+        Thank you.<br />
+        <a href="${store.StoreUrl}default.aspx">$store.Name</a>
+    </p>
+</body>
+</html>

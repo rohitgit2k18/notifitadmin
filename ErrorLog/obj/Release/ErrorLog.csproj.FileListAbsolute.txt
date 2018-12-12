@@ -1,0 +1,6 @@
+D:\Projects\FriendFitAdmin\ErrorLog\bin\Release\ErrorLog.dll
+D:\Projects\FriendFitAdmin\ErrorLog\bin\Release\ErrorLog.pdb
+D:\Projects\FriendFitAdmin\ErrorLog\obj\Release\ErrorLog.csprojAssemblyReference.cache
+D:\Projects\FriendFitAdmin\ErrorLog\obj\Release\ErrorLog.csproj.CoreCompileInputs.cache
+D:\Projects\FriendFitAdmin\ErrorLog\obj\Release\ErrorLog.dll
+D:\Projects\FriendFitAdmin\ErrorLog\obj\Release\ErrorLog.pdb

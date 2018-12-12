@@ -1,0 +1,18 @@
+D:\Projects\FriendFitAdmin\ErrorLog\bin\Debug\ErrorLog.dll
+D:\Projects\FriendFitAdmin\ErrorLog\bin\Debug\ErrorLog.pdb
+D:\Projects\FriendFitAdmin\ErrorLog\obj\Debug\ErrorLog.csprojAssemblyReference.cache
+D:\Projects\FriendFitAdmin\ErrorLog\obj\Debug\ErrorLog.csproj.CoreCompileInputs.cache
+D:\Projects\FriendFitAdmin\ErrorLog\obj\Debug\ErrorLog.dll
+D:\Projects\FriendFitAdmin\ErrorLog\obj\Debug\ErrorLog.pdb
+D:\Shrawan Work\FriendFitAdmin\FriendFitAdmin\FriendFitAdmin\ErrorLog\bin\Debug\ErrorLog.dll
+D:\Shrawan Work\FriendFitAdmin\FriendFitAdmin\FriendFitAdmin\ErrorLog\bin\Debug\ErrorLog.pdb
+D:\Shrawan Work\FriendFitAdmin\FriendFitAdmin\FriendFitAdmin\ErrorLog\obj\Debug\ErrorLog.csprojAssemblyReference.cache
+D:\Shrawan Work\FriendFitAdmin\FriendFitAdmin\FriendFitAdmin\ErrorLog\obj\Debug\ErrorLog.csproj.CoreCompileInputs.cache
+D:\Shrawan Work\FriendFitAdmin\FriendFitAdmin\FriendFitAdmin\ErrorLog\obj\Debug\ErrorLog.dll
+D:\Shrawan Work\FriendFitAdmin\FriendFitAdmin\FriendFitAdmin\ErrorLog\obj\Debug\ErrorLog.pdb
+D:\Shrawan Work\FitAdmin\FriendFitAdmin\ErrorLog\bin\Debug\ErrorLog.dll
+D:\Shrawan Work\FitAdmin\FriendFitAdmin\ErrorLog\bin\Debug\ErrorLog.pdb
+D:\Shrawan Work\FitAdmin\FriendFitAdmin\ErrorLog\obj\Debug\ErrorLog.csproj.CoreCompileInputs.cache
+D:\Shrawan Work\FitAdmin\FriendFitAdmin\ErrorLog\obj\Debug\ErrorLog.dll
+D:\Shrawan Work\FitAdmin\FriendFitAdmin\ErrorLog\obj\Debug\ErrorLog.pdb
+D:\Shrawan Work\FitAdmin\FriendFitAdmin\ErrorLog\obj\Debug\ErrorLog.csprojAssemblyReference.cache

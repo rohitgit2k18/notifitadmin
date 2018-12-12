@@ -1,0 +1,46 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Mobile.Master.cs" Inherits="AbleCommerce.Layouts.Mobile" %>
+<%--<%@ Register src="~/Mobile/UserControls/StoreHeader.ascx" tagname="StoreHeader" tagprefix="uc1" %>--%>
+<%@ Register src="~/Mobile/UserControls/StoreFooter.ascx" tagname="StoreFooter" tagprefix="uc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="head1" runat="server">
+    <title>AbleCommerce: Software that Sells!(TM)</title>
+    <asp:ContentPlaceHolder ID="HtmlHeader" runat="server">
+    </asp:ContentPlaceHolder>
+    <cb:StylePlaceHolder ID="StylePlaceHolder1" runat="server"></cb:StylePlaceHolder>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />    
+    <meta name="viewport" content="width=device-width" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+        <div id="outerPageContainer">            
+            <asp:ContentPlaceHolder ID="NestedMaster" runat="server">
+                <div id="header">                    
+                    <div class="content">
+                        <asp:ContentPlaceHolder ID="PageHeader" runat="server">
+                            <%--<uc1:StoreHeader ID="StoreHeader1" runat="server" />--%>
+                        </asp:ContentPlaceHolder>
+                    </div>                    
+                </div>
+                <!-- START_PAGE_BODY -->
+                <div id="mainColumn" class="oneColumnLayout">                                            
+                    <asp:ContentPlaceHolder ID="PageContent" runat="server">
+                            [page body]
+                    </asp:ContentPlaceHolder>                    
+                </div>
+                <!-- END_PAGE_BODY -->
+                <div id="footer">
+                    <div class="content">
+                        <asp:ContentPlaceHolder ID="PageFooter" runat="server">
+                            <uc1:StoreFooter ID="StoreFooter1" runat="server" />
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+            </asp:ContentPlaceHolder>            
+        </div>
+    </form>
+</body>
+</html>

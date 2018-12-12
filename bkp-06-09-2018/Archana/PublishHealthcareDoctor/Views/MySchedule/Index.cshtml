@@ -1,0 +1,164 @@
+﻿@model HealthcareSoft.Data.Model.MyScheduleModel
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <style type="text/css">
+        .icon-addon .my_timepick span {
+            position: relative;
+            margin: 0px;
+            padding: 3px 4px;
+            width: 40px;
+            left: 0;
+            top: 0;
+            border-left: solid 1px #d8d8d8;
+        }
+
+        .icon-addon .my_timepick table tr td a i {
+            position: relative;
+            left: 0 !important;
+            top: 0 !important;
+        }
+
+        .icon-addon .my_timepick table tr td input {
+            padding: 10px 16px 10px 25px !important;
+        }
+
+        .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {
+            z-index: 9 !important;
+        }
+    </style>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+ 
+
+    <!-- Bootstrap -->
+    <link href="~/Calender/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Calender/css/calander.css" rel="stylesheet">
+    <link href="~/Calender/css/bootdate.css" rel="stylesheet">
+    <link href="~/TimePicker/bootstrap-timepicker.css" rel="stylesheet" />
+    <link href="~/assets/css/style.css" rel="stylesheet" />
+
+</head>
+<body>
+@using (Html.BeginForm("Index", "MySchedule", FormMethod.Post, new {  }))
+{
+@*@using (Ajax.BeginForm("Index", "MySchedule", new AjaxOptions { InsertionMode = InsertionMode.Replace, UpdateTargetId = "loginSection", }))
+
+   {*@
+    @Html.AntiForgeryToken()
+                            <div id='calendar'></div>
+                            <div id='datepicker'></div>
+                            <div class="modal fade ggle-calndr" tabindex="-1" role="dialog">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <h4 class="modal-title">Create new event</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row">
+                                                <div class="rad-wrap">
+                                                    <div class="col-xs-12">
+                                                        <label class="radio-inline">
+                                                            @Html.RadioButtonFor(m=>m.IsWorking,true,new { @id= "working" , @checked= "checked" })Working
+                                                            @*<input type="radio" name="value" value="1" id="working" checked="checked">Working*@
+                                                        </label>
+                                                        <label class="radio-inline">
+                                                            @Html.RadioButtonFor(m => m.IsWorking, false, new { @id = "notWorking" })Not Working
+                                                            @*<input type="radio" name="value" value="2" id="notWorking">Not Working*@
+                                                        </label>
+                                                    </div>
+                                                   
+                                               </div>
+                                            </div>
+                                            <div id="calenderdiv">
+                                                @Html.HiddenFor(m=>m.PresentDate,new { @id= "pDate" })
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <label class="col-xs-4" for="title">Event title</label>
+                                                        @Html.TextBoxFor(m =>m.Title, new { placeholder = "Title", required = "required",  @name = "Title", @id = "title", @type = "text" })
+                                                        @*<input type="text" name="title" id="title" />*@
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <label class="col-xs-4" for="starts-at">Starts at</label>
+                                                        <div class="input-group bootstrap-timepicker timepicker my_timepick">
+                                                            @Html.TextBoxFor(m => m.ScheduleStartShift, new { placeholder = "Start Shift", required = "required", @class = "form-control input-small", @name = "SelectedTime", @id = "timepicker1", @type = "text" })
+                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                                            @*@Html.TextBoxFor(m => m.StartShift, new { placeholder = "Monday Start Shift", required = "required", id = "starts-at" })*@
+                                                            @*<input type="text" name="starts_at" id="starts-at" />*@
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-xs-12">
+                                                        <label class="col-xs-4" for="ends-at">Ends at</label>
+                                                        <div class="input-group bootstrap-timepicker timepicker my_timepick">
+                                                            @Html.TextBoxFor(m => m.ScheduleEndShift, new { placeholder = "End Shift", required = "required", @class = "form-control input-small", @name = "SelectedTime", @id = "timepicker2", @type = "text" })
+                                                            <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                                            @*@Html.TextBoxFor(m => m.EndShift, new { placeholder = "Monday End Shift", required = "required", id = "ends-at" })*@
+                                                            @*<input type="text" name="ends_at" id="ends-at" />*@
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="modal-footer">
+                                            <button type="reset" class="btn btn-default" data-dismiss="modal">Close</button>
+                                            
+                                            <button type="button" class="btn btn-primary" id="save-event">Save changes</button>
+                                            @*<button type="submit" class="btn btn-primary" id="save-event-type">Save changes</button>*@
+                                            @*<button type="submit" class="btn btn-primary" id="save-event">Save changes</button>*@
+                                        </div>
+                                    </div><!-- /.modal-content -->
+                                </div><!-- /.modal-dialog -->
+                            </div><!-- /.modal -->
+
+   }
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="~/Calender/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="~/Calender/js/bootstrap.min.js"></script>
+    <script src="~/Calender/js/locale.js"></script>
+    <script src="~/Calender/js/bootdate.js"></script>
+    <script src="~/Calender/js/calander.js"></script>
+    <script src="~/Calender/js/custom.js"></script> 
+
+
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+
+</body>
+</html>
+
+
+<script src="~/TimePicker/bootstrap-timepicker.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        //alert("radio");
+        $('#working').change(function () {
+        $('#calenderdiv').show();
+        });
+
+    $('#notWorking').change(function () {
+            $('#calenderdiv').hide();
+        });
+    });
+
+    $('#timepicker1').timepicker();
+    $('#timepicker2').timepicker();
+
+</script>
+

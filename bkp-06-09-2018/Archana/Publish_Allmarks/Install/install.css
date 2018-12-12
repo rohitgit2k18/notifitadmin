@@ -1,0 +1,46 @@
+/* CSS Document */
+@media screen
+{
+	
+/* global styles */
+html {overflow-y: scroll;}
+body{ background:#071f45; margin:0; font-family:Arial, Helvetica, sans-serif; font-size:medium; }
+#container{ margin:0px auto; width:960px; background:#FFFFFF; top:0px; left:0px;}
+#headerLogo{ margin:0px; padding:0px;}
+hr.border{background:#9a2c5d;height:10px;margin:0px;border:0;}
+#pageBody{width:920px; padding:10px 20px;}
+h1 { font-size:24px; font-weight: bold; margin: 8px 0px; color:#0A1A33}
+.sectionHeader { background-color: #EFEFEF; padding:3px; margin:12px 0px;}
+.sectionHeader h2 {font-size: 16px; font-weight: bold; margin: 0px; padding:5px 0 5px 5px}
+.sectionHeader h2.warning {padding-left:30px;background:url('warning.gif') no-repeat left top;}
+p{margin-top:0px;}
+div.buttonPanel{text-align:center;margin-top:20px;}
+div.buttonPanel input.button { background:#5271A2; color:#fff; font-weight:bold; padding:5px 10px 4px; border:1px solid #000; min-width:80px; margin:0 6px; }
+div.buttonPanel input.button:hover { background:#98AED1; color:#9a2c5d; font-weight:bold; padding:5px 10px 4px; border:1px solid #9a2c5d; min-width:80px; }
+div.progressPanel{margin:6px 0;display:none}
+.errorPanel{color:#000;font-weight:bold;border:solid 1px #9a2c5d;margin:6px;padding:4px;}
+
+/* license agreement styles */
+.license{margin-bottom:12px;text-align:justify;}
+.license p{margin-bottom:20px;}
+#agreementPanel{text-align:center;font-weight:bold;width:600px;margin: 0px auto 20px auto;}
+
+/* styling for validation summary lists */
+.validationSummary { margin-bottom:6px; }
+.validationSummary ul { margin-left:25px; list-style-type:disc;}
+.validationSummary ul li { color:#f00; list-style-type:disc; }
+
+/* configuration form styles */
+.inputBox {padding:6px;margin:4px 40px;border:solid 1px #CCCCCC; }
+}
+.inputBox .requiredField {color: #FF0000;margin-left: 3px;padding-bottom: 3px;}
+
+/* hide these elements in print view */
+@media print  
+{
+    hr.border{display:none}
+	#headerLogo { display:none; } 
+	.license{text-align:justify;}
+	div.buttonPanel {display: none}
+	#agreementPanel{display:none}
+}

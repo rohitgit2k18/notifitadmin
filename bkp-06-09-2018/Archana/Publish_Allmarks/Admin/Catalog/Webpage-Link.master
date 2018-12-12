@@ -1,0 +1,13 @@
+<%@ Master Language="C#" MasterPageFile="~/Admin/Admin.master" %>
+<asp:Content ID="MainContent1" runat="server" ContentPlaceHolderID="MainContent">
+    <div class="grid_2 alpha">
+        <div class="leftColumn">
+            <asp:ContentPlaceHolder ID="PrimarySidebarContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div class="grid_10 omega">
+        <asp:contentplaceholder ID="MainContent" runat="server">
+        </asp:contentplaceholder>
+    </div>
+</asp:Content>

@@ -1,0 +1,138 @@
+﻿@model IEnumerable<HealthcareSoft.Data.Model.TodaysAppointmentModel>
+
+                @{
+                    Layout = "~/Views/Shared/_Layout.cshtml";
+                    //Layout = null;
+                }
+               
+@if (@ViewBag.Message != null)
+{
+    <script type="text/javascript" language="javascript">
+        alert('@ViewBag.Message');</script>}
+
+@if (@ViewBag.File != null)
+{
+    <script type="text/javascript" language="javascript">
+        alert('@ViewBag.File');</script>}
+
+
+@if (@ViewBag.Success != null)
+{
+    <script type="text/javascript" language="javascript">
+        alert('@ViewBag.Success');</script>}
+
+
+
+                   
+                            <div class="db-main-inner-header">
+                                <h2><span><img src="~/assets/images/ll-hospital.png" alt="hospital-icon"></span>@HealthcareSoft.Web.Models.ApplicationSession.HospitalName</h2>
+                            </div>
+                            <div class="week-sec">
+                                <ul class="list-unstyled list-inline" id="weeklist">
+                                    <li data-id="mon">Monday</li>
+                                    <li data-id="tue">Tuesday</li>
+                                    <li data-id="tue">Wednesday</li>
+                                    <li data-id="tue">Thursday</li>
+                                    <li data-id="tue">Friday</li>
+                                    <li data-id="tue">Saturday</li>
+                                </ul>
+                                <div class="appointments-sec">
+                                    <div id="mon" class="">
+                                        <ul class="list-unstyled list-inline">
+                                            <li><span class="completed"></span>Completed</li>
+                                            <li><span class="follow-up"></span>Follow-Up Visit</li>
+                                            <li><span class="new-visit"></span>New Visit</li>
+                                            <li><span class="cancelled"></span>Cancelled</li>
+                                        </ul>
+                                        <ul class="list-unstyled list-inline appoint-info">
+                                            @foreach (var item in Model)
+                                            {
+                                               if (item.IsCompleted == true)
+                                               {
+                                                <li>
+                                                   
+                                                    <a href="/Appointment/AppoinmentDetails?DoctorId=@item.DoctorId&AppointmentId=@item.AppointmentId">
+                                                            <div class="appoint-box complete-appoint">
+                                                                <h4>@item.Name<span><img src="~/assets/images/complete-check.png" alt="tick-icon"></span></h4>
+                                                                <span>@item.Illness</span>
+                                                                <p>@item.Age, @item.Gender</p>
+                                                                <ul class="list-unstyled list-inline">
+                                                                    <li><span><img src="~/assets/images/appoint-time.png" alt="appoint-time-icon"></span>@item.AppointmentTime</li>
+                                                                    <li><img src="~/assets/images/appoint-line.png" alt="appoint-line-icon"></li>
+                                                                    <li><span><img src="~/assets/images/patient-num.png" alt="patient-num-icon"></span>@item.QueueNumber</li>
+                                                                </ul>
+                                                            </div>
+                                                        </a>
+                                                </li>
+                                                }
+                                                else if (item.ReasonForVisit == "Follow-Up Visit" || item.ReasonForVisit== "FollowUp Visit")
+                                                {
+                                                    <li>
+                                                        <a href="/Appointment/AppoinmentDetails?DoctorId=@item.DoctorId&AppointmentId=@item.AppointmentId">
+                                                            <div class="appoint-box follow-up-appoint">
+                                                                <h4>@item.Name</h4>
+                                                                <span>@item.Illness</span>
+                                                                <p>@item.Age, @item.Gender</p>
+                                                                <ul class="list-unstyled list-inline">
+                                                                    <li><span><img src="~/assets/images/appoint-time.png" alt="appoint-time-icon"></span>@item.AppointmentTime</li>
+                                                                    <li><img src="~/assets/images/appoint-line.png" alt="appoint-line-icon"></li>
+                                                                    <li><span><img src="~/assets/images/patient-num.png" alt="patient-num-icon"></span>@item.QueueNumber</li>
+                                                                </ul>
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                }
+                                                else if (item.ReasonForVisit == "New Visit")
+                                                {
+                                                    <li>
+                                                        <a href="/Appointment/AppoinmentDetails?DoctorId=@item.DoctorId&AppointmentId=@item.AppointmentId">
+                                                            <div class="appoint-box new-visit-appoint">
+                                                                <h4>@item.Name</h4>
+                                                                <span>@item.Illness</span>
+                                                                <p>@item.Age, @item.Gender</p>
+                                                                <ul class="list-unstyled list-inline">
+                                                                    <li><span><img src="~/assets/images/appoint-time.png" alt="appoint-time-icon"></span>@item.AppointmentTime</li>
+                                                                    <li><img src="~/assets/images/appoint-line.png" alt="appoint-line-icon"></li>
+                                                                    <li><span><img src="~/assets/images/patient-num.png" alt="patient-num-icon"></span>@item.QueueNumber</li>
+                                                                </ul>
+                                                            </div>
+                                                        </a>
+                                                        </li>
+                                                }
+                                                else if(item.IsActive == false)
+                                                {
+                                                    <li>
+                                                        <a href="/Appointment/AppoinmentDetails?DoctorId=@item.DoctorId&AppointmentId=@item.AppointmentId">
+                                                            <div class="appoint-box cancelled-appoint">
+                                                                <h4>@item.Name</h4>
+                                                                <span>@item.Illness</span>
+                                                                <p>@item.Age, @item.Gender</p>
+                                                                <ul class="list-unstyled list-inline">
+                                                                    <li><span><img src="~/assets/images/appoint-time.png" alt="appoint-time-icon"></span>@item.AppointmentTime</li>
+                                                                    <li><img src="~/assets/images/appoint-line.png" alt="appoint-line-icon"></li>
+                                                                    <li><span><img src="~/assets/images/patient-num.png" alt="patient-num-icon"></span>@item.QueueNumber</li>
+                                                                </ul>
+
+                                                            </div>
+                                                        </a>
+                                                    </li>
+                                                }
+
+                                            }
+                                        </ul>
+                                    </div>
+                                    <div id="tue" class="" style="display: none">
+
+                                    </div>
+                                </div>
+                                <div class="bottom-copyright-text text-center">
+                                    <p>© Copyright2018 STETHO | All Rights Reserved.</p>
+                                </div>
+                            </div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var TodayDate = new Date();
+        var d = TodayDate.getDay();
+        $('#weeklist li:nth-child(' + d + ')').addClass('active')
+    });
+</script>

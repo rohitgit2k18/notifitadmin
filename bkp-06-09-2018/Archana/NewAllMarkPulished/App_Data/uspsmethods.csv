@@ -1,0 +1,36 @@
+// US DOMESTIC SERVICES, '{0}' IN THE NAMES DENOTES A VARIABLE DEPENDING ON THE SCHEDULED DELIVERY DATE CALCULATION BETWEEN THE ORIGIN AND DESTINATION ZIP CODES. POSSIBLE VALUES: “1-DAY”, “2-DAY”, “3-DAY”, “MILITARY”, “DPO”, “ “
+Priority Mail Express{0}&lt;sup&gt;&amp;trade;&lt;/sup&gt;|USPS Priority Mail Express{0}
+Priority Mail Express{0}&lt;sup&gt;&amp;trade;&lt;/sup&gt; Sunday/Holiday Delivery|USPS Priority Mail Express{0} Sunday/Holiday Delivery
+Priority Mail Express{0}&lt;sup&gt;&amp;trade;&lt;/sup&gt; Flat Rate Envelope|USPS Priority Mail Express{0} Flat Rate Envelope
+Priority Mail Express{0}&lt;sup&gt;&amp;trade;&lt;/sup&gt; Sunday/Holiday Delivery Flat Rate Envelope|USPS Priority Mail Express{0} Sunday/Holiday Delivery Flat Rate Envelope
+Priority Mail Express{0}&lt;sup&gt;&amp;trade;&lt;/sup&gt; Legal Flat Rate Envelope|USPS Priority Mail Express{0} Legal Flat Rate Envelope
+Priority Mail Express{0}&lt;sup&gt;&amp;trade;&lt;/sup&gt; Sunday/Holiday Delivery Legal Flat Rate Envelope|USPS Priority Mail Express{0} Sunday/Holiday Delivery Legal Flat Rate Envelope
+Priority Mail{0}&lt;sup&gt;&amp;trade;&lt;/sup&gt;|USPS Priority Mail{0}
+Priority Mail{0}&lt;sup&gt;&amp;trade;&lt;/sup&gt; Large Flat Rate Box|USPS Priority Mail{0} Large Flat Rate Box
+Priority Mail{0}&lt;sup&gt;&amp;trade;&lt;/sup&gt; Medium Flat Rate Box|USPS Priority Mail{0} Medium Flat Rate Box
+Priority Mail{0}&lt;sup&gt;&amp;trade;&lt;/sup&gt; Small Flat Rate Box|USPS Priority Mail{0} Small Flat Rate Box
+Priority Mail{0}&lt;sup&gt;&amp;trade;&lt;/sup&gt; Flat Rate Envelope|USPS Priority Mail{0} Flat Rate Envelope
+First-Class Mail&lt;sup&gt;&amp;reg;&lt;/sup&gt; Parcel|USPS First-Class Mail Parcel
+First-Class Mail&lt;sup&gt;&amp;reg;&lt;/sup&gt; Large Envelope|USPS First-Class Mail Large Envelope
+First-Class Mail&lt;sup&gt;&amp;reg;&lt;/sup&gt; Letter|USPS First-Class Mail Letter
+First-Class Mail&lt;sup&gt;&amp;reg;&lt;/sup&gt; Postcards|USPS First-Class Mail Postcards
+First-Class Mail&lt;sup&gt;&#174;&lt;/sup&gt; Stamped Letter|USPS First-Class Mail Stamped Letter
+First-Class Mail&lt;sup&gt;&#174;&lt;/sup&gt; Metered Letter|USPS First-Class Mail Metered Letter
+Retail Ground&lt;sup&gt;&amp;reg;&lt;/sup&gt;| USPS Retail Ground
+Media Mail Parcel|USPS Media Mail
+Library Mail Parcel|USPS Library Mail
+
+//INTERNATIONAL SERVICES
+Global Express Guaranteed&lt;sup&gt;&amp;reg;&lt;/sup&gt; \(GXG\)|USPS Global Express Guaranteed (GXG)
+Global Express Guaranteed&lt;sup&gt;&amp;reg;&lt;/sup&gt; Non-Document Rectangular|USPS Global Express Guaranteed Non-Document Rectangular
+Global Express Guaranteed&lt;sup&gt;&amp;reg;&lt;/sup&gt; Non-Document Non-Rectangular|USPS Global Express Guaranteed Non-Document Non-Rectangular
+USPS GXG&lt;sup&gt;&amp;trade;&lt;/sup&gt; Envelopes|USPS GXG Envelopes
+Priority Mail Express International&lt;sup&gt;&amp;trade;&lt;/sup&gt;|USPS Priority Mail Express International
+Priority Mail Express International&lt;sup&gt;&amp;trade;&lt;/sup&gt; Flat Rate Envelope|USPS Priority Mail Express International Flat Rate Envelope
+Priority Mail International&lt;sup&gt;&amp;reg;&lt;/sup&gt;|USPS Priority Mail International
+Priority Mail International&lt;sup&gt;&amp;reg;&lt;/sup&gt; Large Flat Rate Box|USPS Priority Mail International Large Flat Rate Box
+Priority Mail International&lt;sup&gt;&amp;reg;&lt;/sup&gt; Medium Flat Rate Box|USPS Priority Mail International Medium Flat Rate Box
+Priority Mail International&lt;sup&gt;&amp;reg;&lt;/sup&gt; Small Flat Rate Box|USPS Priority Mail International Small Flat Rate Box
+Priority Mail International&lt;sup&gt;&amp;reg;&lt;/sup&gt; Flat Rate Envelope|USPS Priority Mail International Flat Rate Envelope
+First-Class Package International Service&lt;sup&gt;&amp;trade;&lt;/sup&gt;|USPS First-Class Package International Service
+First-Class Mail&lt;sup&gt;&amp;reg;&lt;/sup&gt; International Large Envelope|USPS First-Class Mail International Large Envelope

@@ -1,0 +1,37 @@
+<%@ Master Language="C#" AutoEventWireup="True" CodeFile="Base.master.cs" Inherits="AbleCommerce.Layouts.Base" %>
+<%@ Register src="AdminPanel.ascx" tagname="AdminPanel" tagprefix="uc1" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="head1" runat="server">
+    <title>AbleCommerce: Software that Sells!(TM)</title>	
+    <asp:PlaceHolder ID="ScriptsPh" runat="server"></asp:PlaceHolder>
+    <asp:ContentPlaceHolder ID="HtmlHeader" runat="server">
+    </asp:ContentPlaceHolder>
+    <cb:StylePlaceHolder runat="server"></cb:StylePlaceHolder>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=9" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="format-detection" content="telephone=no"/>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div id="outerPageContainer">
+            <div id="innerPageContainer">
+                <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true">
+                </asp:ScriptManager>
+                <asp:Image ID="ProgressImage" runat="server" SkinID="Progress" />
+                <asp:UpdateProgress ID="UpdateProgress1" runat="server" DisplayAfter="3000">
+                    <ProgressTemplate>
+                        <div id="ajaxProgressOuter"></div>
+                        <div id="ajaxProgressInner"></div>
+                    </ProgressTemplate>
+                </asp:UpdateProgress>
+                <asp:ContentPlaceHolder ID="NestedMaster" runat="server">
+                    Nested Master
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    <uc1:AdminPanel ID="AdminPanel1" runat="server" />
+    </form>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<asp:Button runat="server" CssClass="button" />
+<asp:Button SkinId="Button" runat="server" CssClass="button" />
+<asp:HyperLink SkinId="Button" runat="server" CssClass="button" />
+<asp:LinkButton SkinId="Button" runat="server" CssClass="button" />
+
+<cb:StylePlaceHolder runat="server">
+    <cb:Style runat="server" CssUrl="normalize.css" TargetMedia="All" DeviceConstraint="None"></cb:Style>
+    <cb:Style runat="server" CssUrl="style.css" TargetMedia="All" DeviceConstraint="Standard"></cb:Style>
+    <cb:Style runat="server" CssUrl="print.css" TargetMedia="Print" DeviceConstraint="Standard"></cb:Style>
+    <cb:Style runat="server" CssUrl="jquery/jqueryui.css" TargetMedia="All" DeviceConstraint="Standard"></cb:Style>
+    <cb:Style runat="server" CssUrl="mobile.css" TargetMedia="All" DeviceConstraint="Mobile"></cb:Style>
+</cb:StylePlaceHolder>
+
+<%-- ITEM GRIDS --%>
+<asp:DataList SkinId="ItemGrid" runat="server" CssClass="itemListing" ItemStyle-CssClass="tableNode" />
+<cb:ExDataList SkinId="ItemGrid" runat="server" CssClass="itemListing" ItemStyle-CssClass="tableNode" />
+<cb:ExDataList SkinId="ItemList" runat="server" CssClass="itemListing" ItemStyle-CssClass="tableNode" />
+
+<asp:GridView SkinId="PagedList" runat="server" CssClass="pagedList" CellSpacing="0" GridLines="none">
+    <RowStyle CssClass="oddRow" />
+    <AlternatingRowStyle CssClass="evenRow" />
+    <PagerStyle CssClass="paging" HorizontalAlign="center" />
+    <EmptyDataRowStyle CssClass="empty" />
+</asp:GridView>
+<cb:SortedGridView SkinID="PagedList" runat="server" CssClass="pagedList" GridLines="none" PagerSettings-Mode="Numeric"
+    SortAscImageUrl="~/App_Themes/Pets/images/sort-order-ascending.gif" SortDescImageUrl="~/App_Themes/Pets/images/sort-order-descending.gif" >
+    <RowStyle CssClass="oddRow" />
+    <AlternatingRowStyle CssClass="evenRow" />
+    <PagerStyle CssClass="paging" />
+    <EmptyDataRowStyle CssClass="empty" />
+</cb:SortedGridView>
+<cb:ExGridView SkinID="PagedList" runat="server" CssClass="pagedList" GridLines="none" PagerSettings-Mode="Numeric"
+    SortAscImageUrl="~/App_Themes/Pets/images/sort-order-ascending.gif" SortDescImageUrl="~/App_Themes/Pets/images/sort-order-descending.gif" >
+    <RowStyle CssClass="oddRow" />
+    <AlternatingRowStyle CssClass="evenRow" />
+    <PagerStyle CssClass="paging" />
+    <EmptyDataRowStyle CssClass="empty" />
+</cb:ExGridView>
+<asp:GridView SkinId="ItemList" runat="server" CssClass="itemList" CellSpacing="0" GridLines="none">
+    <RowStyle CssClass="oddRow" />
+    <AlternatingRowStyle CssClass="evenRow" />
+    <PagerStyle CssClass="paging" HorizontalAlign="center" />
+    <EmptyDataRowStyle CssClass="empty" />
+</asp:GridView>
+<cb:ExGridView SkinId="ItemList" runat="server" CssClass="itemList" CellSpacing="0" GridLines="none">
+    <RowStyle CssClass="oddRow" />
+    <AlternatingRowStyle CssClass="evenRow" />
+    <PagerStyle CssClass="paging" HorizontalAlign="center" />
+    <EmptyDataRowStyle CssClass="empty" />
+</cb:ExGridView>
+<asp:GridView SkinId="Basket" runat="server" CssClass="basket" CellSpacing="0" GridLines="none">
+    <RowStyle CssClass="oddRow" />
+    <AlternatingRowStyle CssClass="evenRow" />
+    <PagerStyle CssClass="paging" HorizontalAlign="center" />
+    <EmptyDataRowStyle CssClass="empty" />
+</asp:GridView>
+<cb:ExGridView SkinId="Basket" runat="server" CssClass="basket" CellSpacing="0" GridLines="none">
+    <RowStyle CssClass="oddRow" />
+    <AlternatingRowStyle CssClass="evenRow" />
+    <PagerStyle CssClass="paging" HorizontalAlign="center" />
+    <EmptyDataRowStyle CssClass="empty" />
+</cb:ExGridView>
+
+<asp:ValidationSummary runat="server" CssClass="validationSummary" />
+<asp:RequiredFieldValidator runat="server" CssClass="requiredField" />
+<asp:CustomValidator runat="server" CssClass="requiredField" />
+<asp:CompareValidator runat="server" CssClass="requiredField" />
+<cb:EmailAddressValidator runat="server" CssClass="requiredField" />
+<cb:RequiredRegularExpressionValidator runat="server" CssClass="requiredField" />
+
+<%-- Download icon is displayed on order receipt page for digital goods --%>
+<asp:Image SkinId="DownloadIcon" runat="server" ImageUrl="Images/Icons/download.gif" ImageAlign="Middle" />
+
+<%-- edit and delete icons are used for customer product reviews management --%>
+<asp:Image SkinId="EditIcon" runat="server" ImageUrl="Images/Icons/edit.gif" ImageAlign="Middle" />
+<asp:Image SkinId="DeleteIcon" runat="server" ImageUrl="Images/Icons/delete.gif" ImageAlign="Middle" />
+
+<%-- styling for notifications --%>
+<cb:Notification SkinId="Confirmation" runat="server" Caption="Confirmation" />
+<cb:Notification SkinId="Warning" runat="server" Caption="Warning" />
+<cb:Notification SkinId="Error" runat="server" Caption="Error" />
+
+<%-- IMAGES SHOWN WHEN NO PRODUCT IMAGES AVAILABLE --%>
+<asp:Image SkinId="NoImage" runat="server" ImageUrl="Images/no-image-available.png" AlternateText="No image available." />
+<asp:Image SkinId="NoThumbnail" runat="server" ImageUrl="Images/no-thumbnail-available.png" AlternateText="No image available."/>
+<asp:Image SkinId="NoIcon" runat="server" ImageUrl="Images/no-icon-available.png" AlternateText="No image available." />
+
+<%-- USED TO PRELOAD THE PROGRESS IMAGE --%>
+<asp:Image SkinId="Progress" runat="server" ImageUrl="images/processing.gif" AlternateText="processing" Width="1px" Height="1px" Style="display:none" />

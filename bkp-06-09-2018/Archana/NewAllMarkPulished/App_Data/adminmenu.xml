@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<menu>
+  <menuItem title="Manage" url="~/admin/menu.aspx?path=manage" roles="System,Admin,Junior Admin,Manage Catalog,Manage Orders" description="The Management menu is your main work area, you will be able to manage your daily activities here.">
+    <menuItem title="Orders" url="~/Admin/Orders/Default.aspx" roles="System,Admin,Junior Admin,Manage Orders" description="Search for orders, view statuses, and batch processesing." />
+    <menuItem title="Payments" url="~/Admin/Orders/PaymentManager.aspx" roles="System,Admin,Junior Admin,Manage Orders" description="Process payments and credit card transactions." />
+    <menuItem title="Notes" url="~/Admin/Orders/OrderNotesManager.aspx" roles="System,Admin,Junior Admin,Manage Orders" description="View and respond to new customer notes." />
+    <menuItem title="Product Reviews" url="~/Admin/Products/Reviews/Default.aspx" roles="System,Admin,Junior Admin,Manage Catalog" description="Check and approve new product reviews submitted by your customers." />
+    <menuItem title="Gift Certificates" url="~/Admin/Payment/GiftCertificates.aspx" roles="System,Admin,Junior Admin" description="Manage gift certificates that are active or already used." />
+    <menuItem title="Subscriptions" url="~/Admin/People/Subscriptions/Default.aspx" roles="System,Admin,Junior Admin" description="Manage subscriptions that were created by orders." />
+    <menuItem title="Low Inventory" url="~/Admin/Reports/LowInventory.aspx" roles="System,Admin,Junior Admin" description="View Low Inventory." />
+  </menuItem>
+  <menuItem title="Catalog" url="~/admin/menu.aspx?path=catalog" roles="System,Admin,Junior Admin,Manage Catalog" description="Use the Catalog menu to organize or add items to your store. Adjust inventory, batch move and edits are also available.">
+    <menuItem title="Categories" url="~/Admin/Catalog/Browse.aspx" description="View, manage and organize the category containers in your store." />
+    <menuItem title="Products" url="~/Admin/Products/ManageProducts.aspx" description="Create, search and manage all of your products from the Product Manager." />
+    <menuItem title="Images" url="~/Admin/Products/Assets/AssetManager.aspx" description="Use the Asset Manager to separately upload new images or files, and to manage your existing ones." />
+    <menuItem title="Product Templates" url="~/Admin/Products/ProductTemplates/Default.aspx" description="Add custom product attributes or collect information using product templates." />
+    <menuItem title="Gift Wrap" url="~/Admin/Products/GiftWrap/Default.aspx" description="Create and manage gift wrap selections, and then you can assign them to your products." />
+    <menuItem title="Digital Goods" url="~/Admin/DigitalGoods/DigitalGoods.aspx" description="Configure, search and manage all of the downloadable digital goods in your store." />   
+    <menuItem title="Batch Edit" url="~/admin/menu.aspx?path=catalog/Batch Edit" roles="System,Admin,Junior Admin,Manage Catalog" description="Use the Batch Edit feature to updates to multiple products/categories at the same time .">
+      <menuItem title="Products" url="~/Admin/Products/BatchEdit.aspx" description="Use the Batch Edit feature to pick product attributes and make updates to multiple products at the same time." />
+    <menuItem title="Categories" url="~/Admin/Catalog/CategoryBatchEdit.aspx" description="Use the Batch Edit feature to pick category attributes and make updates to multiple categories at the same time." />
+  </menuItem>
+    </menuItem>
+  <menuItem title="People" url="~/admin/menu.aspx?path=people" roles="System,Admin,Junior Admin" description="The People menu gives you access to the different types of people and groups that are in store.">
+    <menuItem title="Users" url="~/Admin/People/Users/Default.aspx" description="User search and management for all people who may access the store." />
+    <menuItem title="Groups" url="~/Admin/People/Groups/Default.aspx" description="Manage the groups used for store administration, or provide features to unique groups of customers." />
+    <menuItem title="Affiliates" url="~/Admin/Marketing/Affiliates/Default.aspx" description="Create Affiliates to provide unique links that will track commissions from business associates." />
+    <menuItem title="Vendors" url="~/Admin/People/Vendors/Default.aspx" description="Create and manage vendors that will be notified of new orders when their products are sold." />
+    <menuItem title="Manufacturers" url="~/Admin/People/Manufacturers/Default.aspx" description="Create a manufacturer list and assign them to your products for additional display and search features" />
+  </menuItem>
+  <menuItem title="Marketing" url="~/admin/menu.aspx?path=marketing" roles="System,Admin,Junior Admin" description="From the Marketing menu, you can create coupons and discounts and then tell your customers about it.">
+    <menuItem title="Coupons" url="~/Admin/Marketing/Coupons/Default.aspx" description="Create and manage coupons for orders, products, and shipping." />
+    <menuItem title="Discounts" url="~/Admin/Marketing/Discounts/Default.aspx" description="Setup discounts for multiple item purchases or amount spent." />
+    <menuItem title="Featured Products" url="~/Admin/Marketing/FeaturedProducts.aspx" description="List and manage your featured products." />
+    <menuItem title="Email Lists" url="~/Admin/Marketing/Email/Default.aspx" description="Create mailing lists to keep your customers informed." />
+    <menuItem title="Google Feed" url="~/Admin/Marketing/Feeds/GoogleFeed.aspx" description="Increase product sales by using a shopping feed to Google." />
+    <menuItem title="Shopping.com Feed" url="~/Admin/Marketing/Feeds/Shopping.com.aspx" description="Upload your products to the Shopping.com feed" />
+  </menuItem>
+  <menuItem title="Reports" url="~/admin/menu.aspx?path=reports" roles="System,Admin,Junior Admin,Manage Catalog,View Reports" description="View a variety of reports, each with an option to select date ranges.">
+    <menuItem title="Sales" url="~/admin/menu.aspx?path=reports/sales" roles="System,Admin,Junior Admin,View Reports" description="Several sales reports are available, including Monthly, Daily and a Summary.">
+    <menuItem title="Monthly Sales" url="~/Admin/Reports/MonthlySales.aspx" description="View Monthly Sales information." />
+    <menuItem title="Annual Sales" url="~/Admin/Reports/AnnualSales.aspx" description="View Annual Sales information." />
+    <menuItem title="Sales Over Time" url="~/Admin/Reports/SalesOverTime.aspx" description="View Sales Over Time information." />
+    <menuItem title="Daily Sales" url="~/Admin/Reports/DailySales.aspx" description="View your Daily Sales information." />
+    <menuItem title="Sales Summary" url="~/Admin/Reports/SalesSummary.aspx" description="View a summary of all information related to sales." />
+    <menuItem title="Taxes" navtitle="Tax Report" url="~/Admin/Reports/Taxes.aspx" description="The Tax report shows detailed information about taxes collected." />
+    </menuItem>
+    <menuItem title="Products" url="~/admin/menu.aspx?path=reports/products" roles="System,Admin,Junior Admin,View Reports" description="See what's selling the most with the Product reports, and view items with low inventory.">
+    <menuItem title="Sales by Product" url="~/Admin/Reports/SalesByProduct.aspx" description="The Sales by Product report itemizes products with quantity sold and total amounts. " />
+    <menuItem title="Popular Products" url="~/Admin/Reports/PopularProducts.aspx" description="The Popular Products report shows you products most viewed." />
+    <menuItem title="Popular Categories" url="~/Admin/Reports/PopularCategories.aspx" description="The Popular Categories report shows you categories most viewed." />
+    <menuItem title="Low Inventory" url="~/Admin/Reports/LowInventory.aspx" description="The Low Inventory report shows items that are at or below the low stock threshold." />
+    </menuItem>
+    <menuItem title="Customers" url="~/admin/menu.aspx?path=reports/customers" roles="System,Admin,Junior Admin,View Reports" description="Use these reports to view customer activities like ordering, shopping, and browsing.">
+    <menuItem title="Sales by Customer" navtitle="Customer Sales" url="~/Admin/Reports/TopCustomers.aspx" description="The Sales by Customer report shows order totals from your most active customers." />
+    <menuItem title="New and Existing" navtitle="New &amp; Existing" url="~/Admin/Reports/NewExistingCustomers.aspx" description="The New and Existing report shows order totals from your new and existing customers." />
+    <menuItem title="Page Views Over Time" navtitle="Page Views" url="~/Admin/Reports/PageViewOverTime.aspx" description="The page views over time report." />
+    <menuItem title="Abandoned Baskets" url="~/Admin/Reports/MonthlyAbandonedBaskets.aspx" description="View the Abandoned Baskets report to see who went shopping but never completed an order." />
+    <menuItem title="Browser Popularity" navtitle="Popular Browsers" url="~/Admin/Reports/PopularBrowsers.aspx" description="The Browser Popularity report shows you the different types of browsers being used." />
+    <menuItem title="Search History" url="~/Admin/Reports/SearchHistory.aspx" description="The search history report shows you the popular search terms used by customers." />
+    </menuItem>
+    <menuItem title="Marketing" url="~/admin/menu.aspx?path=reports/marketing" roles="System,Admin,Junior Admin,View Reports" description="The Marketing reports show you where the new business is coming from and the results of your marketing efforts.">
+    <menuItem title="Sales by Affiliate" navtitle="Affiliate Sales" url="~/Admin/Reports/SalesByAffiliate.aspx" description="The Sales by Affiliate reports allows you to view a summary of the store's affiliates and their sales." />
+    <menuItem title="Sales by Affiliate Details" navtitle="Affiliate Details" url="~/Admin/Reports/SalesByAffiliateDetail.aspx" description="The Affiliate Details report allows you to see the individual orders and calculated commissions." />
+    <menuItem title="Sales By Referrer" url="~/Admin/Reports/SalesByReferrer.aspx" description="The Sales by Referrer report shows the links used to arrive at your store." />
+    <menuItem title="Sales By Country" navtitle="Sales By Country" url="~/Admin/Reports/SalesByCountry.aspx" description="View Sales By Country." />
+    <menuItem title="Sales By State" navtitle="Sales By State" url="~/Admin/Reports/SalesByState.aspx" description="View Sales By State." />
+    <menuItem title="Coupon Usage" url="~/Admin/Reports/CouponUsage.aspx" description="The Coupon Usage report shows you the results of marketing with coupons." />    
+    </menuItem>
+    <menuItem title="System" url="~/admin/menu.aspx?path=reports/system" roles="System,Admin,Junior Admin,Manage Catalog" description="The System reports available are used to audit and monitor users, as well as orphaned products.">
+    <menuItem title="Who Is Online?" url="~/Admin/Reports/WhoIsOnline.aspx" roles="System,Admin,Junior Admin" description="The Who Is Online report shows all current activity in the store." />
+    <menuItem title="Orphaned Items" url="~/Admin/Catalog/OrphanedItems.aspx" roles="System,Admin,Junior Admin,Manage Catalog" description="The Orphaned Items report can be used to uncover products without a category assignment." />
+    <menuItem title="Audit Log" url="~/Admin/Store/Security/AuditLog.aspx" roles="System" description="The Audit Log will show all activity by store administrators."></menuItem>
+     <menuItem title="Database Connections" url="~/Admin/Reports/DBConnections.aspx" roles="System,Admin,Junior Admin,View Reports" description="Shows the status of open database connections." />
+    </menuItem>
+    </menuItem>
+  <menuItem title="Website" url="~/Admin/Menu.aspx?path=website" roles="System,Admin,Junior Admin,Manage Website" description="The Website editing menu allows you to change the theme and layout of your store's pages.">
+    <menuItem title="Themes" url="~/Admin/Website/Themes/Default.aspx" description="Manage the look and feel of your site by changing colors, fonts, or images." />
+    <menuItem title="Layouts" url="~/Admin/Website/Layouts/Default.aspx" description="Change the number of columns, show or hide headers and footers, and change the contents of your sidebars." />
+    <menuItem title="Webpages" url="~/Admin/Website/ContentPages/Default.aspx" description="Manage the webpage content defined for your store." />
+    <menuItem title="Category Pages" url="~/Admin/Website/ContentPages/CategoryPages/Default.aspx" description="Manage the category pages defined for your store." />
+    <menuItem title="Product Pages" url="~/Admin/Website/ContentPages/ProductPages/Default.aspx" description="Manage the product pages defined for your store." />
+    <menuItem title="Store Logos" navtitle="Logo" url="~/Admin/Website/Logos.aspx" description="Manage the website and printable logos used for your store themes." />
+    <menuItem title="Indexes" url="~/Admin/Store/Indexing.aspx" roles="System,Admin,Junior Admin" description="A utility that will rebuild your database's search index when the automated process fails." />
+  </menuItem>
+  
+  <menuItem title="Configure" url="~/admin/menu.aspx?path=configure" roles="System,Admin,Junior Admin,Manage Catalog">
+    <menuItem title="Store" url="~/admin/menu.aspx?path=configure/store" roles="System,Admin,Junior Admin" description="The Configure menu has all the features to configure and setup your store.">
+      <menuItem title="General" navtitle="Store" url="~/Admin/Store/StoreSettings.aspx" description="Define units, set locale, enable inventory, and many other global settings." />
+      <menuItem title="Currencies" navtitle="Currency" url="~/Admin/Store/Currencies/Default.aspx" description="For multi-currency stores, add new currency and price conversions." />
+      <menuItem title="Maintenance" url="~/Admin/Store/Maintenance.aspx" description="Settings for store maintenance features." />
+      <menuItem title="Image Settings" navtitle="Images" url="~/Admin/Store/Images.aspx" description="Configure the default image sizes when uploading" />
+      <menuItem title="Page Tracking" navtitle="Tracking" url="~/Admin/Store/PageTracking/Default.aspx" description="Save user activity logs and setup Google Analytics reporting." />
+      <menuItem title="Product Reviews" navtitle="Reviews" url="~/Admin/Store/ProductReviewSettings.aspx" description="Setup rules for submitting new product reviews." />
+      <menuItem title="Order Statuses" url="~/Admin/Store/OrderStatuses/Default.aspx" description="Customize your own order statuses and setup automatic email notifications" />
+      <menuItem title="Mobile Settings" navtitle="Mobile" url="~/Admin/Store/MobileStoreSettings.aspx" roles="System,Admin,Junior Admin" description="Configure your mobile store." />
+      <menuItem title="Subscriptions" url="~/admin/store/subscriptions.aspx" roles="System,Admin,Junior Admin,Manage Orders" description="Configure subscriptions settings."/>
+      <!--<menuItem title="Languages" url="~/Admin/Localization/Languages.aspx" description="Setup new languages by importing your custom translations." />-->
+    </menuItem>
+    <menuItem title="Security" url="~/admin/menu.aspx?path=configure/security"  roles="System,Admin" description="The Security menu is for top level administrators only. Configure all security related settings from password policy to licensing.">
+      <menuItem title="System Settings" navtitle="System" url="~/Admin/Store/Security/Default.aspx" roles="System" description="Turn on secure SSL pages and configure credit card settings." />
+      <menuItem title="Licensing" url="~/Admin/Store/Security/Licensing.aspx" description="Update an AbleCommerce license key." />
+      <menuItem title="Database" url="~/Admin/Store/Security/Connection.aspx" roles="System" description="Change the database connection string." />
+      <menuItem title="Firewall" url="~/Admin/Store/Security/BlockedIPs.aspx" description="Block IP addresses from your store." />
+      <menuItem title="Passwords" url="~/Admin/Store/Security/PasswordPolicy.aspx" description="Configure password rules, and account security." />
+      <menuItem title="Encryption Key" navtitle="Encryption" url="~/Admin/Store/Security/EncryptionKey.aspx" roles="System" description="Secure your data by changing the encryption key often." />
+    </menuItem>
+    <menuItem title="Email" url="~/admin/menu.aspx?path=configure/email" roles="System,Admin,Junior Admin" description="From Email menu, you can edit the templates that are used with in your store, or create new ones.">
+      <menuItem title="Settings" navtitle="Email Settings" url="~/Admin/Store/EmailTemplates/Settings.aspx" description="Enable your email system and set defaults." />
+      <menuItem title="Templates" navtitle="Email Templates" url="~/Admin/Store/EmailTemplates/Default.aspx" description="Manage the email being sent from your store." />
+    </menuItem>
+    <menuItem title="Regions" url="~/Admin/Menu.aspx?path=configure/regions" roles="System,Admin,Junior Admin" description="The Region menu is where you can establish a geographical area, or zone, for taxes and shipping.">
+      <menuItem title="Countries" url="~/Admin/Shipping/Countries/Default.aspx" description="Setup states/provinces for countries that you ship to."/>
+      <menuItem title="Zones" url="~/Admin/Shipping/Zones/Default.aspx" description="Use zones to offer shipping services and tax based on destinations." />
+    </menuItem>
+    <menuItem title="Payments" url="~/Admin/Menu.aspx?path=configure/payments" roles="System,Admin,Junior Admin" description="From the Payments menu, setup real-time payment processing and other methods of payment processing.">
+      <menuItem title="Methods" navtitle="Payment Methods" url="~/Admin/Payment/Methods.aspx" description="Create your own payment methods that you accept." />
+      <menuItem title="Gateways" navtitle="Payment Gateways" url="~/Admin/Payment/Gateways.aspx" description="Setup a real-time credit card transactions and payment methods." />
+    </menuItem>
+    <menuItem title="Shipping" url="~/Admin/Menu.aspx?path=configure/shipping" roles="System,Admin,Junior Admin" description="The Configure Shipping menu has options to use a real-time shipping service or use custom methods.">
+      <menuItem title="Methods" navtitle="Shipping Methods" url="~/Admin/Shipping/Methods/Default.aspx" description="Create your own shipping rules with the rates you define." />
+      <menuItem title="Integrated Carriers" url="~/Admin/Shipping/Providers/Default.aspx" description="Use a shipping integration for accurate calculation of rates and services." />
+      <menuItem title="Warehouses" url="~/Admin/Shipping/Warehouses/Default.aspx" description="Use warehouses to offer shipping services based on products." />
+    </menuItem>
+    <menuItem title="Taxes" url="~/Admin/Menu.aspx?path=configure/taxes" roles="System,Admin,Junior Admin" description="The Taxes menu allows you to create tax rules with rates that apply to the region you've determined taxable.">
+      <menuItem title="Settings" navtitle="Tax Settings" url="~/Admin/Taxes/Settings.aspx" description="Enable tax and setup basic display configurations." />
+      <menuItem title="Tax Codes" url="~/Admin/Taxes/TaxCodes.aspx" description="Assigned to products, a tax code determines which tax rule(s) should be followed." />
+      <menuItem title="Tax Rules" url="~/Admin/Taxes/TaxRules.aspx" description="Create one or many tax rates for a defined geographical region, or zone." />
+      <menuItem title="Third Party Providers" navtitle="Tax Providers" url="~/Admin/Taxes/Providers/Default.aspx" description="Use a tax integration for accurate calculation of taxes." />
+    </menuItem>
+    <menuItem title="SEO" url="~/admin/menu.aspx?path=configure/seo" roles="System,Admin,Junior Admin,Manage Catalog" description="The SEO menu allows you to specify old and new URL's, as well as setup a sitemap.">
+      <menuItem title="Settings" url="~/Admin/SEO/Settings.aspx" description="Configure general settings for redirects and custom links." />
+      <menuItem title="Fixed Redirects" url="~/Admin/SEO/FixedRedirects.aspx" description="Create your own fixed redirection of one link to another" />
+      <menuItem title="Dynamic Redirects" url="~/Admin/SEO/DynamicRedirects.aspx" description="Create dynamic redirects that use matching patterns." />
+      <menuItem title="Custom URLs" url="~/Admin/SEO/CustomURLs.aspx" description="A report showing custom links that have been entered into the catalog." />
+      <menuItem title="Test URL" url="~/Admin/SEO/TestUrl.aspx" description="Use this page to test a redirect." />
+      <menuItem title="XML Sitemap" url="~/Admin/SEO/Sitemap.aspx" description="Create a sitemap for search engines to index your store." />
+    </menuItem>
+  </menuItem>
+  <menuItem title="Data" url="~/admin/menu.aspx?path=data" roles="System,Admin" description="Import and export your store data.">            
+    <menuItem title="Import" url="~/admin/menu.aspx?path=data/import" roles="System,Admin" description="Import store data.">
+      <menuItem title="Products" url="~/Admin/DataExchange/ProductImport.aspx" navtitle="Import Products" description="Import products data." />
+      <menuItem title="Variants" url="~/Admin/DataExchange/VariantsImport.aspx" navtitle="Import Variants" description="Import product variants data." />
+      <menuItem title="UPS WorldShip" url="~/Admin/DataExchange/UpsWsImport.aspx" navtitle="Import worldship" description="Import UPS WorldShip data." />                
+    </menuItem>
+    <menuItem title="Export" url="~/admin/menu.aspx?path=data/export" roles="System,Admin" description="Export store data.">
+      <menuItem title="Products/Variants" navtitle="Export Products" url="~/Admin/DataExchange/ProductsExport.aspx" description="Export products data." />
+      <menuItem title="Orders" navtitle="Export Orders" url="~/Admin/DataExchange/OrdersExport.aspx" description="Export orders data." />
+      <menuItem title="Users" navtitle="Export Users" url="~/Admin/DataExchange/UsersExport.aspx" description="Export users data." />
+      <menuItem title="UPS WorldShip" navtitle="Export worldship" url="~/Admin/DataExchange/UpsWsExport.aspx" description="Export UPS WorldShip data." />
+    </menuItem>
+    <menuItem title="ShipStation" url="~/admin/menu.aspx?path=data/shipstation" roles="System,Admin" description="Export Ship Station data.">
+      <menuItem title="Settings" navtitle="Configure Settings" url="~/Admin/DataExchange/ShipStationSettings.aspx" description="Settings for ShipStation API." />
+      <menuItem title="Publish Orders" navtitle="Publish Orders" url="~/Admin/DataExchange/ShipStationExport.aspx" description="Publish orders to ShipStation." />
+      <menuItem title="Sync Statuses" navtitle="Sync Statuses" url="~/Admin/DataExchange/ShipStationStatusSync.aspx" description="Sync order statuses from ShipStation." />
+    </menuItem>
+    <menuItem title="Database Backup" url="~/Admin/DataExchange/DatabaseBackup.aspx" description="Backup your database as SQL scripts." />
+  </menuItem>
+  <menuItem title="Help" url="~/admin/menu.aspx?path=help" description="From the Help menu access the merchant guide or other help resources.">
+    <menuItem title="Merchant Guide" url="http://help.ablecommerce.com/acgold/guide" target="_blank" description="The online user guide for merchants using AbleCommerce Administration" />
+    <menuItem title="Help Resources" url="http://help.ablecommerce.com" target="_blank" description="The main help site for AbleCommerce software news and ongoing support." />
+    <menuItem title="Community Forums" url="http://forums.ablecommerce.com" target="_blank" description="An active community forum available to help answer undocumented questions." />
+    <menuItem title="Plug-in Gallery" url="http://www.ablecommerce.com/AbleCommerce-Plug-ins-C106.aspx" target="_blank" description="Extend the capability of you store with AbleCommerce plug-ins." />
+    <menuItem title="Developer Wiki" url="http://wiki.ablecommerce.com" target="_blank" description="For advanced users and developers, the AbleComemrce Wiki has customization information." />
+    <menuItem title="ConLib Reference" url="~/Admin/Help/ConLib/ConLibHelp2.aspx" roles="System,Admin,Junior Admin,Manage Website" description="View the conlib controls help reference." />
+    <menuItem title="Error Log" url="~/Admin/Help/ErrorLog.aspx" roles="System,Admin,Junior Admin" description="View the application error log." />
+    <menuItem title="About" url="~/Admin/Default.aspx?t=5" description="This will give you the information necessary to obtain technical assistance, apply upgrades or patches, and check for known issues." />  
+  </menuItem>
+</menu>

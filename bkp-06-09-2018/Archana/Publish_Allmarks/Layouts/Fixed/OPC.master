@@ -1,0 +1,19 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Layouts/Fixed/Base.Master" AutoEventWireup="True" CodeFile="OPC.master.cs" Inherits="AbleCommerce.Layouts.Fixed.OPC" %>
+<asp:Content ID="Content3" ContentPlaceHolderID="NestedMaster" runat="server">
+<asp:UpdatePanel ID="LeftSidebarAjax" runat="server">
+    <ContentTemplate>
+    <div id="leftColumn">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="LeftSidebar" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="mainColumn" class="leftSidebarLayout">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="PageContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    </ContentTemplate>
+</asp:UpdatePanel>
+</asp:Content>

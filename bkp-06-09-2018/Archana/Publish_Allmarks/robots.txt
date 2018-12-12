@@ -1,0 +1,14 @@
+User-Agent: *
+Disallow: /Admin/
+Disallow: /Assets/
+Disallow: /Checkout/
+Disallow: /ClientApi/
+Disallow: /ConLib/
+Disallow: /images/
+Disallow: /Install/
+Disallow: /Layouts/
+Disallow: /Members/
+Disallow: /webcharts/
+Disallow: /Basket.aspx
+Disallow: /BuyProduct.ashx
+Disallow: /*.axd$

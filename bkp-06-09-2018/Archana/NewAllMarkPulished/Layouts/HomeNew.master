@@ -1,0 +1,19 @@
+<%-- This file is a generated file. Do not modify. See customization guide for details. --%>
+<%@ Master Language="C#" AutoEventWireup="true" MasterPageFile="~/Layouts/Base.Master" Inherits="AbleCommerce.Layouts.Base" %>
+<%--
+<layout>
+<description>Home header</description>
+</layout>
+--%>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="NestedMaster" runat="server">
+<div id="contentContainer">
+        <div id="mainColumn" class="oneColumnLayout">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="PageContent" runat="server">
+                [page body]
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    </div>
+</asp:Content>

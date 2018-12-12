@@ -1,0 +1,12 @@
+D:\Projects\FriendFitAdmin\FriendFitService\bin\Release\FriendFitService.dll
+D:\Projects\FriendFitAdmin\FriendFitService\bin\Release\FriendFitService.pdb
+D:\Projects\FriendFitAdmin\FriendFitService\obj\Release\FriendFitService.csprojAssemblyReference.cache
+D:\Projects\FriendFitAdmin\FriendFitService\obj\Release\FriendFitService.csproj.CoreCompileInputs.cache
+D:\Projects\FriendFitAdmin\FriendFitService\obj\Release\FriendFitService.dll
+D:\Projects\FriendFitAdmin\FriendFitService\obj\Release\FriendFitService.pdb
+D:\RamProject\FriendFitAdmin\FriendFitAdmin\FriendFitService\bin\Release\FriendFitService.dll
+D:\RamProject\FriendFitAdmin\FriendFitAdmin\FriendFitService\bin\Release\FriendFitService.pdb
+D:\RamProject\FriendFitAdmin\FriendFitAdmin\FriendFitService\obj\Release\FriendFitService.csprojAssemblyReference.cache
+D:\RamProject\FriendFitAdmin\FriendFitAdmin\FriendFitService\obj\Release\FriendFitService.csproj.CoreCompileInputs.cache
+D:\RamProject\FriendFitAdmin\FriendFitAdmin\FriendFitService\obj\Release\FriendFitService.dll
+D:\RamProject\FriendFitAdmin\FriendFitAdmin\FriendFitService\obj\Release\FriendFitService.pdb

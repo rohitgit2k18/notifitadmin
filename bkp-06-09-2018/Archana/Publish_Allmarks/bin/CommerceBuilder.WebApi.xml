@@ -1,0 +1,808 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CommerceBuilder.WebApi</name>
+    </assembly>
+    <members>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.ApiDescriptionExtensions.GetFriendlyId(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Generates an URI-friendly ID for the <see cref="T:System.Web.Http.Description.ApiDescription"/>. E.g. "Get-Values-id_name" instead of "GetValues/{id}?name={name}"
+            </summary>
+            <param name="description">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The ID as a string.</returns>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfig">
+            <summary>
+            Use this class to customize the Help Page.
+            For example you can set a custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> to supply the documentation
+            or you can provide the samples for the requests/responses.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Areas.HelpPage.Controllers.HelpController">
+            <summary>
+            The controller that will handle requests for the help page.
+            </summary>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetDocumentationProvider(System.Web.Http.HttpConfiguration,System.Web.Http.Description.IDocumentationProvider)">
+            <summary>
+            Sets the documentation provider for help page.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="documentationProvider">The documentation provider.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleObjects(System.Web.Http.HttpConfiguration,System.Collections.Generic.IDictionary{System.Type,System.Object})">
+            <summary>
+            Sets the objects that will be used by the formatters to produce sample requests/responses.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleObjects">The sample objects.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type and action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleRequest(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample request directly for the specified media type and action with parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample request.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String)">
+            <summary>
+            Sets the sample request directly for the specified media type of the action.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleResponse(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.String,System.String,System.String[])">
+            <summary>
+            Sets the sample response directly for the specified media type of the action with specific parameters.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample response.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetSampleForType(System.Web.Http.HttpConfiguration,System.Object,System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Sets the sample directly for all actions with the specified type and media type.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sample">The sample.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The parameter type or return type of an action.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualRequestType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> passed to the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate request samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String)">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetActualResponseType(System.Web.Http.HttpConfiguration,System.Type,System.String,System.String,System.String[])">
+            <summary>
+            Specifies the actual type of <see cref="T:System.Net.Http.ObjectContent`1"/> returned as part of the <see cref="T:System.Net.Http.HttpRequestMessage"/> in an action. 
+            The help page will use this information to produce more accurate response samples.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="type">The type.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration)">
+            <summary>
+            Gets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <returns>The help page sample generator.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.SetHelpPageSampleGenerator(System.Web.Http.HttpConfiguration,CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator)">
+            <summary>
+            Sets the help page sample generator.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="sampleGenerator">The help page sample generator.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageConfigurationExtensions.GetHelpPageApiModel(System.Web.Http.HttpConfiguration,System.String)">
+            <summary>
+            Gets the model that represents an API displayed on the help page. The model is initialized on the first call and cached for subsequent calls.
+            </summary>
+            <param name="config">The <see cref="T:System.Web.Http.HttpConfiguration"/>.</param>
+            <param name="apiDescriptionId">The <see cref="T:System.Web.Http.Description.ApiDescription"/> ID.</param>
+            <returns>
+            An <see cref="T:CommerceBuilder.WebApi.Areas.HelpPage.Models.HelpPageApiModel"/>
+            </returns>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Areas.HelpPage.Models.HelpPageApiModel">
+            <summary>
+            The model that represents an API displayed on the help page.
+            </summary>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.Models.HelpPageApiModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CommerceBuilder.WebApi.Areas.HelpPage.Models.HelpPageApiModel"/> class.
+            </summary>
+        </member>
+        <member name="P:CommerceBuilder.WebApi.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription">
+            <summary>
+            Gets or sets the <see cref="P:CommerceBuilder.WebApi.Areas.HelpPage.Models.HelpPageApiModel.ApiDescription"/> that describes the API.
+            </summary>
+        </member>
+        <member name="P:CommerceBuilder.WebApi.Areas.HelpPage.Models.HelpPageApiModel.SampleRequests">
+            <summary>
+            Gets the sample requests associated with the API.
+            </summary>
+        </member>
+        <member name="P:CommerceBuilder.WebApi.Areas.HelpPage.Models.HelpPageApiModel.SampleResponses">
+            <summary>
+            Gets the sample responses associated with the API.
+            </summary>
+        </member>
+        <member name="P:CommerceBuilder.WebApi.Areas.HelpPage.Models.HelpPageApiModel.ErrorMessages">
+            <summary>
+            Gets the error messages associated with this model.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator">
+            <summary>
+            This class will generate the samples for the help page.
+            </summary>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator"/> class.
+            </summary>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleRequests(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the request body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleResponses(System.Web.Http.Description.ApiDescription)">
+            <summary>
+            Gets the response body samples for a given <see cref="T:System.Web.Http.Description.ApiDescription"/>.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator.GetSample(System.Web.Http.Description.ApiDescription,CommerceBuilder.WebApi.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Gets the request or response body samples.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The samples keyed by media type.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator.GetActionSample(System.String,System.String,System.Collections.Generic.IEnumerable{System.String},System.Type,System.Net.Http.Formatting.MediaTypeFormatter,System.Net.Http.Headers.MediaTypeHeaderValue,CommerceBuilder.WebApi.Areas.HelpPage.SampleDirection)">
+            <summary>
+            Search for samples that are provided directly through <see cref="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples"/>.
+            </summary>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="type">The CLR type.</param>
+            <param name="formatter">The formatter.</param>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or for a response.</param>
+            <returns>The sample that matches the parameters.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator.GetSampleObject(System.Type)">
+            <summary>
+            Gets the sample object that will be serialized by the formatters. 
+            First, it will look at the <see cref="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects"/>. If no sample object is found, it will try to create one using <see cref="T:CommerceBuilder.WebApi.Areas.HelpPage.ObjectGenerator"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>The sample object.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator.ResolveType(System.Web.Http.Description.ApiDescription,System.String,System.String,System.Collections.Generic.IEnumerable{System.String},CommerceBuilder.WebApi.Areas.HelpPage.SampleDirection,System.Collections.ObjectModel.Collection{System.Net.Http.Formatting.MediaTypeFormatter}@)">
+            <summary>
+            Resolves the type of the action parameter or return value when <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/> is used.
+            </summary>
+            <param name="api">The <see cref="T:System.Web.Http.Description.ApiDescription"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+            <param name="sampleDirection">The value indicating whether the sample is for a request or a response.</param>
+            <param name="formatters">The formatters.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator.WriteSampleObjectUsingFormatter(System.Net.Http.Formatting.MediaTypeFormatter,System.Object,System.Type,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Writes the sample object using formatter.
+            </summary>
+            <param name="formatter">The formatter.</param>
+            <param name="value">The value.</param>
+            <param name="type">The type.</param>
+            <param name="mediaType">Type of the media.</param>
+            <returns></returns>
+        </member>
+        <member name="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator.ActualHttpMessageTypes">
+            <summary>
+            Gets CLR types that are used as the content of <see cref="T:System.Net.Http.HttpRequestMessage"/> or <see cref="T:System.Net.Http.HttpResponseMessage"/>.
+            </summary>
+        </member>
+        <member name="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator.ActionSamples">
+            <summary>
+            Gets the objects that are used directly as samples for certain actions.
+            </summary>
+        </member>
+        <member name="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleGenerator.SampleObjects">
+            <summary>
+            Gets the objects that are serialized as samples by the supported formatters.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey">
+            <summary>
+            This is used to identify the place where the sample should be applied.
+            </summary>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,System.Type)">
+            <summary>
+            Creates a new <see cref="T:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type and CLR type.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="type">The CLR type.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey.#ctor(CommerceBuilder.WebApi.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey"/> based on <see cref="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="sampleDirection">The <see cref="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey.#ctor(System.Net.Http.Headers.MediaTypeHeaderValue,CommerceBuilder.WebApi.Areas.HelpPage.SampleDirection,System.String,System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Creates a new <see cref="T:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey"/> based on media type, <see cref="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>, controller name, action name and parameter names.
+            </summary>
+            <param name="mediaType">The media type.</param>
+            <param name="sampleDirection">The <see cref="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.</param>
+            <param name="controllerName">Name of the controller.</param>
+            <param name="actionName">Name of the action.</param>
+            <param name="parameterNames">The parameter names.</param>
+        </member>
+        <member name="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey.ControllerName">
+            <summary>
+            Gets the name of the controller.
+            </summary>
+            <value>
+            The name of the controller.
+            </value>
+        </member>
+        <member name="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey.ActionName">
+            <summary>
+            Gets the name of the action.
+            </summary>
+            <value>
+            The name of the action.
+            </value>
+        </member>
+        <member name="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey.MediaType">
+            <summary>
+            Gets the media type.
+            </summary>
+            <value>
+            The media type.
+            </value>
+        </member>
+        <member name="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey.ParameterNames">
+            <summary>
+            Gets the parameter names.
+            </summary>
+        </member>
+        <member name="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection">
+            <summary>
+            Gets the <see cref="P:CommerceBuilder.WebApi.Areas.HelpPage.HelpPageSampleKey.SampleDirection"/>.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Areas.HelpPage.ImageSample">
+            <summary>
+            This represents an image sample on the help page. There's a display template named ImageSample associated with this class.
+            </summary>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.ImageSample.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CommerceBuilder.WebApi.Areas.HelpPage.ImageSample"/> class.
+            </summary>
+            <param name="src">The URL of an image.</param>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Areas.HelpPage.InvalidSample">
+            <summary>
+            This represents an invalid sample on the help page. There's a display template named InvalidSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Areas.HelpPage.ObjectGenerator">
+            <summary>
+            This class will create an object of a given type and populate it with sample data.
+            </summary>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.ObjectGenerator.GenerateObject(System.Type)">
+            <summary>
+            Generates an object for a given type. The type needs to be public, have a public default constructor and settable public properties/fields. Currently it supports the following types:
+            Simple types: <see cref="T:System.Int32"/>, <see cref="T:System.String"/>, <see cref="T:System.Enum"/>, <see cref="T:System.DateTime"/>, <see cref="T:System.Uri"/>, etc.
+            Complex types: POCO types.
+            Nullables: <see cref="T:System.Nullable`1"/>.
+            Arrays: arrays of simple types or complex types.
+            Key value pairs: <see cref="T:System.Collections.Generic.KeyValuePair`2"/>
+            Tuples: <see cref="T:System.Tuple`1"/>, <see cref="T:System.Tuple`2"/>, etc
+            Dictionaries: <see cref="T:System.Collections.Generic.IDictionary`2"/> or anything deriving from <see cref="T:System.Collections.Generic.IDictionary`2"/>.
+            Collections: <see cref="T:System.Collections.Generic.IList`1"/>, <see cref="T:System.Collections.Generic.IEnumerable`1"/>, <see cref="T:System.Collections.Generic.ICollection`1"/>, <see cref="T:System.Collections.IList"/>, <see cref="T:System.Collections.IEnumerable"/>, <see cref="T:System.Collections.ICollection"/> or anything deriving from <see cref="T:System.Collections.Generic.ICollection`1"/> or <see cref="T:System.Collections.IList"/>.
+            Queryables: <see cref="T:System.Linq.IQueryable"/>, <see cref="T:System.Linq.IQueryable`1"/>.
+            </summary>
+            <param name="type">The type.</param>
+            <returns>An object of the given type.</returns>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Areas.HelpPage.SampleDirection">
+            <summary>
+            Indicates whether the sample is used for request or response
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Areas.HelpPage.TextSample">
+            <summary>
+            This represents a preformatted text sample on the help page. There's a display template named TextSample associated with this class.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Areas.HelpPage.XmlDocumentationProvider">
+            <summary>
+            A custom <see cref="T:System.Web.Http.Description.IDocumentationProvider"/> that reads the API documentation from an XML documentation file.
+            </summary>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Areas.HelpPage.XmlDocumentationProvider.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CommerceBuilder.WebApi.Areas.HelpPage.XmlDocumentationProvider"/> class.
+            </summary>
+            <param name="documentPath">The physical path to XML document.</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.AdminCategoriesController.GetAllCategories">
+            <summary>
+            Gets all categories.
+            </summary>
+            <returns>An IQueryable list of all categories.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.AdminCategoriesController.GetCategoryById(System.Int32)">
+            <summary>
+            Gets specific category.
+            </summary>
+            <returns>The requested category.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.AdminCategoriesController.GetProductsByCategory(System.Int32)">
+            <summary>
+            Gets products from specific category.
+            </summary>
+            <returns>The requested category for products.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.AdminProductsController.GetAllProducts">
+            <summary>
+            Gets all products.
+            </summary>
+            <returns>An IQueryable list of all products.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.AdminProductsController.GetProductById(System.Int32)">
+            <summary>
+            Gets a specific product.
+            </summary>
+            <returns>The requested product.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.AdminProductsController.GetFeaturedProducts">
+            <summary>
+            Gets all featured products.
+            </summary>
+            <returns>An IQueryable list of featured products.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.AdminProductsController.GetRelatedProducts(System.Int32)">
+            <summary>
+            Gets related products.
+            </summary>
+            <returns>An IQueryable list of related products.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.AdminProductsController.GetUpsellProducts(System.Int32)">
+            <summary>
+            Gets upsell products.
+            </summary>
+            <returns>An IQueryable list of upsell products.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.AdminProductsController.PostProduct(CommerceBuilder.WebApi.Models.Admin.Product)">
+            <summary>
+            Creates a product
+            </summary>
+            <param name="product">The new product</param>
+            <returns>The result of the create</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.AdminProductsController.PutProduct(System.Int32,CommerceBuilder.WebApi.Models.Admin.Product)">
+            <summary>
+            Updates a product
+            </summary>
+            <param name="id">The id of the product to update</param>
+            <param name="product">The updated details</param>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.AdminProductsController.DeleteProduct(System.Int32)">
+            <summary>
+            Deletes a product.
+            </summary>
+            <param name="id">The id of the product to delete.</param>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Controllers.CategoriesController">
+            <summary>
+            Provides a public interface for accessing the categories.
+            </summary>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.CategoriesController.GetAllCategories">
+            <summary>
+            Gets all categories.
+            </summary>
+            <returns>An IQueryable list of all categories.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.CategoriesController.GetCategoryById(System.Int32)">
+            <summary>
+            Gets specific category.
+            </summary>
+            <returns>The requested category.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.CategoriesController.GetProductsByCategory(System.Int32)">
+            <summary>
+            Gets products from specific category.
+            </summary>
+            <returns>The requested category for products.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.OrdersController.GetAllOrders">
+            <summary>
+            Gets all orders.
+            </summary>
+            <returns>An IQueryable list of all orders.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.OrdersController.GetOrdersForUserId(System.Int32)">
+            <summary>
+            Gets all orders for a user.
+            </summary>
+            <param name="userId">The Id of the user to get orders for</param>
+            <returns>An IQueryable list of all orders for the provided user.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.OrdersController.GetOrderById(System.Int32)">
+            <summary>
+            Gets a specific order.
+            </summary>
+            <param name="id">The Id of the order</param>
+            <returns>The requested order.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.OrdersController.GetOrderByOrderNumber(System.Int32)">
+            <summary>
+            Gets a specific order.
+            </summary>
+            <param name="orderNumber">The order number of the order</param>
+            <returns>The requested order.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.OrdersController.GetItemsByOrderId(System.Int32)">
+            <summary>
+            Gets specific order items.
+            </summary>
+            <param name="id">The Id of the order</param>
+            <returns>The requested order item.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.OrdersController.GetItemsByOrderNumber(System.Int32)">
+            <summary>
+            Gets specific order items.
+            </summary>
+            <param name="orderNumber">The number of the order</param>
+            <returns>The requested order item.</returns>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Controllers.ProductsController">
+            <summary>
+            Provides a public interface for accessing the product catalog.
+            </summary>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.ProductsController.GetAllProducts">
+            <summary>
+            Gets all products.
+            </summary>
+            <returns>An IQueryable list of all products.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.ProductsController.GetProductById(System.Int32)">
+            <summary>
+            Gets a specific product.
+            </summary>
+            <returns>The requested product.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.ProductsController.GetFeaturedProducts">
+            <summary>
+            Gets all featured products.
+            </summary>
+            <returns>An IQueryable list of featured products.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.ProductsController.GetFeaturedProductById(System.Int32)">
+            <summary>
+            Gets a specific featured product.
+            </summary>
+            <returns>The requested product.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.ProductsController.GetPopularProducts">
+            <summary>
+            Gets all popular products.
+            </summary>
+            <returns>An IQueryable list of popular products.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.ProductsController.GetMostViewedProducts">
+            <summary>
+            Gets most viewed products.
+            </summary>
+            <returns>An IQueryable list of most viewed products.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.ProductsController.GetRecentlyViewedProducts">
+            <summary>
+            Gets all recently viewed products.
+            </summary>
+            <returns>An IQueryable list of recently viewed products.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.ProductsController.GetRelatedProducts(System.Int32)">
+            <summary>
+            Gets related products.
+            </summary>
+            <returns>An IQueryable list of related products.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.ProductsController.GetUpsellProducts(System.Int32)">
+            <summary>
+            Gets upsell products.
+            </summary>
+            <returns>An IQueryable list of upsell products.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.ProductsController.GetProductReviews(System.Int32)">
+            <summary>
+            Gets product reviews.
+            </summary>
+            <returns>An IQueryable list of product reviews.</returns>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Controllers.ShipmentsController">
+            <summary>
+            Provides a public interface for accessing the order shipments
+            </summary>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.ShipmentsController.GetAllShipments">
+            <summary>
+            Gets all shipments.
+            </summary>
+            <returns>An IQueryable list of all shipments.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.ShipmentsController.GetOrderShipments(System.Int32)">
+            <summary>
+            Gets all shipments for provided order number.
+            </summary>
+            <param name="orderNumber">The order number</param>
+            <returns>An IQueryable list of all shipments for provided order number.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.ShipmentsController.GetShipmentById(System.Int32)">
+            <summary>
+            Gets a specific shipment.
+            </summary>
+            <returns>The requested shipment.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.ShipmentsController.GetItemsByShipmentId(System.Int32)">
+            <summary>
+            Gets specific shipment items.
+            </summary>
+            <returns>The requested shipment item.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.UsersController.GetAllUsers">
+            <summary>
+            Gets all users.
+            </summary>
+            <returns>An IQueryable list of all users.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.UsersController.GetUserById(System.Int32)">
+            <summary>
+            Gets a specific user.
+            </summary>
+            <returns>The requested user.</returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Controllers.UsersController.GetUserByUserName(System.String)">
+            <summary>
+            Gets a specific user by user name.
+            </summary>
+            <returns>The requested user.</returns>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Filters.BasicAuthenticationAttribute">
+            <summary>
+            BasicAuthenticationAttribute
+            </summary>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Filters.BasicAuthenticationAttribute.TryCreatePrincipal(System.String,System.String,System.Security.Principal.IPrincipal@)">
+            <summary>
+            Implement to include authentication logic and create IPrincipal
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Filters.BasicMembershipAuthenticationAttribute">
+            <summary>
+            BasicMembershipAuthenticationAttribute
+            </summary>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Filters.BasicMembershipAuthenticationAttribute.TryCreatePrincipal(System.String,System.String,System.Security.Principal.IPrincipal@)">
+            <summary>
+            Implement to include authentication logic and create IPrincipal
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Filters.JsonpFormatter">
+            <summary>
+            Handles JsonP requests when requests are fired with text/javascript
+            </summary>
+        </member>
+        <member name="F:CommerceBuilder.WebApi.Filters.JsonpFormatter.JsonpCallbackFunction">
+            <summary>
+            Captured name of the Jsonp function that the JSON call
+            is wrapped in. Set in GetPerRequestFormatter Instance
+            </summary>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Filters.JsonpFormatter.GetPerRequestFormatterInstance(System.Type,System.Net.Http.HttpRequestMessage,System.Net.Http.Headers.MediaTypeHeaderValue)">
+            <summary>
+            Override this method to capture the Request object
+            </summary>
+            <param name="type"></param>
+            <param name="request"></param>
+            <param name="mediaType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:CommerceBuilder.WebApi.Filters.JsonpFormatter.GetJsonCallbackFunction(System.Net.Http.HttpRequestMessage)">
+            <summary>
+            Retrieves the Jsonp Callback function
+            from the query string
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:CommerceBuilder.WebApi.Filters.JsonpFormatter.JsonpParameterName">
+            <summary>
+             Name of the query string parameter to look for
+             the jsonp function name
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Models.Admin.AdminCategory">
+            <summary>
+            Representation of categories.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Models.Admin.Order">
+            <summary>
+            Representation of orders.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Models.Admin.OrderItem">
+            <summary>
+            Representation of order items.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Models.Admin.OrderShipment">
+            <summary>
+            Representation of shipments.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Models.Admin.Product">
+            <summary>
+            Summary description for Product
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Models.Admin.User">
+            <summary>
+            Representation of users.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Models.InventoryModeType">
+            <summary>
+            Enumeration that represents the inventory mode of a product
+            </summary>
+        </member>
+        <member name="F:CommerceBuilder.WebApi.Models.InventoryModeType.None">
+            <summary>
+            Inventory is not enabled
+            </summary>
+        </member>
+        <member name="F:CommerceBuilder.WebApi.Models.InventoryModeType.Product">
+            <summary>
+            Inventory is managed for the product itself
+            </summary>
+        </member>
+        <member name="F:CommerceBuilder.WebApi.Models.InventoryModeType.Variant">
+            <summary>
+            Inventory is managed for the product variants
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Models.Retail.Category">
+            <summary>
+            Representation of categories.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Models.Retail.Product">
+            <summary>
+            Representation of a product available for customer purchase.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Models.Retail.ProductReview">
+            <summary>
+            Representation of a product reviews.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Models.ShippableType">
+            <summary>
+            Enum representing the shippable status of a product
+            </summary>
+        </member>
+        <member name="F:CommerceBuilder.WebApi.Models.ShippableType.No">
+            <summary>
+            The product is not shippable
+            </summary>
+        </member>
+        <member name="F:CommerceBuilder.WebApi.Models.ShippableType.Yes">
+            <summary>
+            The product is shippable (separately or with other products)
+            </summary>
+        </member>
+        <member name="F:CommerceBuilder.WebApi.Models.ShippableType.Separately">
+            <summary>
+            The product is only shippable separately
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.Models.VisibilityType">
+            <summary>
+            Enumeration that represents the visibility of a CatalogNode
+            </summary>
+        </member>
+        <member name="F:CommerceBuilder.WebApi.Models.VisibilityType.Public">
+            <summary>
+            CatalogNode is publicly visible. 
+            </summary>
+        </member>
+        <member name="F:CommerceBuilder.WebApi.Models.VisibilityType.Hidden">
+            <summary>
+            CatalogNode is hidden. Can be accessed via direct link.
+            </summary>
+        </member>
+        <member name="F:CommerceBuilder.WebApi.Models.VisibilityType.Private">
+            <summary>
+            CatalogNode is private. Can not be accessed.
+            </summary>
+        </member>
+        <member name="T:CommerceBuilder.WebApi.WebApiModule">
+            <summary>
+            HttpModule that implements the RESTful AbleCommerce web-api
+            </summary>
+        </member>
+    </members>
+</doc>

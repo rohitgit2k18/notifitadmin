@@ -1,0 +1,421 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<breadCrumb url="~/admin/default.aspx" title="Administration">
+  <breadCrumb url="~/admin/search.aspx" title="Search" />
+  <breadCrumb url="~/admin/menu.aspx?path=manage" title="Manage">
+    <breadCrumb url="~/admin/orders/default.aspx" title="Orders">
+      <breadCrumb url="~/admin/orders/print/packslips.aspx" title="Print Packing Slips" />
+      <breadCrumb url="~/admin/orders/batch/ship.aspx" title="Ship" />
+      <breadCrumb url="~/admin/orders/batch/cancel.aspx" title="Cancel" />
+      <breadCrumb url="~/admin/orders/create/createorder1.aspx" title="Create Order">
+        <breadCrumb url="~/admin/orders/create/createorder1.aspx" title="Step 1 of 4" />
+        <breadCrumb url="~/admin/orders/create/createorder2.aspx" title="Step 2 of 4" />
+        <breadCrumb url="~/admin/orders/create/createorder3.aspx" title="Step 3 of 4" />
+        <breadCrumb url="~/admin/orders/create/createorder4.aspx" title="Step 4 of 4" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/orders/vieworder.aspx" title="View Order #{0}">
+        <breadCrumb url="~/admin/orders/cancelorder.aspx" title="Cancel Order" />
+        <breadCrumb url="~/admin/orders/email/sendmail.aspx" title="Send Email" />
+        <breadCrumb url="~/admin/orders/moveorder.aspx" title="Move Order" />
+        <breadCrumb url="~/admin/orders/payments/default.aspx" title="Payments">
+          <breadCrumb url="~/admin/orders/payments/addpayment.aspx" title="Add Payment" />
+          <breadCrumb url="~/admin/orders/payments/editpayment.aspx" title="Edit Payment" />
+          <breadCrumb url="~/admin/orders/payments/capturepayment.aspx" title="Capture Payment" />
+          <breadCrumb url="~/admin/orders/payments/refundpayment.aspx" title="Refund Payment" />
+          <breadCrumb url="~/admin/orders/payments/voidpayment.aspx" title="Void Payment" />
+        </breadCrumb>
+        <breadCrumb url="~/admin/orders/shipments/default.aspx" title="Shipments">
+          <breadCrumb url="~/admin/orders/shipments/addshipment.aspx" title="Add Shipment" />
+          <breadCrumb url="~/admin/orders/shipments/deleteshipment.aspx" title="Delete Shipment" />
+          <breadCrumb url="~/admin/orders/shipments/editshipment.aspx" title="Edit Shipment">
+            <breadCrumb url="~/admin/orders/shipments/addproduct.aspx" title="Add Product" />
+            <breadCrumb url="~/admin/orders/shipments/findproduct.aspx" title="Find Product" />
+            <breadCrumb url="~/admin/orders/shipments/addother.aspx" title="Add Item" />
+          </breadCrumb>
+          <breadCrumb url="~/admin/orders/shipments/mergeshipment.aspx" title="Merge Shipments" />
+          <breadCrumb url="~/admin/orders/shipments/shiporder.aspx" title="Ship Order" />
+          <breadCrumb url="~/admin/orders/shipments/splitshipment.aspx" title="Split Shipment" />
+          <breadCrumb url="~/admin/orders/shipments/packinglist.aspx" title="Packing List" />
+        </breadCrumb>
+        <breadCrumb url="~/admin/orders/orderhistory.aspx" title="History and Notes" />
+        <breadCrumb url="~/admin/orders/viewsubscriptions.aspx" title="Subscriptions" />
+        <breadCrumb url="~/admin/orders/viewdigitalgoods.aspx" title="Digital Goods">
+          <breadCrumb url="~/admin/orders/adddigitalgoods.aspx" title="Add Digital Goods" />
+          <breadCrumb url="~/admin/orders/viewdownloads.aspx" title="Downloads" />
+          <breadCrumb url="~/admin/orders/adddigitalgoodserialkey.aspx" title="Add Serial Key" />
+          <breadCrumb url="~/admin/orders/viewdigitalgoodserialkey.aspx" title="View Serial Key" />
+        </breadCrumb>
+        <breadCrumb url="~/admin/orders/viewgiftcertificates.aspx" title="Gift Certificates" />
+        <breadCrumb url="~/admin/orders/editaddresses.aspx" title="Edit Addresses" />
+        <breadCrumb url="~/admin/orders/edit/editorderitems.aspx" title="Edit Order Items">
+          <breadCrumb url="~/admin/orders/edit/findproduct.aspx" title="Add Product" />
+          <breadCrumb url="~/admin/orders/edit/addproduct.aspx" title="Add Product" />
+          <breadCrumb url="~/admin/orders/edit/addother.aspx" title="Add Other Item" />
+          <breadCrumb url="~/admin/orders/edit/returnitems.aspx" title="Return Items" />
+        </breadCrumb>
+      </breadCrumb>
+    </breadCrumb>
+    <breadCrumb url="~/admin/orders/ordernotesmanager.aspx" title="Manage Notes" />
+    <breadCrumb url="~/admin/orders/paymentmanager.aspx" title="Manage Payments" />
+    <breadCrumb url="~/admin/products/reviews/default.aspx" title="Product Reviews">
+      <breadCrumb url="~/admin/products/reviews/editreview.aspx" title="Edit Review" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/payment/giftcertificates.aspx" title="Gift Certificates">
+      <breadCrumb url="~/admin/payment/editgiftcertificate.aspx" title="Edit Certificate" />
+      <breadCrumb url="~/admin/payment/addgiftcertificate.aspx" title="Add Certificate" />
+      <breadCrumb url="~/admin/reports/giftcerttransactions.aspx" title="Gift Certificate Transactions" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/people/subscriptions/default.aspx" title="Subscriptions">
+      <breadCrumb url="~/admin/people/subscriptions/subscriptionplans.aspx" title="Plans" />
+      <breadCrumb url="~/admin/people/subscriptions/editsubscription.aspx" title="Subscription Details" />
+    </breadCrumb>
+  </breadCrumb>
+  <!-- /manage -->
+  <breadCrumb url="~/admin/menu.aspx?path=catalog" title="Catalog">
+    <breadCrumb url="~/admin/catalog/browse.aspx" title="Manage Categories" />
+    <breadCrumb url="~/admin/products/manageproducts.aspx" title="Manage Products" />
+    <breadCrumb url="~/admin/catalog/addcategory.aspx" title="Add Category" />
+    <breadCrumb url="~/admin/catalog/editcategory.aspx" title="Edit Category" />
+    <breadCrumb url="~/admin/catalog/sortcategory.aspx" title="Sort Category" />
+    <breadCrumb url="~/admin/products/addproduct.aspx" title="Add Product" />
+    <breadCrumb url="~/admin/products/editproduct.aspx" title="{0}">
+      <breadCrumb url="~/admin/products/assets/images.aspx" title="Images and Assets">
+        <breadCrumb url="~/admin/products/assets/uploadimage.aspx" title="Upload and Resize Images" />
+        <breadCrumb url="~/admin/products/assets/uploadpresizedimage.aspx" title="Upload Pre-Sized Image" />
+        <breadCrumb url="~/admin/products/assets/uploadadditionalimage.aspx" title="Upload Additional Images" />
+        <breadCrumb url="~/admin/products/assets/additionalimages.aspx" title="Additional Images" />
+        <breadCrumb url="~/admin/products/assets/advancedimages.aspx" title="Pick or Edit Images" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/products/variants/options.aspx" title="Options">
+        <breadCrumb url="~/admin/products/variants/editoption.aspx" title="Edit {0}" />
+        <breadCrumb url="~/admin/products/variants/editchoices.aspx" title="Choices for {0}" />
+        <breadCrumb url="~/admin/products/variants/variants.aspx" title="Variants" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/products/specials/default.aspx" title="Special Pricing">
+        <breadCrumb url="~/admin/products/specials/editspecial.aspx" title="Edit Special" />
+        <breadCrumb url="~/admin/products/specials/addspecial.aspx" title="Add Special" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/products/editsimilarproducts.aspx" title="Similar Products" />
+      <breadCrumb url="~/admin/products/editproductaccessories.aspx" title="Upsell Products" />
+      <breadCrumb url="~/admin/products/editproductcategories.aspx" title="Categories" />
+      <breadCrumb url="~/admin/products/editsubscription.aspx" title="Subscriptions" />
+      <breadCrumb url="~/admin/products/editsubscription2.aspx" title="Edit Product Subscription" />
+      <breadCrumb url="~/admin/products/productdiscounts.aspx" title="Discounts" />
+      <breadCrumb url="~/admin/products/digitalgoods/digitalgoods.aspx" title="Digital Goods">
+        <breadCrumb url="~/admin/products/digitalgoods/attachdigitalgood.aspx" title="Attach Digital Good" />
+        <breadCrumb url="~/admin/products/digitalgoods/selectvariant.aspx" title="Select Variant" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/products/kits/editkit.aspx" title="Kitting">
+        <breadCrumb url="~/admin/products/kits/addkitproducts.aspx" title="Add Products" />
+        <breadCrumb url="~/admin/products/kits/attachcomponent.aspx" title="Attach Component" />
+        <breadCrumb url="~/admin/products/kits/deletesharedcomponent.aspx" title="Delete Component" />
+        <breadCrumb url="~/admin/products/kits/editcomponent.aspx" title="Edit Component" />
+        <breadCrumb url="~/admin/products/kits/editkitproduct.aspx" title="Edit Part" />
+        <breadCrumb url="~/admin/products/kits/sortcomponents.aspx" title="Sort Components" />
+        <breadCrumb url="~/admin/products/kits/sortkitproducts.aspx" title="Sort Products" />
+        <breadCrumb url="~/admin/products/kits/viewcomponent.aspx" title="View Component" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/products/kits/viewkitproduct.aspx" title="Kitting" />
+      <breadCrumb url="~/admin/products/editproducttemplate.aspx" title="Template" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/products/assets/assetmanager.aspx" title="Images and Assets" />
+    <breadCrumb url="~/admin/catalog/addwebpage.aspx" title="Add Webpage" />
+    <breadCrumb url="~/admin/catalog/editwebpage.aspx" title="Edit Webpage">
+      <breadCrumb url="~/admin/catalog/editwebpagecategories.aspx" title="Categories" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/catalog/addlink.aspx" title="Add Link" />
+    <breadCrumb url="~/admin/catalog/editlink.aspx" title="Edit Link">
+      <breadCrumb url="~/admin/catalog/editlinkcategories.aspx" title="Categories" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/products/kits/search.aspx" title="Find Kits" />
+    <breadCrumb url="~/admin/products/producttemplates/default.aspx" title="Product Templates">
+      <breadCrumb url="~/admin/products/producttemplates/editproducttemplate.aspx" title="{0}">
+        <breadCrumb url="~/admin/products/producttemplates/addinputfield.aspx" title="Add Field" />
+        <breadCrumb url="~/admin/products/producttemplates/editinputfield.aspx" title="Edit Field" />
+        <breadCrumb url="~/admin/products/producttemplates/viewproducts.aspx" title="Assigned Products" />
+      </breadCrumb>
+    </breadCrumb>
+    <breadCrumb url="~/admin/products/giftwrap/default.aspx" title="Gift Wrap">
+      <breadCrumb url="~/admin/products/giftwrap/editwrapgroup.aspx" title="{0}">
+        <breadCrumb url="~/admin/products/giftwrap/viewproducts.aspx" title="View Assigned Products" />
+      </breadCrumb>
+    </breadCrumb>
+    <breadCrumb url="~/admin/menu.aspx?path=catalog/BatchEdit" title="Batch Edit">
+      <breadCrumb url="~/admin/products/batchedit.aspx" title="Products" />
+      <breadCrumb url="~/admin/catalog/categorybatchedit.aspx" title="Categories" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/digitalgoods/digitalgoods.aspx" title="Digital Goods">
+      <breadCrumb url="~/admin/digitalgoods/finddigitalgoods.aspx" title="Find Digital Goods" />
+      <breadCrumb url="~/admin/digitalgoods/editdigitalgood.aspx" title="{0}">
+        <breadCrumb url="~/admin/digitalgoods/serialkeyproviders/defaultprovider/configure.aspx" title="Serial Keys">
+          <breadCrumb url="~/admin/digitalgoods/serialkeyproviders/defaultprovider/editserialkey.aspx" title="Edit Key" />
+          <breadCrumb url="~/admin/digitalgoods/serialkeyproviders/defaultprovider/addkeys.aspx" title="Add Keys" />
+        </breadCrumb>
+      </breadCrumb>
+      <breadCrumb url="~/admin/digitalgoods/deletedigitalgood.aspx" title="Delete Digital Good" />
+      <breadCrumb url="~/admin/digitalgoods/viewproducts.aspx" title="View Products" />
+      <breadCrumb url="~/admin/digitalgoods/vieworders.aspx" title="View Orders" />
+      <breadCrumb url="~/admin/digitalgoods/digitalgoodfiles.aspx" title="Digital Good Files" />
+      <breadCrumb url="~/admin/digitalgoods/readmes.aspx" title="Readmes">
+        <breadCrumb url="~/admin/digitalgoods/editreadme.aspx" title="Edit Readme" />
+        <breadCrumb url="~/admin/digitalgoods/deletereadme.aspx" title="Delete Readme" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/digitalgoods/agreements.aspx" title="License Agreements">
+        <breadCrumb url="~/admin/digitalgoods/editagreement.aspx" title="Edit Agreement" />
+        <breadCrumb url="~/admin/digitalgoods/deleteagreement.aspx" title="Delete Agreement" />
+      </breadCrumb>
+    </breadCrumb>
+  </breadCrumb>
+  <!-- /catalog -->
+  <breadCrumb url="~/admin/menu.aspx?path=people" title="People">
+    <breadCrumb url="~/admin/people/users/default.aspx" title="Users">
+      <breadCrumb url="~/admin/people/users/adduser.aspx" title="Add User" />
+      <breadCrumb url="~/admin/people/users/edituser.aspx" title="Edit User {0}">
+        <breadCrumb url="~/admin/reports/customerhistory.aspx" title="Navigation History" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/people/users/sendmail.aspx" title="Send Message" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/people/groups/default.aspx" title="User Groups">
+      <breadCrumb url="~/admin/people/groups/manageusers.aspx" title="Manage Users in Group" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/people/vendors/default.aspx" title="Vendors">
+      <breadCrumb url="~/admin/people/vendors/editvendor.aspx" title="Edit Vendor" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/people/manufacturers/default.aspx" title="Manufacturers">
+      <breadCrumb url="~/admin/people/manufacturers/editmanufacturer.aspx" title="Edit Manufacturer" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/marketing/affiliates/default.aspx" title="Affiliates">
+      <breadCrumb url="~/admin/marketing/affiliates/editaffiliate.aspx" title="Edit Affiliate" />
+    </breadCrumb>
+  </breadCrumb>
+  <!-- /people -->
+  <breadCrumb url="~/admin/menu.aspx?path=marketing" title="Marketing">
+    <breadCrumb url="~/admin/marketing/coupons/default.aspx" title="Coupons">
+      <breadCrumb url="~/admin/marketing/coupons/addcoupon.aspx" title="Add Coupon (Step 1 of 2)" />
+      <breadCrumb url="~/admin/marketing/coupons/addcoupon2.aspx" title="Add Coupon (Step 2 of 2)" />
+      <breadCrumb url="~/admin/marketing/coupons/editcoupon.aspx" title="{0}">
+        <breadCrumb url="~/admin/marketing/coupons/couponproducts.aspx" title="Linked Products" />
+      </breadCrumb>
+    </breadCrumb>
+    <breadCrumb url="~/admin/marketing/discounts/default.aspx" title="Volume Discounts">
+      <breadCrumb url="~/admin/marketing/discounts/editdiscount.aspx" title="{0}">
+        <breadCrumb url="~/admin/marketing/discounts/editdiscountscope.aspx" title="Discount Scope" />
+      </breadCrumb>
+    </breadCrumb>
+    <breadCrumb url="~/admin/marketing/featuredproducts.aspx" title="Featured Products" />
+    <breadCrumb url="~/admin/marketing/email/default.aspx" title="Email Lists">
+      <breadCrumb url="~/admin/marketing/email/managelist.aspx" title="{0}">
+        <breadCrumb url="~/admin/marketing/email/manageusers.aspx" title="Manage Users" />
+        <breadCrumb url="~/admin/marketing/email/sendmail.aspx" title="Send Message" />
+      </breadCrumb>
+    </breadCrumb>
+    <breadCrumb url="~/admin/marketing/feeds/googlefeed.aspx" title="Google Feed" />
+    <breadCrumb url="~/admin/marketing/feeds/shopping.com.aspx" title="Shopping.com Feed" />
+  </breadCrumb>
+  <!-- /marketing -->
+  <breadCrumb url="~/admin/menu.aspx?path=website" title="Website">
+    <breadCrumb url="~/admin/website/contentpages/default.aspx" title="Webpages">
+        <breadCrumb url="~/admin/website/contentpages/addcontentpage.aspx" title="Add Webpage" />
+        <breadCrumb url="~/admin/website/contentpages/editcontentpage.aspx" title="Edit Webpage" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/website/contentpages/categorypages/default.aspx" title="Category Pages">
+        <breadCrumb url="~/admin/website/contentpages/categorypages/addcategorypage.aspx" title="Add Category Page" />
+        <breadCrumb url="~/admin/website/contentpages/categorypages/editcategorypage.aspx" title="Edit Category Page" />
+        <breadCrumb url="~/admin/website/contentpages/categorypages/categorypageusage.aspx" title="Category Page Usage" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/website/contentpages/productpages/default.aspx" title="Product Pages">
+        <breadCrumb url="~/admin/website/contentpages/productpages/addproductpage.aspx" title="Add Product Page" />
+        <breadCrumb url="~/admin/website/contentpages/productpages/editproductpage.aspx" title="Edit product Page" />
+        <breadCrumb url="~/admin/website/contentpages/productpages/productpageusage.aspx" title="Product Page Usage" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/website/themes/default.aspx" title="Manage Themes">
+      <breadCrumb url="~/admin/website/themes/csseditor.aspx" title="CSS Editor" />
+      <breadCrumb url="~/admin/website/themes/filemanager.aspx" title="File Manager" />
+        <breadCrumb url="~/admin/website/themes/themeusage.aspx" title="Theme Usage" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/website/layouts/default.aspx" title="Manage Layouts">
+        <breadCrumb url="~/admin/website/layouts/addlayout.aspx" title="Add Layout" />
+        <breadCrumb url="~/admin/website/layouts/editlayout.aspx" title="Edit Layout" />
+        <breadCrumb url="~/admin/website/layouts/layoutusage.aspx" title="Layout Usage" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/website/logos.aspx" title="Store Logos" />
+    <breadCrumb url="~/admin/store/indexing.aspx" title="Indexes" />
+  </breadCrumb>
+  <!-- /website -->
+  <breadCrumb url="~/admin/menu.aspx?path=reports" title="Reports">
+    <breadCrumb url="~/admin/menu.aspx?path=reports/sales" title="Sales">
+      <breadCrumb url="~/admin/reports/salessummary.aspx" title="Sales Summary" />
+      <breadCrumb url="~/admin/reports/dailysales.aspx" title="Daily Sales" />
+      <breadCrumb url="~/admin/reports/monthlysales.aspx" title="Monthly Sales" />
+      <breadCrumb url="~/admin/reports/annualsales.aspx" title="Annual Sales" />
+      <breadCrumb url="~/admin/reports/salesovertime.aspx" title="Sales Over Time" />
+      <breadCrumb url="~/admin/reports/taxes.aspx" title="Taxes">
+        <breadCrumb url="~/admin/reports/taxdetail.aspx" title="Tax Detail" />
+      </breadCrumb>
+    </breadCrumb>
+    <breadCrumb url="~/admin/menu.aspx?path=reports/products" title="Products">
+      <breadCrumb url="~/admin/reports/salesbyproduct.aspx" title="Sales by Product" />
+      <breadCrumb url="~/admin/reports/popularproducts.aspx" title="Product Popularity" />
+      <breadCrumb url="~/admin/reports/popularcategories.aspx" title="Category Popularity" />
+      <breadCrumb url="~/admin/reports/lowinventory.aspx" title="Low Inventory">
+        <breadCrumb url="~/admin/reports/sendrestockalert.aspx" title="Send Notification" />
+      </breadCrumb>
+      </breadCrumb>
+    <breadCrumb url="~/admin/menu.aspx?path=reports/customers" title="Customers">
+      <breadCrumb url="~/admin/reports/topcustomers.aspx" title="Sales by Customer" />
+      <breadCrumb url="~/admin/reports/newexistingcustomers.aspx" title="New and Existing" />
+      <breadCrumb url="~/admin/reports/pageviewovertime.aspx" title="Page Views Over Time" />
+      <breadCrumb url="~/admin/reports/popularbrowsers.aspx" title="Browser Popularity" />
+      <breadCrumb url="~/admin/reports/monthlyabandonedbaskets.aspx" title="Abandoned Baskets">
+        <breadCrumb url="~/admin/reports/dailyabandonedbaskets.aspx" title="Abandoned Basket Detail">
+          <breadCrumb url="~/admin/reports/sendabandonedbasketalert.aspx" title="Send Alert" />
+        </breadCrumb>
+      </breadCrumb>
+      <breadCrumb title="Search History" url="~/admin/reports/searchhistory.aspx"/>
+    </breadCrumb>
+    <breadCrumb url="~/admin/menu.aspx?path=reports/marketing" title="Marketing">
+      <breadCrumb url="~/admin/reports/salesbyaffiliate.aspx" title="Sales By Affiliate" />
+      <breadCrumb url="~/admin/reports/salesbyaffiliatedetail.aspx" title="Sales By Affiliate Details" />
+      <breadCrumb url="~/admin/reports/salesbyreferrer.aspx" title="Sales By Referrer" />
+      <breadCrumb url="~/admin/reports/salesbycountry.aspx" title="Sales By Country" />
+      <breadCrumb url="~/admin/reports/salesbystate.aspx" title="Sales By State" />
+      <breadCrumb url="~/admin/reports/couponusage.aspx" title="Coupon Usage">
+        <breadCrumb url="~/admin/reports/couponusagedetail.aspx" title="Coupon Usage Detail" />     
+      </breadCrumb>
+    </breadCrumb>
+    <breadCrumb url="~/admin/menu.aspx?path=reports/system" title="System">
+      <breadCrumb url="~/admin/reports/whoisonline.aspx" title="Who Is Online?" />
+      <breadCrumb url="~/admin/catalog/orphaneditems.aspx" title="Orphaned Items" />
+      <breadCrumb url="~/admin/store/security/auditlog.aspx" title="Audit Log" />
+      <breadCrumb url="~/admin/reports/dbconnections.aspx" title="Database Connections"  />
+    </breadCrumb>
+  </breadCrumb>
+  <!-- /reports -->
+  <breadCrumb url="~/admin/menu.aspx?path=configure" title="Configure">
+    <breadCrumb url="~/admin/menu.aspx?path=configure/store" title="Store">
+      <breadCrumb url="~/admin/store/storesettings.aspx" title="General" />
+      <breadCrumb url="~/admin/store/currencies/default.aspx" title="Currencies" />
+      <breadCrumb url="~/admin/store/maintenance.aspx" title="Maintenance" />
+      <breadCrumb url="~/admin/store/images.aspx" title="Image Settings" />
+      <breadCrumb url="~/admin/store/productreviewsettings.aspx" title="Product Reviews" />
+      <breadCrumb url="~/admin/store/subscriptions.aspx" title="Subscriptions" />
+      <breadCrumb url="~/admin/store/pagetracking/default.aspx" title="Page Tracking">
+        <breadCrumb url="~/admin/store/pagetracking/viewlog.aspx" title="View Log" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/store/orderstatuses/default.aspx" title="Order Statuses">
+        <breadCrumb url="~/admin/store/orderstatuses/addorderstatus.aspx" title="Add Status" />
+        <breadCrumb url="~/admin/store/orderstatuses/editorderstatus.aspx" title="Edit Status" />
+        <breadCrumb url="~/admin/store/orderstatuses/deleteorderstatus.aspx" title="Delete Status" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/localization/languages.aspx" title="Languages">
+        <breadCrumb url="~/admin/localization/resources.aspx" title="Manage Resources" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/store/mobilestoresettings.aspx" title="Mobile Settings" />
+    </breadCrumb>    
+    <breadCrumb url="~/admin/menu.aspx?path=configure/security" title="Security">
+      <breadCrumb url="~/admin/store/security/default.aspx" title="System Settings" />
+      <breadCrumb url="~/admin/store/security/licensing.aspx" title="Licensing" />
+      <breadCrumb url="~/admin/store/security/connection.aspx" title="Database" />
+      <breadCrumb url="~/admin/store/security/blockedips.aspx" title="Firewall" />
+      <breadCrumb url="~/admin/store/security/passwordpolicy.aspx" title="Passwords" />
+      <breadCrumb url="~/admin/store/security/encryptionkey.aspx" title="Encryption Key" />
+    </breadCrumb>
+    <breadCrumb url="~/admin/menu.aspx?path=configure/email" title="Email">
+      <breadCrumb url="~/admin/store/emailtemplates/settings.aspx" title="Settings" />
+      <breadCrumb url="~/admin/store/emailtemplates/default.aspx" title="Templates">
+        <breadCrumb url="~/admin/store/emailtemplates/addtemplate.aspx" title="Add Email Template" />
+        <breadCrumb url="~/admin/store/emailtemplates/edittemplate.aspx" title="Edit Email Template" />
+      </breadCrumb>
+    </breadCrumb>
+    <breadCrumb url="~/admin/menu.aspx?path=configure/regions" title="Regions">
+      <breadCrumb url="~/admin/shipping/countries/default.aspx" title="Countries">
+        <breadCrumb url="~/admin/shipping/countries/editprovinces.aspx" title="Provinces" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/shipping/zones/default.aspx" title="Zones">
+        <breadCrumb url="~/admin/shipping/zones/editshipzone.aspx" title="Edit Ship Zone" />
+      </breadCrumb>
+    </breadCrumb>
+    <breadCrumb url="~/admin/menu.aspx?path=configure/payments" title="Payments">
+      <breadCrumb url="~/admin/payment/methods.aspx" title="Methods">
+        <breadCrumb url="~/admin/payment/addmethod.aspx" title="Add Method" />
+        <breadCrumb url="~/admin/payment/editmethod.aspx" title="Edit Method" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/payment/gateways.aspx" title="Gateways">
+        <breadCrumb url="~/admin/payment/addgateway.aspx" title="Add Gateway" />
+        <breadCrumb url="~/admin/payment/addgateway2.aspx" title="Add Gateway" />
+        <breadCrumb url="~/admin/payment/editgateway.aspx" title="Edit Gateway" />
+      </breadCrumb>
+    </breadCrumb>
+    <breadCrumb url="~/admin/menu.aspx?path=configure/shipping" title="Shipping">
+      <breadCrumb url="~/admin/shipping/methods/default.aspx" title="Methods">
+        <breadCrumb url="~/admin/shipping/methods/editshipmethodfixed.aspx" title="Edit Fixed Rate Method" />
+        <breadCrumb url="~/admin/shipping/methods/editshipmethodmatrix.aspx" title="Edit Variable Method" />
+        <breadCrumb url="~/admin/shipping/methods/editshipmethodprovider.aspx" title="Edit Provider Method" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/shipping/providers/default.aspx" title="Integrated Carriers">
+        <breadCrumb url="~/admin/shipping/providers/addgateway.aspx" title="Add Carrier" />
+        <breadCrumb url="~/admin/shipping/providers/australiapost/configure.aspx" title="Australia Post" />
+        <breadCrumb url="~/admin/shipping/providers/australiapost/register.aspx" title="Australia Post" />
+        <breadCrumb url="~/admin/shipping/providers/canadapost/register.aspx" title="CanadaPost" />
+        <breadCrumb url="~/admin/shipping/providers/canadapost/configure.aspx" title="CanadaPost" />
+        <breadCrumb url="~/admin/shipping/providers/dhlinternational/register.aspx" title="DHL International" />
+        <breadCrumb url="~/admin/shipping/providers/dhlinternational/configure.aspx" title="DHL International" />
+        <breadCrumb url="~/admin/shipping/providers/fedex/register.aspx" title="FedEx" />
+        <breadCrumb url="~/admin/shipping/providers/fedex/configure.aspx" title="FedEx" />
+        <breadCrumb url="~/admin/shipping/providers/ups/license.aspx" title="UPS" />
+        <breadCrumb url="~/admin/shipping/providers/ups/register.aspx" title="UPS" />
+        <breadCrumb url="~/admin/shipping/providers/ups/registerdirect.aspx" title="UPS" />
+        <breadCrumb url="~/admin/shipping/providers/ups/configure.aspx" title="UPS" />
+        <breadCrumb url="~/admin/shipping/providers/usps/register.aspx" title="USPS" />
+        <breadCrumb url="~/admin/shipping/providers/usps/configure.aspx" title="USPS" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/shipping/warehouses/default.aspx" title="Warehouses">
+        <breadCrumb url="~/admin/shipping/warehouses/editwarehouse.aspx" title="Edit Warehouse" />
+        <breadCrumb url="~/admin/shipping/warehouses/addwarehouse.aspx" title="Add Warehouse" />
+        <breadCrumb url="~/admin/shipping/warehouses/viewproducts.aspx" title="Products in Warehouse" />
+      </breadCrumb>
+    </breadCrumb>
+    <breadCrumb url="~/admin/menu.aspx?path=configure/taxes" title="Taxes">
+      <breadCrumb url="~/admin/taxes/settings.aspx" title="Settings" />
+      <breadCrumb url="~/admin/taxes/taxrules.aspx" title="Tax Rules">
+        <breadCrumb url="~/admin/taxes/addtaxrule.aspx" title="Add Tax Rule" />
+        <breadCrumb url="~/admin/taxes/edittaxrule.aspx" title="Edit Tax Rule" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/taxes/taxcodes.aspx" title="Tax Codes">
+        <breadCrumb url="~/admin/taxes/taxcodeproducts.aspx" title="Assigned Products" />
+        <breadCrumb url="~/admin/taxes/taxcodetaxrules.aspx" title="Linked Tax Rules" />
+      </breadCrumb>
+      <breadCrumb url="~/admin/taxes/providers/default.aspx" title="Third Party Providers">
+        <breadCrumb url="~/admin/taxes/providers/cch/default.aspx" title="CertiTAX" />
+        <breadCrumb url="~/admin/taxes/providers/cybersource/default.aspx" title="CyberSource" />
+      </breadCrumb>
+    </breadCrumb>
+    <breadCrumb url="~/admin/menu.aspx?path=configure/seo" title="SEO">
+      <breadCrumb url="~/admin/seo/settings.aspx" title="Settings" />
+      <breadCrumb url="~/admin/seo/fixedredirects.aspx" title="Fixed Redirects" />
+      <breadCrumb url="~/admin/seo/dynamicredirects.aspx" title="Dynamic Redirects" />
+      <breadCrumb url="~/admin/seo/testurl.aspx" title="Test URL" />
+      <breadCrumb url="~/admin/seo/customurls.aspx" title="Custom URLs" />
+      <breadCrumb url="~/admin/seo/sitemap.aspx" title="XML Sitemap" />
+    </breadCrumb>
+  </breadCrumb>
+  <!-- /configure -->
+    <breadCrumb url="~/admin/menu.aspx?path=data" title="Data">
+        <breadCrumb url="~/admin/menu.aspx?path=data/import" title="Import">
+            <breadCrumb url="~/admin/dataexchange/productimport.aspx" title="Products" />
+            <breadCrumb url="~/admin/dataexchange/variantsimport.aspx" title="Variants" />
+            <breadCrumb url="~/admin/dataexchange/upswsimport.aspx" title="UPS WorldShip" />
+        </breadCrumb>
+        <breadCrumb url="~/admin/menu.aspx?path=data/export" title="Export">
+            <breadCrumb url="~/admin/dataexchange/productsexport.aspx" title="Products/Variants"  />
+            <breadCrumb url="~/admin/dataexchange/usersexport.aspx" title="Users" />
+            <breadCrumb url="~/admin/dataexchange/ordersexport.aspx" title="Orders"  />
+            <breadCrumb url="~/admin/dataexchange/upswsexport.aspx" title="UPS WorldShip" />
+        </breadCrumb>
+        <breadCrumb url="~/admin/dataexchange/databasebackup.aspx" title="Database Backup"  />
+    </breadCrumb>
+ <!-- /data -->
+  <breadCrumb url="~/admin/menu.aspx?path=help" title="Help">
+    <breadCrumb url="~/admin/help/conlib/conlibhelp2.aspx" title="ConLib Reference" />
+    <breadCrumb url="~/admin/help/errorlog.aspx" title="Error Log" />
+  </breadCrumb>
+</breadCrumb>

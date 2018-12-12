@@ -1,0 +1,56 @@
+<%-- This file is a generated file. Do not modify. See customization guide for details. --%>
+<%@ Master Language="C#" AutoEventWireup="true" MasterPageFile="~/Layouts/Base.Master" Inherits="AbleCommerce.Layouts.Base" %>
+<%--
+<layout>
+<description>Layout having a main column and left side bar.</description>
+</layout>
+--%>
+<%@ Register src="~/ConLib/StoreHeader.ascx" tagname="StoreHeader" tagprefix="uc" %>
+<%@ Register src="~/ConLib/SimpleCategoryList.ascx" tagname="SimpleCategoryList" tagprefix="uc" %>
+<%@ Register src="~/ConLib/SocialMediaLinksDialog.ascx" tagname="SocialMediaLinksDialog" tagprefix="uc" %>
+<%@ Register src="~/ConLib/RecentlyViewed.ascx" tagname="RecentlyViewed" tagprefix="uc" %>
+<%@ Register src="~/ConLib/PopularProductsDialog.ascx" tagname="PopularProductsDialog" tagprefix="uc" %>
+<%@ Register src="~/ConLib/StoreFooter.ascx" tagname="StoreFooter" tagprefix="uc" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="NestedMaster" runat="server">
+    <div id="header">
+        <div class="zone">
+            <div class="section">
+                <div class="content">
+                    <asp:ContentPlaceHolder ID="PageHeader" runat="server">
+                        <uc:StoreHeader ID="StoreHeader_H" runat="server" />
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contentContainer">
+        <div id="leftColumn">
+            <div class="zone">
+                <asp:ContentPlaceHolder ID="LeftSidebar" runat="server">
+                    <uc:SimpleCategoryList ID="SimpleCategoryListLeft" runat="server" />
+                    <uc:SocialMediaLinksDialog ID="SocialMediaLinksDialogLeft" runat="server" />
+                    <uc:RecentlyViewed ID="RecentlyViewedLeft" runat="server" />
+                    <uc:PopularProductsDialog ID="PopularProductsDialogLeft" runat="server" />
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+        <div id="mainColumn" class="leftSidebarLayout">
+            <div class="zone">
+                <asp:ContentPlaceHolder ID="PageContent" runat="server">
+                    [page body]
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="zone">
+            <div class="section">
+                <div class="content">
+                    <asp:ContentPlaceHolder ID="PageFooter" runat="server">
+                        <uc:StoreFooter ID="StoreFooter_F" runat="server" />
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </div>
+</asp:Content>

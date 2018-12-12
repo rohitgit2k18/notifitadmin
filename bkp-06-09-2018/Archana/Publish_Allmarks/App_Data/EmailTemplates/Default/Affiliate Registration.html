@@ -1,0 +1,28 @@
+<html>
+<head>
+</head>
+<body>
+    <p>Hello $affiliate.Name,</p>
+    <p>We are very pleased to welcome you to our affiliate program.</p>
+
+    <p>Now you can get paid by simply referring people on the following URL:</p>
+
+    <p><a href="${store.StoreUrl}default.aspx?${store.Settings.AffiliateParameterName}=$affiliate.Id">
+        ${store.StoreUrl}default.aspx?${store.Settings.AffiliateParameterName}=$affiliate.Id</a>
+    </p>
+
+    <p>We offer high quality products with fast shipping, so you can be confident in referring to us!</p>
+
+    <p>Don't hesitate to call with questions about our company history or product lines.</p>
+
+    <p>Please reply to this email if you have any questions.</p>
+
+    <p>
+        Thank you.<br />
+        <a href="${store.StoreUrl}default.aspx">$store.Name</a>
+    </p>
+        <p>${store.DefaultWarehouse.FormatAddress(true)}</p>
+        <p>${store.DefaultWarehouse.Phone}</p>
+        <p>${store.Settings.DefaultEmailAddress}</p>
+</body>
+</html>

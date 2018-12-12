@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FriendFitDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="EditPrice">
+    <Key>
+      <PropertyRef Name="EditPriceId" />
+    </Key>
+    <Property Name="EditPriceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Price" Type="money" />
+    <Property Name="OptionToEditPrice" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="FriendsInvitation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="DeliveryTypeId" Type="int" />
+    <Property Name="FriendsName" Type="nvarchar" MaxLength="450" />
+    <Property Name="DurationId" Type="int" />
+    <Property Name="PurchaseDate" Type="datetime" />
+    <Property Name="ExpiryDate" Type="datetime" />
+    <Property Name="SubscriptionTypeId" Type="int" />
+    <Property Name="Cost" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsRowActive" Type="bit" />
+    <Property Name="Email" Type="nvarchar" MaxLength="350" />
+    <Property Name="MobileNumber" Type="nvarchar(max)" />
+    <Property Name="CountryId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="Link">
+    <Key>
+      <PropertyRef Name="LinkId" />
+    </Key>
+    <Property Name="LinkId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Link" Type="varchar" MaxLength="200" />
+    <Property Name="UserName" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="LinkType" Type="varchar" MaxLength="50" />
+    <Property Name="NoOfTimeAcc" Type="int" />
+  </EntityType>
+  <EntityType Name="Logo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'FriendFitDB.dbo.Transactions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="transdetailid" />
+      <PropertyRef Name="transid" />
+      <PropertyRef Name="paymentid" />
+      <PropertyRef Name="transactionType" />
+      <PropertyRef Name="debitaccount" />
+      <PropertyRef Name="creditaccount" />
+      <PropertyRef Name="amount" />
+      <PropertyRef Name="isdebit" />
+      <PropertyRef Name="isactive" />
+    </Key>
+    <Property Name="transdetailid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="transid" Type="int" Nullable="false" />
+    <Property Name="paymentid" Type="int" Nullable="false" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+    <Property Name="transactionType" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="debitaccount" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="creditaccount" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="amount" Type="money" Nullable="false" />
+    <Property Name="isdebit" Type="bit" Nullable="false" />
+    <Property Name="isactive" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="250" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="250" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MobileNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CountryId" Type="bigint" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="EmailConfirmed" Type="bit" />
+    <Property Name="OTP" Type="bigint" />
+    <Property Name="ProfilePic" Type="nvarchar(max)" />
+    <Property Name="DeviceTypeId" Type="int" />
+    <Property Name="AutoSMSSignUp" Type="bit" />
+    <Property Name="FullWorkoutStatus" Type="bit" />
+    <Property Name="WorkoutStatus" Type="bit" />
+    <Property Name="Remember" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleType" Type="varchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserToken">
+    <Key>
+      <PropertyRef Name="TokenId" />
+    </Key>
+    <Property Name="TokenId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="TokenCode" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ExpiryDate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__UserProfi__Creat__1920BF5C">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserProfi__RoleI__182C9B23">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserProfi__Updat__1A14E395">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserToken__RoleI__22AA2996">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+    <End Role="UserToken" Type="Self.UserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserToken">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserToken__UserI__21B6055D">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="0..1" />
+    <End Role="UserToken" Type="Self.UserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserToken">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FriendFitDBModelStoreContainer">
+    <EntitySet Name="EditPrice" EntityType="Self.EditPrice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FriendsInvitation" EntityType="Self.FriendsInvitation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Link" EntityType="Self.Link" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Logo" EntityType="Self.Logo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserToken" EntityType="Self.UserToken" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Transactions].[transdetailid] AS [transdetailid], 
+    [Transactions].[transid] AS [transid], 
+    [Transactions].[paymentid] AS [paymentid], 
+    [Transactions].[IPAddress] AS [IPAddress], 
+    [Transactions].[transactionType] AS [transactionType], 
+    [Transactions].[debitaccount] AS [debitaccount], 
+    [Transactions].[creditaccount] AS [creditaccount], 
+    [Transactions].[amount] AS [amount], 
+    [Transactions].[isdebit] AS [isdebit], 
+    [Transactions].[isactive] AS [isactive], 
+    [Transactions].[CreateDate] AS [CreateDate]
+    FROM [dbo].[Transactions] AS [Transactions]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__UserProfi__Creat__1920BF5C" Association="Self.FK__UserProfi__Creat__1920BF5C">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserProfi__RoleI__182C9B23" Association="Self.FK__UserProfi__RoleI__182C9B23">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserProfi__Updat__1A14E395" Association="Self.FK__UserProfi__Updat__1A14E395">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserToken__RoleI__22AA2996" Association="Self.FK__UserToken__RoleI__22AA2996">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="UserToken" EntitySet="UserToken" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserToken__UserI__21B6055D" Association="Self.FK__UserToken__UserI__21B6055D">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="UserToken" EntitySet="UserToken" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

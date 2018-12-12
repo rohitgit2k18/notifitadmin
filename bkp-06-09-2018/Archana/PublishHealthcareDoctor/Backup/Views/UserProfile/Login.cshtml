@@ -1,0 +1,92 @@
+﻿@using HealthcareSoft.Web.Helper;
+@model HealthcareSoft.Data.Model.LoginModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/assets/css/style.css"> 
+
+</head>
+
+<body class="pop-overlay-body">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        @Html.AntiForgeryToken()
+        @*@{Html.EnableClientValidation()};*@
+
+
+            <!-- login popup starts here -->
+
+            <div class="login_popup" style="display: block;">
+                @*<a href="@Url.Action("Home", "Index")"><span class="close_popup"><img class="img-responsive" src="~/assets/images/popup-close.png"></span></a>*@
+             
+               
+              
+                <span class="clspop"> @Html.ImageActionLink("Link Display Text", "Index", "Home", null, null, "~/assets/images/popup-close.png")</span>
+                   
+                 <div class="login_popup_form text-center">
+                        <form>
+                            <h2>WELCOME</h2>
+                            <p>Neque porro quisquam est qui dolor</p>
+
+                            <div id="mail_id" class="emailValidate">
+                                @Html.TextBoxFor(m => m.Email, new { placeholder = "Email", required = "required" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { })
+                            </div>
+
+                            <div id="pwsd">
+                                @Html.TextBoxFor(model => model.Password, new { @class = "form-control", id = "pass", type = "password", placeholder = "Password", autocomplete = "off", required = "required", PasswordChar = '*' })
+                                @*@Html.PasswordFor(m => m.Password, new { placeholder = "Password", required = "required" })*@
+                                @Html.ValidationMessageFor(m => m.Password, "", new { })
+                            </div>
+                            @*<p class="remem_link"><label><input type="checkbox" name="remember" checked="" value="m.remember"><span>Remember Me</span></label></p>*@
+                             <div>
+                                @Html.LabelFor(model => model.RememberMe, new { @class = "RememberLabel"})
+                                @Html.CheckBoxFor(model => model.RememberMe, new { type = "checkbox", title = "Remember Me?", @class = "remem_link" })
+
+                            </div>
+
+                          
+
+                            <button class="log-btn">LOG IN</button>
+                            <a href="/UserProfile/ForgetPassword"><p class="forgot_link">Forgot Password?</p></a>
+                        </form>
+                    </div>
+
+</div> 
+            <!-- login popup -->
+    }    
+</body>
+</html>
+
+<script src="~/Scripts/jquery-3.2.1.js"></script>
+@*<script src="~/assets/js/jquery.min.js"></script>*@
+<script src="~/assets/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="~/assets/js/custom.js"></script>
+
+@section scripts {
+<script>
+   
+$(".emailValidate").keyup(function () {
+var value=$("#TextboxID").val();
+//Regex for mobile number
+var phoneNumber ="^[0-9]{1}";
+
+//Regex for Email Id
+var Email= "^[a-zA-Z]{1}";
+
+//Now in if condition you can check whether it begins with a number or a character.
+});
+</script>
+}

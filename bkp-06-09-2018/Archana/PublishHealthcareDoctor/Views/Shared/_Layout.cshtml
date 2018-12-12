@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stetho - Dashboard</title>
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="~/Scripts/jquery-3.2.1.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="~/assets/js/bootstrap.min.js"></script>
+    <script src="~/assets/js/custom.js"></script>
+    
+</head>
+<body>
+    <section>
+        <div class="container-fluid" >
+            <div class="row">
+                @Html.Partial("_LeftMenuLayout")
+                <div class="col-md-9 dashboard-right no-padding no-margin">
+
+                    <div class="db-right-header">
+                        @*code for menu-slide toggle*@
+                        <div class="toglbtn">
+                            <span class="bar1"></span>
+                            <span class="bar2"></span>
+                            <span class="bar3"></span>
+                        </div>
+                        <h2 class="log-heding">Stetho</h2>
+                        <ul class="list-unstyled list-inline text-right">
+                            <li><a href="/Appointment/AddAppointment" class="appoint-btn">ADD APPOINTMENT</a></li>
+                            
+                            <li id="notifi-bell"><a href="#"><img src="~/assets/images/db-notifi.png" alt="notify-icon"><span id="notifinum" class="notifi-num">01</span></a></li>
+                            <li><a href="/UserProfile/Logout"><img src="~/assets/images/db-out-icon.png" alt="db-out-icon"></a></li>
+                        </ul>
+                        <div id="notificationdiv" class="notification-popup">
+                           
+                           
+                        </div>
+                    </div>
+                    <div class="db-main-outer">
+                        <div class="db-main-inner">
+                            @RenderBody()
+                            <footer>
+                                @*<div class="bottom-copyright-text text-center">
+                                    <p>&copy; Copyright2017 STETHO | All Rights Reserved.</p>
+                                </div>*@
+                            </footer>
+                            </div>
+                        </div>
+
+                            @*<div class="row">
+                                <div class="col-sm-9 col-sm-offset-3 col-md-9 col-md-offset-3">*@
+                                    
+                                @*</div>
+                            </div>*@
+
+                         
+                        </div>
+                    </div>
+                </div>
+    </section>
+
+    
+</body>
+</html>
+
+<script type="text/javascript">
+    window.setInterval(function () {
+        //alert("Sec alert");
+        UpdateNotifications();
+    }, 5000);
+
+    function Test(val) {
+        console.log($(val).attr('data-id'));
+        $(val).closest('.notifi-outer')[0].remove();
+        var selectedid = $(val).attr('data-id');
+        $.ajax({
+            type: "post",
+            url: "/Notification/CancelAppointmentPopUp",
+            data: { 'id': selectedid },
+            content: 'application/json',
+            datatype: "json",
+            success: function () {
+
+            },
+            error: function (error) {
+                location.reload();
+            }
+        });
+    }
+
+        function UpdateNotifications() {
+            // alert("help");
+            //debugger;
+            $.ajax({
+                type: "GET",
+                url: "/Notification/GetNotificationsLive",
+                data: 'notification',
+                contentType: "application/json;",
+                success: function (data) {
+                    //debugger;
+                    var count = data.count;
+                    if (data != null) {
+
+                        $('#notificationdiv').empty();
+                        $('#notifinum').html(count);
+                        ///data.NotificationList[i].AppointmentDate
+                        var notificationdiv = "<ul class='list-unstyled'>"
+                        for (var i = 0; i < data.NotificationList.length; i++) {
+                            notificationdiv += "<li> <div class='notifi-outer'>  <div class='notif-image'><figure><img src='" + data.NotificationList[i].ProfilePicture + "'/></figure></div>";
+                            notificationdiv += "<div id='notificationdiv' class='notifi-description'>";
+                            notificationdiv += "<p>" + data.NotificationList[i].PatientName + "</p>";
+                            notificationdiv += "<span>" + data.NotificationList[i].AppointmentTime + "</span>";
+                            notificationdiv += "</div>";
+                            notificationdiv += "<span><img data-id='" + data.NotificationList[i].Id + "' src='/assets/images/notifi_bin.png' onclick=Test(this)></span>";
+                            notificationdiv += "</div>";
+                            notificationdiv += "</li>";
+                        }
+                        notificationdiv += "</ul>"
+                        notificationdiv += "<div class='notifi-show'> <a href='/Notification/GetNotifications'>Show More</a></div>";
+                        $('#notificationdiv').append(notificationdiv);
+                    }
+                },
+                failure: function (response) {
+                    alert(response.d);
+                }
+            });
+        }
+
+</script>

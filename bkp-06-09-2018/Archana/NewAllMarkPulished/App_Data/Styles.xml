@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Styles>
+  <Style StyleName="body" DisplayName="Page Body" InnerWrapper="" Description="'Body' is used to control the color of the outer page border, and to set the basic parameters for all text and links on all pages."></Style>
+  <Style StyleName="input[text]" DisplayName="Text Box" InnerWrapper="" Description="'input[text]' is used to control the style for all text boxes on all pages."></Style>
+  <Style StyleName="textarea" DisplayName="Text Area" InnerWrapper="" Description="'textarea' is used to control the style for all text areas on all pages."></Style>
+  <Style StyleName=".button" DisplayName="Button" InnerWrapper="" Description="'.button' is used to control the style for all submit buttons on all pages."></Style>
+  <Style StyleName=".button:hover" DisplayName="Button (Hover)" InnerWrapper="" Description="'Button (Hover)' is used to control the style for all buttons on all pages when mouse is hovered upon them."></Style>
+  <Style StyleName=".button:active" DisplayName="Button (Active)" InnerWrapper="" Description="'Button (Active)' is used to control the style for all active buttons on all pages."></Style>
+  <Style StyleName="a.button" DisplayName="Link Button" InnerWrapper="" Description="'a.button' is used to control the style for all link buttons on all pages."></Style>
+  <Style StyleName="a.button:hover" DisplayName="Link Button (Hover)" InnerWrapper="" Description="'Link Button (Hover)' is used to control the style for all link buttons on all pages when mouse is hovered upon them."></Style>
+  <Style StyleName="a.button:active" DisplayName="Link Button (Active)" InnerWrapper="" Description="'Link Button (Active)' is used to control the style for all active link buttons on all pages."></Style>
+  <Style StyleName="a" DisplayName="Hyperlink" InnerWrapper="" Description="'Hyperlink' is used to control the style for all hyperlinks on all pages."></Style>
+  <Style StyleName="a:hover" DisplayName="Hyperlink (Hover)" InnerWrapper="" Description="'Hyperlink (Hover)' is used to control the style for all hyperlinks on all pages when mouse is hovered upon them."></Style>
+  <Style StyleName="a:active" DisplayName="Hyperlink (Active)" InnerWrapper="" Description="'Hyperlink (Active)' is used to control the style for all active hyperlinks on all pages."></Style>
+  <Style StyleName="#storeHeader" DisplayName="Page Header" InnerWrapper="" Description="'#storeHeader' is used to control the styles of page header area"></Style>
+  <Style StyleName="#leftColumn" DisplayName="Left Column" InnerWrapper="#leftColumn div.zone" Description="'#leftColumn' is used to control the styles of left column area of page." />
+  <Style StyleName="#rightColumn" DisplayName="Right Column" InnerWrapper="#rightColumn div.zone" Description="' #rightColumn' is used to control the right column styles of page." />
+  <Style StyleName="#mainColumn" DisplayName="Main Column" InnerWrapper="#mainColumn div.zone" Description="' #mainColumn' is used to control the styles of content area of page." />
+  <Style StyleName="div.widget" DisplayName="Widget" Description="'Widget' is used to control the styles of widget areas of page." />
+  <Style StyleName="div.widget .header" DisplayName="Widget Header" Description="'Widget Header' is used to control the styles of the header of widget area." />
+  <Style StyleName="div.widget .header h2" DisplayName="Widget Caption" Description="'Widget Caption' is used to control the styles of the heading within header of widget area." />
+  <Style StyleName="div.widget .content" DisplayName="Widget Contents" Description="'Widget Contents' is used to control the styles of the content of widget area." />
+  <Style StyleName=".itemListingContainer" DisplayName="Product Grid" Description="This style controls the container for a grid of product items." />
+  <Style StyleName=".itemListing .itemContainer" DisplayName="Product Grid Item Container" Description="This is the content area that holds the items." />
+  <Style StyleName="div.productItemDisplay" DisplayName="Product Grid Item" Description="This contains an individual item in the grid." />
+  <Style StyleName="div.productItemDisplay div.thumbnailArea" DisplayName="Product Grid Item Thumbnail" Description="This contains the thumbnail image for the item in the grid." />
+  <Style StyleName="div.productItemDisplay div.detailsArea div.details div.itemName" DisplayName="Product Grid Item Name" Description="This contains the linked name of the item in the grid." />
+  <Style StyleName="#footer" DisplayName="Page Footer" InnerWrapper="#footer div.zone" Description="' #footer' is used to control the styles of footer area of page." />
+  <Style StyleName="AdditionalStyles" DisplayName="-- View Additional Styles --" InnerWrapper="" Description="Additional styles allow you to modify the source for styles which are not mapped to have designer support." />
+</Styles>

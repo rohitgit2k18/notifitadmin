@@ -1,0 +1,2 @@
+<%@ Control Language="C#" AutoEventWireup="true" Inherits="AbleCommerce.Admin.UserControls.PickerAndCalendar" CodeFile="PickerAndCalendar.ascx.cs" %>
+<asp:TextBox ID="Picker1" runat="server" Width="80px" CssClass="pickerAndCalendar"></asp:TextBox>

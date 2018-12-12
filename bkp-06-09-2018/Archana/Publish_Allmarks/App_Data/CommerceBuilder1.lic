@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ablecommercelicense version="7.0.92" keytype="DEMO">
+  <customer>
+    <name>Archana Bharti</name>
+    <company>Vinove</company>
+    <phone>
+    </phone>
+    <email>archana.bharti@mail.vinove.com</email>
+  </customer>
+  <issuedate>11/14/2017</issuedate>
+  <domains>
+    <domain primary="true">180.151.232.92:107</domain>
+  </domains>
+  <expiration>2017-12-14</expiration>
+  <BasePath>YzpcaW5ldHB1Ylx3d3dyb290XA==</BasePath>
+  <signature>g5pdx+3lJ59Z/LGOVdhNhU7RrMCrOIvIjHtZz2nMZtJaJRAJIES4EtJkrMfjEajZRrkdLXzu4YQzyYz9Qux2IMklNGl7f0dJu9dQJhLcylLVXl9FLH1HdmNpF3S2PyVH8EjbdEV66ZG5Wrv+7QWrvKmAxio+sd1+EgzJhccHxGY=</signature>
+</ablecommercelicense>

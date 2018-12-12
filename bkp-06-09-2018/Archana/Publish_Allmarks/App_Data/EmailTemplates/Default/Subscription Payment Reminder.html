@@ -1,0 +1,98 @@
+<html>
+<head>
+<style type="text/css">
+table.Email {width: 640px;padding: 1px;margin: 0px;border: 0px; font-size: 12px;font-family: Arial, Verdana, Sans-Serif;}
+span.title {padding:5px 5px 2px 5px;font-size:1.2em;}
+span.message {padding:5px 5px 2px 5px;color:#FF0000;font-weight:bold;}
+table.NameValues {width: 640px;padding: 5px;margin: 0px;border: 1px solid #999;}
+table.NameValues th {text-align:right; width:140px; font-size: 12px;  font-family: Arial, Verdana, Sans-Serif;}
+table.NameValues td {text-align:left; width:500px; font-size: 12px; font-family: Arial, Verdana, Sans-Serif;}
+table.NameValues th.addr {text-align:left; width:50%;}
+</style>
+</head>
+<body>
+<table class="Email">
+<tr>
+<td>
+<p>
+Dear $order.BillToFirstName $order.BillToLastName,
+</p>
+<p>Your next order for subscription <strong>$subscription.Name</strong> is due on <strong>$orderDueDate.ToString("d")</strong>.</p>
+#if($hasCreditCard)
+<p>
+We would like to inform you that your <strong>$cardType credit card ending in $cardRefNumber</strong> will be charged on <strong>$orderDueDate.ToString("d")</strong>. Please ensure this is a valid payment method. If not, login to the store and <a href="${store.StoreUrl}Members/MySubscriptions.aspx?SubscriptionId=${subscription.Id}">update your credit card information</a> for this subscription as soon as possible.
+</p>
+#else 
+<p>
+To ensure timely fulfillment of your order please make sure to <a href="${store.StoreUrl}Members/PayMyOrder.aspx?OrderNumber=${order.OrderNumber}&OrderId=${order.OrderId}">complete the payment</a> for this order.
+</p>
+#end
+
+#if($creditCardExpiring)
+<span class="message">IMPORTANT: </span><strong> Our records show that your credit card will expire within 30 days.</strong>
+<p>Please <a href="${store.StoreUrl}Members/MySubscriptions.aspx?SubscriptionId=${subscription.Id}">login to the store</a> and update your credit card information as soon as possible to avoid deactivation of your subscription.
+</p>
+#end
+
+<p>
+<span class="title">Subscription Summary - </span><span class="message">Subscription Payment Reminder</span>
+</p>
+<table class="NameValues">
+<tr>
+	<th>Quantity:</th>
+	<td>${subscription.Quantity}</td>
+</tr>
+<tr>
+	<th>Item:</th>
+	<td>$subscription.Name</td>
+</tr>
+<tr>
+	<th>Delivery Frequency:</th>
+	<td>$deliveryFrequancy</td>
+</tr>
+<tr>
+	<th>Next Payment Due:</th>
+	<td>$nextOrderDate</td>
+</tr>
+<tr>
+	<th>Subscription Price:</th>
+	<td>$helper.LSCurrencyFormat($subscription.OrderItem.Price, "ulc")</td>
+</tr>
+<tr>
+	<th>Expiration:</th>
+	<td>$expiryDate</td>
+</tr>
+</table>
+<br/>
+<table class="NameValues">
+<tr>
+	<th class="addr">Billing Address:</th>
+	<th class="addr">Shipping Address:</th>
+</tr>
+<tr>
+	<td>$subscription.FormatBillAddress(true)</td>
+	<td>$subscription.FormatShipAddress(true)</td>
+</tr>
+</table>
+
+<p>
+<strong>Subscription Changes</strong><br/>
+You can make updates to future deliveries, change your shipping address, billing address, payment method or cancel your subscription from your <a href="${store.StoreUrl}Members/MySubscriptions.aspx?SubscriptionId=${subscription.Id}">My Subscriptions</a> page.
+</p>
+
+<p>
+<strong>Customer Service</strong><br/>
+If you have any questions regarding your $subscription.Name subscription, simply email <a href="${store.StoreUrl}">$store.Name</a> at ${store.Settings.DefaultEmailAddress} and we'll be happy to assist you.
+If you would like to view your order, manage addresses, update your email, or customize many other options, please visit your personal <a href="${store.StoreUrl}Members/MyAccount.aspx">My Account</a> page.
+</p>
+
+<p>
+<strong>Thank you for shopping with us!</strong><br/>
+<a href="${store.StoreUrl}"><strong>$store.Name</strong></a>
+</p>
+
+</td>
+</tr>
+</table>
+</body>
+</html>

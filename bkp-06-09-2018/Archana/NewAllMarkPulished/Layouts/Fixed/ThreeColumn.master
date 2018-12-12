@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Layouts/Fixed/Base.Master" AutoEventWireup="True" CodeFile="ThreeColumn.master.cs" Inherits="AbleCommerce.Layouts.Fixed.ThreeColumn" %>
+<%@ Register src="~/ConLib/SimpleCategoryList.ascx" tagname="SimpleCategoryList" tagprefix="uc" %>
+<%@ Register src="~/ConLib/PopularProductsDialog.ascx" tagname="PopularProductsDialog" tagprefix="uc" %>
+<asp:Content ID="Content3" ContentPlaceHolderID="NestedMaster" runat="server">
+    <div id="leftColumn">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="LeftSidebar" runat="server">
+                <uc:SimpleCategoryList ID="SimpleCategoryListLeft" runat="server" />
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="mainColumn" class="threeColumnLayout">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="PageContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="rightColumn">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="RightSidebar" runat="server">
+                <uc:PopularProductsDialog ID="PopularProductsDialogRight" runat="server" />
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>

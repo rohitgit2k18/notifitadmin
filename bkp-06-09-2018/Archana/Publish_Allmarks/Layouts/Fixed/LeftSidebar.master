@@ -1,0 +1,17 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Layouts/Fixed/Base.Master" AutoEventWireup="True" CodeFile="LeftSidebar.master.cs" Inherits="AbleCommerce.Layouts.Fixed._LeftSidebar" %>
+<%@ Register src="~/ConLib/SimpleCategoryList.ascx" tagname="SimpleCategoryList" tagprefix="uc" %>
+<asp:Content ID="Content3" ContentPlaceHolderID="NestedMaster" runat="server">
+    <div id="leftColumn">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="LeftSidebar" runat="server">
+                <uc:SimpleCategoryList ID="SimpleCategoryListLeft" runat="server" />
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="mainColumn" class="leftSidebarLayout">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="PageContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>

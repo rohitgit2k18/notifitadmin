@@ -1,0 +1,129 @@
+﻿@model dynamic
+  
+<script src="~/assets/js/custom.js"></script>
+<section>
+    <div class="db-main-outer">
+        <div class="db-main-inner appoint-details-upper">
+            <div class="inner-menu-navigation">
+                <p><a href="/Home/Index">Dashboard</a> <span> &gt; </span> <a class="active" href="#">Referred Patients</a></p>
+                <div class="refer-patient-btn">
+                    <a class="refer-patient-link" href="/Patient/ReferPatient"> + Refer Patient</a>
+                </div>
+            </div>
+            <div class="patient-detail-header">
+                <h3>Search Option</h3>
+                <div class="patient-detail-form">
+                    <form>
+                        <div class="form-group p-input">
+                            <div class="icon-addon addon-lg">
+                                <input type="text" placeholder="Patient Name" name="PatientName" class="form-control" id="p-name">
+                                <label for="p-name" rel="tooltip" title="p-name"><span><img src="~/assets/images/form-user.png" alt="~/Content/ProfileImages/Image-Icon.jpg"></span></label>
+                            </div>
+                        </div>
+                        <div class="form-group p-input">
+                            <div class="icon-addon addon-lg">
+                                <input type="text" placeholder="Disease Name" name="Disease" class="form-control" id="p-name">
+                                <label for="p-name" rel="tooltip" title="p-name"><span><img src="~/assets/images/disease_icon.png" alt="~/Content/ProfileImages/Image-Icon.jpg"></span></label>
+                            </div>
+                        </div>
+                        <div class="form-group p-input">
+                            <div class="icon-addon addon-lg">
+                                <input type="text" placeholder="Doctor Name" name="DoctorName" class="form-control" id="p-name">
+                                <label for="p-name" rel="tooltip" title="p-name"><span><img src="~/assets/images/form-gender.png" alt="~/Content/ProfileImages/Image-Icon.jpg"></span></label>
+                            </div>
+                        </div>
+                        <button class="search-patient" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="current-encounter-form view-patients-sec">
+            <ul class="list-unstyled list-inline text-center">
+              @foreach (var item in Model.objReferPatientLModel)
+              {
+                <li>
+                    <div class="patient-profile-view">
+                        <div class="patient-profile-pic">
+                            <figure>
+                                <img src="@item.ProfilePicture" alt="Doctor-Picture">
+                            </figure>
+                        </div>
+                        <div class="view-patient-description">
+                            <h3>@item.PatientName</h3>
+                            <p>@item.Gender| @item.BloodGroup</p>
+                            <p>Dr. @item.DocName</p>
+                        </div>
+                    </div>
+                </li>
+              }
+                 
+            </ul>
+        </div>
+        <div class="bottom-copyright-text text-center">
+            <p>© Copyright2018 STETHO | All Rights Reserved.</p>
+        </div>
+
+
+    </div>
+</section>
+<!-- pop-up for view report starts -->
+<body>
+
+
+    <div class="refer_patient_popup">
+        <span class="close_popup"><img class="img-responsive" src="~/assets/images/popup-close.png"></span>
+        <div class="refer_popup">
+            <div class="refer-header">
+                <h3>Refer to Others</h3>
+            </div>
+            <div class="refer-form-list">
+                <form>
+                    <div class="form-group">
+                        <div class="icon-addon addon-lg">
+                            <input type="text" placeholder="Search Hospital" name="HospitalName" class="form-control" id="p-name">
+                            @*<label for="p-name" rel="tooltip" title="p-name"><span><img src="~/assets/images/form_search.png" alt=""></span></label>*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="icon-addon addon-lg">
+                            <input type="text" placeholder="Search Department" name="DepartmentName" class="form-control" id="p-name">
+                            @*<label for="p-name" rel="tooltip" title="p-name"><span><img src="assets/images/dep_form.png" alt=""></span></label>*@
+                        </div>
+                    </div>
+
+                    <button class="search-patient" type="submit">Submit</button>
+@using (Html.BeginForm("ReferPatient", "Patient", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+                    <ul class="list-unstyled list-inline refer-inner-list">
+
+                        @foreach (var item in Model.objReferDoctorModel)
+                        {
+                            <li>
+                                <div class="other-profile">
+                                    <figure>
+                                        <img src="@item.ProfilePicture" alt="~/Content/ProfileImages/Image-Icon.jpg">
+                                        @*<img src="~/assets/images/patient-pic.png" alt="">*@
+                                    </figure>
+                                    <div class="other-details">
+                                        <h3>Dr. @item.Name</h3>
+                                        <p>@item.QualificationName, @item.DeptName, @item.Gender</p>
+                                        @*<a class="refer-btn" href="">REFER</a>*@
+                                        <input class="refer-btn" type="submit" value="REFER"/>
+                                    </div>
+                                </div>
+                            </li>
+                        }
+
+                    </ul>
+}
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+
+

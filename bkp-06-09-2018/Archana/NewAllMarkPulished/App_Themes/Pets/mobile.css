@@ -1,0 +1,562 @@
+﻿body {margin:0;padding:0;}
+
+body, button, input, select, textarea {font-family:Arial;}
+
+a:link, a:visited { color: #005BFE; text-decoration: none;}
+h3 {margin-bottom:0;}
+select {width:auto;}
+input {padding: 0;}
+
+a.linked, .linked:link, .linked:visited{ color:#000;text-decoration: underline; }
+.linked:hover { color:#21B0D2; }
+
+.flowBlock {float:left;}
+.rowBlock {display:block;clear: both;overflow:hidden;}
+.inlineBlock {display:inline-block;}
+.inline {display:inline;}
+.block {display:block;}
+
+#outerPageContainer {display:block; width:100%; overflow:auto;}
+#mainColumn {clear:both;}
+
+div.even {background-color:#FAFAFA;}
+div.odd {background-color:#FFFFFF;}
+
+/* button general styling */
+.button {background-color:#21b0d2; font-size: 12px; color: #FFFFFF;	cursor:pointer; padding:3px 10px; margin:0; font-weight: bold; border: 1px solid #DBE4AB; white-space: nowrap; height:23px; border-radius:5px;vertical-align: middle;}
+.button:hover {background-color:#75d2f3; border: 1px solid #65aedb; color: #fff !important;}
+a.button {text-decoration:none;}
+.button:active {position: relative;	top: 1px;}
+.button:link, .button:visited { color: #FFFFFF; text-decoration: none;}
+
+div.price span.label {display:none;}
+div.price span.value,
+span.ourPriceVal,
+span.price {color:#C41019;font-weight: bold;}
+
+div.sortPanel {padding:5px;}
+
+#header {background-color: #DBE4AB;}
+#header div.content {overflow:hidden;}
+#header div.content span.logo a {color:#69B7CE; font-weight:bold; text-decoration:none;font-size: 1.5em;padding-left:5px;}
+#header div.loginStatus {float: right;padding: 5px; font-weight:bold;}
+#header div.loginStatus a {background-color: #004B91; margin: 0 0 2px 4px;padding:3px 10px;color:White;border-radius:5px;font-size:12px; height:21px;}
+#header .headerTop {background-color:#F0F0F0;}
+
+div.searchBox {overflow:hidden;background-color:#DBE4AB; white-space:nowrap; padding: 10px;}
+div.searchBox div { display:table-cell; vertical-align:middle;}
+div.searchBox div.keywords {width:100%; padding-right: 5px;}
+
+table.navBar {background-color: #146EB4; vertical-align: middle;width: 100%;font-size:1.1em;white-space: nowrap;height:2.4em;}
+table.navBar td.left {}
+table.navBar td.right {text-align:right;padding-right:3px;}
+table.navBar a {color:#FFFFFF; line-height:2em; font-weight:bold;}
+span.arrowLeft {background:url(images/grey_left.png) no-repeat center center; height:16px; width: 16px;display:inline-block;position: relative;top:2px;}
+span.navHomeLink {background:url(images/navbar_home1.png) no-repeat center center; height:32px; width: 32px;display:inline-block;position: relative;padding:0 4px;top:3px;}
+span.navCartLink {background:url(images/navbar_cart1.png) no-repeat center center; height:32px; width: 32px;display:inline-block;position: relative;padding:0 4px;top:3px;}
+
+.checkoutNavBar {margin: 5px 0 0;text-align: center; font-weight:bold;}
+.checkoutNavBar ul {list-style-type: none;}
+.checkoutNavBar ul li.previous {color: #995555;}
+.checkoutNavBar ul li.current {color: #CC0000;}
+.checkoutNavBar ul li.next {color: #CCCCCC;}
+.checkoutNavBar ul {margin: 0;padding: 0;}
+.checkoutNavBar ul li {display:inline-block; padding-right:32px;line-height: 25px;background:url("images/navigate-right.png") no-repeat scroll right center transparent;font-size: 110%;}
+.checkoutNavBar ul li a {color:inherit;}
+.checkoutNavBar ul li.last {padding-right:0;background:none;}
+
+/*home page*/
+.featuredProductsGrid {padding-bottom:10px;}
+
+/* style for displaying product ratings */
+div.aggregateRating {display: inline;}
+div.aggregateRating .ratingText {display:inline;}
+
+.ratingStar00, .ratingStar01, .ratingStar02, .ratingStar03, 
+.ratingStar04, .ratingStar05, .ratingStar06, .ratingStar07, 
+.ratingStar08, .ratingStar09, .ratingStar10
+{
+    background-position:center; background-repeat: no-repeat; width: 50px; height: 9px; display:inline-block;
+}
+.ratingStar00 { background-image:url(images/ratings/rate_00.gif); }
+.ratingStar01 { background-image:url(images/ratings/rate_01.gif); }
+.ratingStar02 { background-image:url(images/ratings/rate_02.gif); }
+.ratingStar03 { background-image:url(images/ratings/rate_03.gif); }
+.ratingStar04 { background-image:url(images/ratings/rate_04.gif); }
+.ratingStar05 { background-image:url(images/ratings/rate_05.gif); }
+.ratingStar06 { background-image:url(images/ratings/rate_06.gif); }
+.ratingStar07 { background-image:url(images/ratings/rate_07.gif); }
+.ratingStar08 { background-image:url(images/ratings/rate_08.gif); }
+.ratingStar09 { background-image:url(images/ratings/rate_09.gif); }
+.ratingStar10 { background-image:url(images/ratings/rate_10.gif); }
+.ratingStarNone {}
+
+/* product page and related pages */
+div.productMain {width:100%;}
+div.productMain div.imageArea {text-align:center; border-bottom: 1px dotted #808080;border-top: 1px dotted #808080;}
+div.moreImagesArea a {padding:10px 20px; display:inline-block; font-weight:bold;}
+div.productMain div.discountsDialog {text-align:left;}
+div.productMain div.buyProductDialog {text-align:left;padding: 5px;}
+div.buyProductDialog div.actions {clear: both; display: block; width:100%;text-align:center;padding: 5px;}
+div.buyProductDialog div.actions .button {font-size: 1.1em; height: 30px; max-width: 240px; width: 100%;}
+
+#productPage,#storeClosedPage,#disclaimerPage, div.descSummary {padding:5px 5px;}
+#productPage div.reviewsSummary {padding:0 5px;}
+
+/* style for product reviews */
+div.productReviews {padding:2px;}
+div.productReviews div.productReview {}
+div.productReviews div.productReview div.title {padding:5px; background-color:#EAF3FE;font-weight:bold;font-size:14px;}
+div.productReviews div.productReview div.info {padding:5px;}
+div.productReviews div.productReview div.info .aggregateRating {}
+div.productReviews div.productReview div.info .reviwerName {}
+div.productReviews div.productReview div.info .location {}
+div.productReviews div.productReview div.info .reviewDate {}
+div.productReviews div.productReview div.contents {padding:5px; font-size:85%; text-align:justify;}
+div.registerForReview {padding:5px;}
+div.reviewDialog {padding:5px;}
+div.reviewDialog div.inputForm {padding:5px;}
+div.reviewDialog div.info {padding:5px;background-color:#FAFAFA;}
+.noReviewsPanel { padding:5px;}
+
+/* for product description page */
+#productDescriptionPage div.content {padding:0 5px;}
+
+div.header {background-color: #21b0d2;text-align: center;}
+div.header h2 {color:#FFF; margin:0; padding: 2px 0; font-size:1em;}
+div.loginWidget div.header, div.registerWidget div.header {background-color:#FFFFFF;text-align:left; }
+div.loginWidget div.header h2, div.registerWidget div.header h2 {color:#E47911;font-size:110%;}  
+div.loginWidget div.buttons {padding:10px 0;}
+div.registerWidget, div.loginWidget {padding:10px;border:1px dotted gray;}
+div.registerWidget p {margin:10px;font-weight:bold;}
+
+/* main buttons */
+#basketPage div.actions span.checkout .button,
+#checkout_startPage .button, 
+.continueCheckoutWidget .button,
+.shippingOptionsWidget .button,
+div.paymentForm div.buttons .button
+{background:url("images/btn_gradient_bg.png") repeat-x scroll center top #E8AA19; color:#101055; border:1px solid #C5C5C5; height:30px; margin:5px 10px; width:100%; max-width:240px; font-size:1em; line-height: 30px;} 
+
+
+div.loginHeader, div.accHeader {background-color:#FFF; text-align:center;}
+div.loginHeader h2, div.accHeader h2 {color:#0033CC; }
+
+div.accLinks ul {list-style:bullets;padding:5;margin:0;}
+div.accLinks ul li {padding:2px;}
+div.accLinks ul li a {color:#62B4CA;text-decoration:none;}
+
+div.simpleCategoryList {padding:0 0 10px;}
+div.simpleCategoryList div.categoryMain {}
+div.simpleCategoryList div.categorySub {padding-left:2em;background-color: #FFFFFF;font-weight:normal;}
+div.simpleCategoryList a.viewLink {padding:5px 10px; display: inline-block; font-size:smaller; font-style:italic;}
+div.simpleCategoryList a.subCatLink {display:block;padding:5px;padding-left:0;}
+div.simpleCategoryList a.mainCatLink {display:block;padding:5px;padding-left:0;}
+div.simpleCategoryList div.categoryMain span.name {color:#005BFE;}
+div.simpleCategoryList div.expandPanel {padding:5px 5px 5px 1em}
+div.categoryMain, div.categorySub
+{
+	border: 1px solid #D7E8FD; border-top:1px solid #F5F5F5;
+    font-size: 100%; font-weight: bold;
+    padding-left: 1em;
+    background-color: #EAF3FE;
+    display:block;
+}
+
+div.simpleCategoryList span.arrowDown {background:url(images/down.gif) no-repeat center center; float: right; height: 28px; width: 16px;padding-right: 10px;}
+div.simpleCategoryList span.arrowRight,
+div.simpleCategoryList span.arrowRightSub {background:url(images/right.gif) no-repeat center center; float: right; height: 18px; width: 16px;}
+div.simpleCategoryList span.arrowRightSub {float:none;display:inline-block;}
+
+div.headerSelected div.categoryMain {background-color:#6495ED;}
+div.headerSelected div.categoryMain a, div.simpleCategoryList div.headerSelected div.categoryMain span.name {color:White;}
+
+#CategoryAccordian > div {width:100%;}
+div.simpleCategoryList div.categoryMain:hover {background-color: #21b0d2;} 
+div.simpleCategoryList div.categorySub:hover {background-color: #F0F0F0;}
+
+
+/* page header */
+div.pageHeader {background-image:url(images/title_gradient.png); height: 65px; padding: 4px 0.4em 0 0.8em;background-repeat:repeat-x; white-space:nowrap;}
+div.pageHeader h1 {color:#44c3e2; font-size:110%;margin:0;}
+#productDescriptionPage div.pageHeader,
+#productReviewsPage div.pageHeader,
+#reviewsTermsPage div.pageHeader,
+#productImagesPage div.pageHeader,
+#account_editReviewPage div.pageHeader
+{height: 26px;padding-left:5px;}
+
+#checkoutPage div.pageHeader {height:35px;margin-top:5px;}
+#checkoutPage div.pageHeader h1 {font-size:150%;}
+#checkoutPage div.header h2 {text-align:left; padding-left:5px;}
+
+#searchPage div.info  {padding:5px;}
+#searchPage div.searchListing {overflow:hidden;}
+#searchPage div.criteriaPanel {width:100%;white-space:nowrap;padding:5px;}
+#searchPage div.criteriaPanel #KeywordField {}
+
+
+#footer {}
+#storeFooter {padding-top:15px;}
+div.footerLinks {padding:0;margin:0;}
+div.footerLinks a {background-color: #DBE4AB; border-bottom: 1px solid #CDD98D; border-top: 1px solid #FFFFFF;}
+div.footerLinks a {display: block; font-size: 105%; font-weight: bold; color: #004B91;padding: 6px 0 6px 15px;}
+div.footerLinks a:hover {background-color: #F9F9F9;}
+
+p.copyright {text-align:center; margin-top:40px;}
+
+table.itemListing {width:100%;} 
+
+div.itemList {text-align:center;overflow: hidden;}
+div.itemList div.itemNode {width:160px;float:left;text-align:center;padding: 4px 0;border-bottom: 1px dotted gray;}
+div.itemList div.thumbnailArea {height:120px; width:160px;}
+div.itemList div.productItemDisplay div.detailsArea {min-height:100px;}
+div.itemList div.detailsArea div.itemName {padding:0 2px;}
+
+div.itemListRowDisplay {text-align:left;overflow: hidden;}
+div.itemListRowDisplay div.itemNode {text-align:left;padding: 4px 0;border-bottom: 1px dotted gray;display:block;}
+div.itemListRowDisplay div.productItemDisplay {display:table-row;}
+div.itemListRowDisplay div.thumbnailArea {float:left; display:inline-block; margin: 5px;}
+div.itemListRowDisplay div.productItemDisplay div.detailsArea {padding: 5px;}
+div.itemListRowDisplay div.actionsArea {padding: 5px;}
+
+#accountPage div.tabpane {border:none; padding:8px; margin-bottom:1em; }
+#account_emailSubscriptionsPage div.section div.content {padding:5px;}
+#account_emailSubscriptionsPage div.info {padding:10px 5px 10px 5px;}
+div.emailSubscription {padding:5px; border:1px solid #eee; margin-bottom:5px;}
+div.emailSubscription div.title {padding:5px; font-weight:bold;}
+div.emailSubscription div.contents {padding:5px; border-top:1px dashed #ccc;}
+
+/* Payment Types styling */
+#account_payment_types div.column_1 {}
+#account_payment_types div.paymentList {}
+#account_payment_types div.noPayments {padding:5px;font-size:14px;}
+#account_payment_types div.mainContainer {width:100%;float:left;clear:both;border-bottom:solid 1px #eee;}
+#account_payment_types div.innerLeft {width:10px;float:left;padding:19px 5px 0 5px;}
+#account_payment_types div.innerRight{}
+#account_payment_types div.innerRight div.paymentItem { width:auto;}
+#account_payment_types div.innerRight .deleteLink input{color:#000; text-transform: lowercase; text-decoration:underline;font-weight: bold; background:none; border:none;}
+#account_payment_types div.innerRight .deleteLink input:hover {color:#21b0d2 !important; background-color:none;}
+#account_payment_types div.innerRight div.paymentItem div {float:left;padding:15px 0 15px 0;}
+#account_payment_types div.innerRight div.paymentItem div.reference {font-weight:bold; padding-left:5px;}
+#account_payment_types div.innerRight div.paymentItem .deafultPayment {font-style:italic;color:#f00;font-weight:bold;margin: 0 0 0 3px;}
+#account_payment_types div.innerRight div.paymentItem .expiration {padding:7px; clear:left;}
+#account_payment_types .defaultButton {padding:10px 10px 20px; clear:both; border-bottom:solid 1px #eee;}
+#account_payment_types div.column_2 {margin-top:20px;}
+#account_payment_types div.inputForm {width:auto;}
+#account_payment_types div.inputForm div.row {clear:both;}
+#account_payment_types div.inputForm .rowHeader {font-weight:bold; padding:5px;}
+#account_payment_types div.inputForm .inputFied {padding:5px;}
+#account_payment_types div.inputForm .securityCodeInput {width:152px;}
+#account_payment_types div.inputForm .btn {}
+#account_payment_types div.inputForm div.error {}
+#account_payment_types div.inputForm .errorCondition {color: #ff0000;font-weight: bold;padding:0; }
+#account_payment_types .instructionText {}
+
+.addressBook .entry 
+{
+	background-color:#fff;
+	border:1px solid #65AEDB;
+	margin:5px;  padding:5px; 
+    overflow:hidden;
+	width:210px; height:180px;
+	position:relative; display: inline-block;
+	vertical-align:top;
+}
+.addressBook .address {padding-left:12px;}
+.addressBook .entry h2 {margin:0 0 5px 0; font-size:1.2em; font-weight:bold;}
+.addressBook .caption .links {float:right;}
+.addressBook .entry .buttons {bottom:0px;position: absolute;}
+.addressBook .addEntry {background-color:#efefef;}
+.addressBook .addEntry .buttons {position:absolute;}
+
+div.address {padding: 5px;background-color: #FAFAFA; margin:2px;}
+div.address span.caption {display:block; padding:5px; background-color:#DEEBF9;font-weight:bold;}
+div.address span.content {display:block; padding:5px;}
+
+span.smallBlock {display:block; padding:5px;}
+#checkout_shipAddrPage div.entry {display:inline-block; padding:5px;}
+#checkout_shipAddrPage div.entry div.buttons {display:block;}
+#checkout_shipAddrPage div.entry div.buttons a {display:block; padding:5px;}
+
+#checkout_editShipAddrPage div.content,
+#checkout_editBillAddrPage div.content,
+#checkout_paymentPage div.content,
+#reviewTermsPage div.content, #checkoutTermsPage div.content
+{padding:0 5px;}
+
+#checkout_paymentPage div.flowBlock {padding-right:20px;}
+
+#checkout_receiptPage div.info {padding:5px;}
+#checkout_receiptPage div.info p {margin:5px;}
+
+#reviewTermsPage div.content p, #checkoutTermsPage div.content p {margin:5px;}
+#reviewTermsPage div.actions, #checkoutTermsPage div.actions{margin:2px;clear:both;text-align:center;}
+
+.multiShipmentMsg {padding-left:5px; padding-bottom:5px}
+
+div.orderContents {border:1px solid #eee;padding:5px;margin:2px;}
+div.orderContents div.caption {display:block; padding:5px; background-color:#DEEBF9;font-weight:bold;}
+div.orderContents ul.itemList {padding-bottom:5px; border-bottom:1px dashed #000;}
+div.orderContents div.content {padding:5px;}
+
+table.orderTotalSummary th {text-align:right;}
+table.orderTotalSummary td {padding-left:10px;}
+
+div.shipmentWidget {background-color:#F7F9FB; padding:5px;}
+div.shipmentWidget div.title h3 {margin:0;padding:5px;}
+div.shipmentWidget h3 {margin:0 0 5px; padding-left:10px; color:#44c3e2; font-size:100%;}
+div.shipmentWidget div.method h3 {color:#101055;}
+div.shipmentWidget div.method {background-color:White;margin:0 5px;}
+div.shipmentWidget div.title {border-bottom:1px dashed #000;}
+div.shipmentWidget ul.itemList span.price {color:Black;font-weight:normal;}
+
+
+div.orderSummaryWidget {padding:5px; margin:2px; background-color:#FAFAFA;}
+div.orderTotalSummaryWidget {margin:2px;}
+div.orderTotalSummaryWidget div.content {background-color:#FAFAFA; padding:4px;}
+div.orderPaymentHistoryWidget {margin:2px;}
+div.orderPaymentHistoryWidget div.payment {padding:5px;}
+div.billingAddressWidget {margin:2px;}
+div.billingAddressWidget div.content {padding:5px;}
+div.editLink { padding: 10px 0 0 0;}
+
+div.orderShipmentWidgets {margin:2px;}
+div.orderShipmentWidgets div.shipmentWidget {border:1px solid #eee;padding:5px; margin-bottom:5px;}
+div.orderShipmentWidgets div.shipmentWidget div.address {padding:5px;}
+div.orderShipmentWidgets div.caption {font-weight:bold;}
+div.shipmentWidget div.info {padding:5px; margin:2px; background-color:#FAFAFA;}
+div.shipmentWidget div.items {padding:5px; margin:2px; border:1px dashed #000; background-color:#FAFAFA;}
+
+div.orderNotesWidget {margin:2px;}
+div.orderNotesWidget div.note {}
+div.orderNotesWidget div.note div.info {padding:3px;font-weight:bold;font-size:14px;} 
+div.orderNotesWidget div.note div.content {padding:5px;} 
+
+div.orderDigitalGoodsWidget {margin:2px;}
+div.orderDigitalGoodsWidget div.digitalGood {padding: 5px;}
+
+div.orderNonShippableItemsWidget {margin:2px;}
+div.orderNonShippableItemsWidget div.content {padding:5px;}
+
+div.repeatOrder {margin:2px;}
+div.repeatOrder div.content {padding:5px;}
+
+div.orderSubscriptions {margin:2px;}
+div.orderSubscriptions div.subscription {padding:5px;}
+
+div.orderGiftCertificatesWidget {margin:2px;}
+div.orderGiftCertificatesWidget div.giftCertificate {padding:5px;}
+
+#checkout_shipMethodPage .shipmentWidget {margin-bottom:20px;overflow: hidden; padding-bottom:5px;}
+ul.shipMethList {margin:0; padding:0;}
+ul.shipMethList span.label {font-weight:bold;}
+ul.shipMethList li {padding:0 0 5px;list-style: none outside none;}
+ul.shipMethList li input[type="radio"] {margin:3px 6px;}
+ul.itemList {margin:5px 0; padding:0 20px;font-size: 80%;}
+
+.validationSummary {display:block; color:Red; font-size:100%; padding:5px 0;}
+.validationSummary ul {margin:0; padding:0 0 0 20px;}
+
+.errorCondition {color:red;padding-left:5px;}
+div.applyCouponPanel {padding:0;margin:2px;}
+div.applyCouponPanel .content {padding:5px;}
+.applyCouponPanel .buttons {display:inline;}
+.applyCouponPanel .button {display:inline;}
+.applyCouponPanel div.field .fieldValue {display:inline;}
+.applyCouponPanel div.field {display:inline;}
+.applyCouponPanel {padding: 0 5px 10px;}
+.payMethodsPanel {padding:0;margin:2px;}
+
+
+/*** INPUT FORM STYLES ***/
+.fieldHeader {font-weight:bold;}
+/*.fieldValue input {width:95%;}*/
+.fieldValue {white-space:nowrap;}
+.fieldValue ul {white-space:normal;}
+.fieldValue p {white-space:normal;}
+.fieldValue td {white-space:normal;}
+.fieldHeader label {padding-left:5px;}
+
+div.inputForm {margin:2px 0 2px 0;}
+div.inputForm div.field {padding:2px;}
+div.field .fieldHeader {display:block;}
+div.field .fieldValue {display:block;}
+div.field .fieldValue .requiredField{padding:0 0 0 2px;color:#FF0000;}
+div.field .newPassInfo {color:#65aedb;}
+.fieldHeaderInline {display:inline;color: #666666;}
+.fieldValueInline {display:inline;font-weight:bold;}
+div.field .actions {display:block;}
+div.inlineField .fieldHeader {font-weight:bold;display:inline;}
+div.inlineField .summary {display:inline; padding:5px; text-align:justify;}
+div.inlineField .fieldValue {display:inline;}
+div.inlineField .fieldValue .items span{display:block;}
+
+div.paymentForm .fieldValue p {white-space: normal;}
+
+div.infoFields {padding:0 0 5px 0;}
+div.inputFields {padding:0 0 5px 0;}
+
+div.buyProductDialog div.inputForm div.field .qtyLbl {font-weight:bold;color:black;}
+span.qtyLimits {font-weight:normal;}
+div.buyProductDialog div.optionPicker {display:inline-block;}
+
+
+/*** AJAX CONTROL TOOLKIT STYLES ***/
+div.collapsiblePanel {border:2px solid #CCDAE5; margin:2px 0 2px 0; background-color:#FFF;}
+div.collapsiblePanel div.header {font-weight:bold; background-color:#CCDAE5; color:#FFF;padding:5px 0 5px 0;}
+div.collapsiblePanel div.content {padding:2px;}
+
+/* image gallery */
+#gallery {overflow:hidden;margin-top: 5px;}
+#gallery ul {list-style:none;padding:0;margin:0;text-align:center;}
+#gallery ul li {padding:1px;display:inline;}
+
+/* basket styling */
+#basketPage div.basketContainer div.actions { margin-top:10px; margin-bottom:10px; text-align:center; }
+#basketPage div.basketContainer div.actions span.basket {padding: 5px 0;display:block;}
+#basketPage div.basketContainer div.actions span.checkout {display:block;clear:both;width:100%;padding: 5px 0;}
+#basketPage div.basketContainer div.actions span.googleCheckout {display:block;clear:both;width:100%;padding: 5px 0;}
+#basketPage div.basketContainer div.actions span.checkout .button:hover { background-color:#999; }
+#basketPage div.warnings {padding-left:20px;}
+#basketPage div.emptyBasketPanel {background-color:white; padding-top: 20px; margin: 20px 35px 20px 35px; height: 50px; text-align:center;}
+#basketPage div.emptyBasketPanel span.message { font-size: 18px; font-weight: normal; color: #666666; }
+
+/* display of the basket items */
+table.basketItems {border:0; border-collapse:collapse; width:100%; margin-bottom:5px;}
+table.basketItems tr {border:0;}
+table.basketItems td, table.basketItems th {border:none;}
+table.basketItems td {border-bottom:1px dotted black;}
+table.basketItems td.thumbnail {width:65px;}
+table.basketItems td.itemDetail {}
+table.basketItems td.itemDetail div.itemActions { padding:5px;}
+table.basketItems td.itemDetail div.setGiftOptions a { background:url(images/icons/gift-box.gif) center right no-repeat; height:30px; line-height:30px; padding-right:25px; }
+table.basketItems td.subtotalLabel {font-weight:bold; font-size:100%;}
+table.basketItems td.subtotalValue {font-weight:bold;color:red;padding-left:10px;}
+
+table.orderItems {border:0; border-collapse:collapse; width:100%;}
+table.orderItems tr {border:0;}
+table.orderItems td, table.orderItems th {border:none;}
+table.orderItems td {border-bottom:1px dotted black;}
+table.orderItems td.itemDetail {}
+
+div.basketItemDetail ul.inputList, 
+div.basketItemDetail ul.kitInputList, 
+div.basketItemDetail ul.assetList{margin:0;padding: 0 0 0 20px;font-size:75%;}
+
+div.rowActions {padding-top:5px;}
+
+/* end basket display styling                                                           */
+
+input.watermarkedInput { color: Gray; font-style:italic;}
+div.noResultsPanel {text-align:center; padding-top:5px;}
+
+
+/*** styles for paging of catalog grids ***/
+div.pagingPanel, tr.pagingPanel {margin:0;}
+div.pagingPanel, tr.pagingPanel { text-align: left; padding: 10px; margin: 10px 0px 0 0px;}
+div.pagingPanel span, div.pagingPanel .current, div.pagingPanel a {padding: 3px 5px; border: 1px solid #65aedb;font-weight: bold;font-size: 12px;margin: 3px 0 3px 1px;background-color:#005b90 ;color: #FFF;}
+div.pagingPanel .resultMessage {padding: 3px 5px; border: none;font-weight: bold;font-size: 12px;margin: 3px 0 3px 1px;background-color:#FFF ;color: #000;}
+div.pagingPanel a{background-color:#e4e4e4; color: #005b90; text-decoration:none; }
+div.pagingPanel a:hover { background-color: #e5a704; color: #FFFFFF; border:1px solid #005b95; }
+tr.pagingPanel td {border-bottom:none; padding:5px 0 5px 0;}
+tr.pagingPanel a {padding: 3px 5px; border: 1px solid #65aedb;font-weight: bold;font-size: 12px;margin: 3px 0 3px 1px;background-color:#e4e4e4 ;color: #005b90;}
+tr.pagingPanel span {padding: 3px 5px; border: 1px solid #65aedb;font-weight: bold;font-size: 12px;margin: 3px 0 3px 1px;background-color:#005b90 ;color: #FFF;}
+tr.pagingPanel a:hover { background-color: #e5a704; color: #FFFFFF; border:1px solid #005b95; }
+
+.cssPager td{ padding-left: 4px; padding-right: 4px; font-size:18px; }
+.cssPager span { background-color: #263441; border: 1px solid #DBEAFF; color: #FFFFFF; padding: 2px 5px;    }
+
+/* checkout hover help images */
+.cvvAmex
+{
+	background-image:url(images/PaymentInstruments/cvv_amex_m.gif);
+	background-repeat:no-repeat;
+	border:0;
+	height:132px; 
+	width:200px;
+}
+
+.cvvVisa
+{
+	background-image:url(images/PaymentInstruments/cvv_visa_m.gif);
+	background-repeat:no-repeat;
+	border:0;
+	height:132px; 
+	width:200px;
+}
+
+.checkHelp
+{
+	background-image:url(images/PaymentInstruments/checkhelp_m.jpg);
+	background-repeat:no-repeat;
+	border:0;
+	height:145px; 
+	width:200px;
+}
+
+.helpSection { margin:10px; vertical-align:top; }
+
+/******************************************************************************************/
+/* begin styles for modal popup dialogs                                                   */
+/******************************************************************************************/
+
+/* background for main page when modal popup is visible */
+.modalBackground
+{
+	background-color:Gray;
+	filter:alpha(opacity=70);
+	opacity:0.7;
+}
+
+/* style for modal popup dialog */
+.modalPopup
+{
+	background-color:#f5f1e1;
+	border-width:2px;
+	border-style:solid;
+	border-color:#69665f;
+	padding:4px;
+	width:70%;
+	border-radius: 5px 5px 0 0;
+}
+
+/* style for header of modal popup dialog */
+.modalPopupHeader 
+{
+	cursor:move;
+	background-color:#5a574e;
+	border:solid 2px #5a574e;
+	color:#fff;
+	font-style:bold;
+	margin:-4px;
+	padding:6px;
+}
+
+.modalPopupHeader h3{ margin:0px; padding:0px;}
+.modalPopupHeader .closeIcon{ width:16px; height:16px; cursor:default; margin:-20px 8px 0 0; float:right; background-image:url(images/close_icon.gif);}
+.modalPopupFooter { text-align:center; }
+
+/* Text styles used to provide status information */
+.goodCondition{font-weight: bold; color: #008000; padding-bottom: 3px;}
+.warnCondition{font-weight: bold; color: #FFA500; padding-bottom: 3px;}
+.errorCondition{font-weight: bold; color: #FF0000; padding: 3px;}
+.requiredField {color: #FF0000; padding-bottom: 3px; margin-left:3px;}
+p.success, .success{ font-weight:bold; color: #008000; }
+p.error, .error { font-weight:bold; color: #FF0000; }
+
+/* widget styling */
+div.widget { margin-bottom:1em; }
+div.widget .header { margin: 0px 0 0; padding: 3px 10px 4px; }
+/*div.widget .header h2 { text-transform:uppercase; }*/
+div.widget .content { padding:10px; }
+div.widget .content .options { margin-bottom:1em; padding:0 5px 0 5px;}
+div.widget .content p instruction { padding:0 5px 0 5px; font-weight:bold; }
+
+table.widget { border-collapse:collapse; border:solid 1px #7cc2db; margin-bottom:1em; width:100%; }
+table.widget td { padding:0px;vertical-align:top; }
+table.widget caption { border:solid 1px #7cc2db; border-bottom:none; padding:6px; text-align:left; }
+
+/* SOCIAL MEDIA LINKS*/
+div.socialMediaLinks { display:block; }
+div.mediaLink { display:inline-block; float:left; padding:5px;}

@@ -1,0 +1,100 @@
+<html>
+<head>
+<style type="text/css">
+TABLE.Email {
+width: 640px;
+padding: 5px;
+margin: 0;
+border: 1px solid #5872CB;
+}
+TABLE.Email TH {
+font-weight: bold;
+font-size: 12px;
+color: #ffffff;
+font-family: Arial, Verdana, Sans-Serif;
+background-color: #304FBA;
+text-align: center;
+text-decoration: none;
+padding: 5px;
+}
+TABLE.Email TD {
+font-weight: normal;
+font-size: 12px;
+color: #000000;
+font-family: Arial, Verdana, Sans-Serif;
+background-color: #ffffff;
+text-align: left;
+text-decoration: none;
+padding: 3px;
+}
+</style>
+</head>
+<body>
+<table class="Email" width="600px">
+<tr>
+    <td colspan="2" class="Email">
+        <p>Hello -</p>
+        <p>We are happy to inform you that the following product is back in stock now.</p>
+        <p>To purchase this product, please click the link below:</p>
+        #if($variant)
+        <p><a href="${store.StoreUrl}$product.NavigateUrl.Replace('~/', '')">$variant.Product.Name ($variant.VariantName)</a></p>
+        #elseif($product)
+        <p><a href="${store.StoreUrl}$product.NavigateUrl.Replace('~/', '')">$product.Name</a></p>
+        #end
+
+        #if($variant)
+        <table border="0" cellpadding="5" cellspacing="0" width="100%">
+            <tbody>
+                <tr>
+                    <td style="background:#cccccc; color:#00000; text-align: left;"><strong>SKU</strong></td>
+                    <td style="background:#cccccc; color:#00000; text-align: left;"><strong>Product Name</strong></td>
+                    <td style="background:#cccccc; color:#00000; text-align: center;">
+                        <strong>
+                            Quantity
+                            in Stock
+                        </strong>
+                    </td>
+                    <td style="background:#cccccc; color:#00000; text-align: center;"><strong>Price</strong></td>
+                </tr>
+                <tr>
+                    <td class="style1">$variant.SKU</td>
+                    <td><b>$variant.Product.Name ($variant.VariantName)</b></td>
+                    <td style="text-align: center;">$variant.Instock</td>
+                    <td style="text-align: center;">$helper.LSCurrencyFormat($variant.CalculatedPrice,"ulc")</td>
+                </tr>
+            </tbody>
+        </table>
+        #elseif($product)
+        <table border="0" cellpadding="5" cellspacing="0" width="100%">
+            <tbody>
+                <tr>
+                    <td style="background:#cccccc; color:#00000; text-align: left;"><strong>SKU</strong></td>
+                    <td style="background:#cccccc; color:#00000; text-align: left;"><strong>Product Name</strong></td>
+                    <td style="background:#cccccc; color:#00000; text-align: center;">
+                        <strong>
+                            Quantity
+                            in Stock
+                        </strong>
+                    </td>
+                    <td style="background:#cccccc; color:#00000; text-align: center;"><strong>Price</strong></td>
+                </tr>
+                <tr>
+                    <td>$product.SKU</td>
+                    <td><b>$product.Name</b></td>
+                    <td style="text-align: center;">$product.Instock</td>
+                    <td style="text-align: center;">$helper.LSCurrencyFormat($product.Price,"ulc")</td>
+                </tr>
+            </tbody>
+        </table>
+        #end
+
+        <p>We look forward to seeing you again!</p>
+        <p>
+            Best Regards,
+        </p>
+        <p><a href="${store.StoreUrl}default.aspx">$store.Name</a></p>
+    </td>
+</tr>
+</table>
+</body>
+</html>

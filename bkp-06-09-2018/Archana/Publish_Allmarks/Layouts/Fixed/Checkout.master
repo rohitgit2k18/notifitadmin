@@ -1,0 +1,15 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Layouts/Fixed/Base.Master" AutoEventWireup="True" CodeFile="OneColumn.master.cs" Inherits="AbleCommerce.Layouts.Fixed.OneColumn" %>
+<%@ Register Src="~/ConLib/CheckoutProgress.ascx" TagName="CheckoutProgress" TagPrefix="uc" %>
+<asp:Content ID="NestedMaster" ContentPlaceHolderID="NestedMaster" runat="server">
+    <div id="storeHeader">
+        <div id="checkoutNavigation">
+            <uc:CheckoutProgress ID="CheckoutProgress1" runat="server" />
+        </div>
+    </div>
+    <div id="mainColumn" class="oneColumnLayout">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="PageContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+</asp:Content>

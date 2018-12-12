@@ -1,0 +1,879 @@
+﻿/* begin with the @media rule to specify media */
+@media screen {
+
+/******************************************************************************************/
+/* begin global styles                                                                    */
+/******************************************************************************************/
+
+/* always show vertical scrollbar to prevent screen jumping for ajax updates */
+html
+{
+	overflow-y: scroll;
+	overflow-x: auto;
+}
+
+body
+{
+	font-size:12px;
+	font-family:arial;
+	background-color:#4469a3;
+	color: #000;
+	padding: 0 10px 0 10px;
+	margin: 0px;
+}
+
+input[type="radio"] { margin: 3px 3px 3px 4px; }
+input[type="checkbox"] { margin: 3px 3px 3px 9px; }
+input[type="checkbox"]:first-child { margin-left:3px; }
+input[align="absmiddle"] { vertical-align:middle; }
+textarea.borderBox { width:100%;box-sizing:border-box;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box; }
+.inactive { color:#CCC; } 
+
+a { color: Black; }
+.copyright { text-align:center; font-size:.9em;}
+.copyright a { color:#ffffff;}
+fieldset { padding: 5px; }
+fieldset legend { font-weight:bold; }
+fieldset span.fieldHeader { float:left; width:25%; margin-right:5px; padding-top:3px; text-align:right; font-weight:bold; }
+
+/* style for text that is intended as a help note (such as appears on legacy payment gateway pages) */
+.helpText { font-weight:normal; font-style:italic; }
+p { margin:0 0 1em 0; }
+p.spaceAbove { margin: 1em 0; }
+p.small { font-weight:normal; font-size:10px; }
+
+ul { padding: 0; margin:5px; }
+ul li { list-style:none; padding:5px 0 0 0;}
+
+/* style for a caption that is inline with other text */
+.inlineCaption {display:inline;font-size:150%;font-weight:bold;color: #333333;}
+
+/******************************************************************************************/
+/* end global styles                                                                      */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin global header and footer styles                                                  */
+/******************************************************************************************/
+
+#adminHeader { background:url(images/header-bg.jpg) top left repeat-x;}
+#headerLogo {height:60px; padding:0px;}
+#headerSearch {margin-top:6px; text-align:left; padding-right:10px; width:200px;}
+#headerSearch input[type="text"] {width:85px;}
+.subscriptionHeading {white-space:nowrap;width:50%;}
+
+#headerNav { text-align:right;padding-top:5px;padding-right:5px; }
+#headerNav ul{ margin:0px; padding:0px;}
+#headerNav ul li{ display:inline-block; list-style:none;padding:0 3px 0 3px; }
+#headerNav ul li:hover { border:0px solid black;padding:0 3px 0 3px; }
+#headerNav ul li a { display:inline-block;text-decoration:none;text-align:center;width:55px;height:60px;font-size:8pt; }
+
+#headerNav ul li.dashboard { background:url(images/toolbar/dashboard.png) center center no-repeat; }
+#headerNav ul li.orders { background:url(images/toolbar/orders.png) center center no-repeat; }
+#headerNav ul li.users { background:url(images/toolbar/users.png) center center no-repeat; }
+#headerNav ul li.catalog { background:url(images/toolbar/categories.png) center center no-repeat; }
+#headerNav ul li.products { background:url(images/toolbar/products.png) center center no-repeat; }
+#headerNav ul li.store { background:url(images/toolbar/store.png) center center no-repeat; }
+#headerNav ul li.logout { background:url(images/toolbar/logout.png) center center no-repeat; }
+
+/* menubar styling (see also, menubar.css) */
+#menuBar {border-bottom:solid 1px black; border-top:solid 1px black; font-weight:bold; background:url(images/top-nav-bg.gif) top left repeat-x; height:35px;}
+
+#stickyActions {width:936px;padding-bottom:5px; padding-top:5px;background-color:#FBFBFB;border-bottom: 1px dotted #808080;}
+
+/* styling for breadcrumb panel */
+#adminBreadCrumbs div.innerFrame { line-height: 18px; background-color: white; color: #414141; padding: 4px 0px; text-indent: 10px; }
+#adminBreadCrumbs div.innerFrame a { color: #414141; text-decoration: none; margin-right: 4px; font-size:11px; }
+#adminBreadCrumbs div.innerFrame a:hover{ color: #414141; text-decoration: underline; }
+#adminBreadCrumbs div.innerFrame a.current { color:#9a2c5d;}
+#adminBreadCrumbs div.innerFrame a.current:hover { color:#188BC2; text-decoration: none; cursor:default; }
+
+#mainContent { background-color:#fff; }
+
+#adminFooter {text-align:center; margin:0px auto; color:#000; width:960px; background:url(images/footer-bg.jpg) top left repeat-x; border-radius:0px 0px 10px 10px;}
+#adminFooter div.innerFrame { padding:8px 10px; border-radius:0px 0px 10px 10px; height:50px;}
+#adminFooter div.innerFrame a {padding:0 5px 0 5px;}
+#adminFooter p { margin:5px; }
+
+/******************************************************************************************/
+/* end global header and footer styles                                                    */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin style for individual page headers                                                */
+/******************************************************************************************/
+
+div.pageHeader { position:relative;margin:0px; }
+
+div.pageHeader div.caption
+{
+	padding-left:6px; padding-right:6px;
+    border-top:1px solid #9a2c5d;
+	border-bottom:1px solid #9a2c5d;
+	background-color:#9a2c5d;
+}
+
+div.pageHeader div.caption h1
+{
+	padding:8px 10px 5px 3px;
+	font-size:14px;
+	font-weight:bold;
+	color:#FFF;
+    text-transform:uppercase;
+	margin:0px;	  
+}
+
+/******************************************************************************************/
+/* end style for individual page headers                                                  */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin style for logical page divisions                                                 */
+/******************************************************************************************/
+
+div.section 
+{
+	vertical-align:top;
+	padding-left:0px;
+	margin: 12px 6px 12px 6px;
+}
+
+div.section div.header
+{
+	background:url(images/sectionheader-bg.png) top left repeat-x #F5F7FC;
+	border-top: 1px solid #C0C0C0;
+	border-left: 1px solid #C0C0C0;
+	border-right: 1px solid #C0C0C0;
+	color: #494949;
+	font-weight: bold;
+	padding: 6px 6px;
+	border-radius: 5px 5px 0 0;
+}
+
+div.section div.header h2 
+{
+    font-size:12px;
+    margin:0px;
+	color: #000;
+	font-weight:bold;
+    padding:5px;
+	display:inline-block;
+}
+
+div.header a
+{
+    font-size:12px;
+    margin:0px;
+	color: #fff;
+	font-weight:bold;
+	padding-left:5px;
+	text-decoration:none;
+}
+
+div.content { padding: 12px; line-height:1.5em; margin-bottom:10px;overflow:hidden; clear: both;}
+div.loginContent { padding: 10px; line-height:1.5em; overflow:hidden; }
+div.loginContent p {margin:5px 0 5px 0;}
+div.content p {margin:5px 0 5px 0;}
+div.aboveGrid { padding-bottom:0px;margin-bottom:0px; }
+div.content h3 { margin:0px; font-weight:bold; }
+.goodCondition{font-weight: bold; color: #228b22; padding-bottom: 3px;}
+.errorCondition{font-weight: bold; color: #FF0000; padding-bottom: 3px;}
+
+div.articleListingSidebar .webpage { list-style: outside none none; margin-bottom: 0; padding-left: 0; }
+div.articleListingSidebar .webpage a { display: block; padding: 10px 15px; position: relative; }
+
+/* caption for the page section header */
+.sectionHeader h2
+{
+	margin: 0px;
+	font-size: 12px; 
+	font-weight: bold;
+}
+
+div.leftColumn { }
+div.middleColumn { }
+div.rightColumn { }
+div.mainColumn { }
+div.section div.content { border:solid 1px #c0c0c0; padding-left:10px; padding-right:10px; border-radius: 0px 0px 5px 5px; background:#FFFFFF; }
+div.section div.loginContent { border:solid 1px #c0c0c0; padding-left:10px; padding-right:10px; background:#FFFFFF;}
+div.loginFooter {background-color:#f3eff3; border:1px solid #c0c0c0; border-top:0; color:#000; text-align: center; border-radius:0 0 5px 5px; font-size: 10px; font-weight: normal; margin: 0; padding: 5px 6px;}
+
+/* sections that are by themselves - e.g. login or popup help */
+div.orphanSection { margin:0px; }
+div.orphanSection div.content { margin:0px; }
+
+/******************************************************************************************/
+/* end style for logical page divisions                                                   */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin style for tabs                                                                   */
+/******************************************************************************************/
+
+.tabs .ajax__tab_header {border-bottom: solid 1px #999793;}
+.tabs .ajax__tab_outer {margin-top:5px;margin-left:5px;margin-bottom:-1px;} 
+.tabs .ajax__tab_inner {padding:0 2px;border:#999793 solid 1px;border-radius: 5px 5px 0px 0px; background:url(images/tab-bg.png) top left repeat-x;outline:none;} 
+.tabs .ajax__tab_tab {height:15px;padding:4px;margin:0;outline:none;color:#333}
+.tabs .ajax__tab_hover .ajax__tab_outer {outline:none;} 
+.tabs .ajax__tab_hover .ajax__tab_inner {background:url(images/tab-active.png) top left repeat-x;outline:none;} 
+.tabs .ajax__tab_hover .ajax__tab_inner a {color:#000; outline:none;}
+.tabs .ajax__tab_hover .ajax__tab_tab {outline:none;}
+.tabs .ajax__tab_active .ajax__tab_outer {outline:none;} 
+.tabs .ajax__tab_active .ajax__tab_inner {background:url(images/tab-active.png) top left repeat-x;} 
+.tabs .ajax__tab_active .ajax__tab_inner a {color:#000; outline:none;}
+.tabs .ajax__tab_active .ajax__tab_tab {outline:none;}
+.tabs .ajax__tab_body {outline:none;}
+
+.secondaryMenu {padding:0px;border-bottom:1px solid #999793; }
+.secondaryMenu ul{margin:5px 0px 0px 4px;padding:0px; }
+.secondaryMenu ul li{display:inline;padding:0px;margin:0 0 0 1px;}
+.secondaryMenu ul li a{display:inline-block;margin:0px;padding:4px;text-decoration:none;color:#000;border:1px solid #999793;margin-bottom:-1px; border-radius: 4px 4px 0px 0px; background:url(images/tab-bg.png) top left repeat-x;}
+.secondaryMenu ul li a:hover{background:url(images/tab-active.png) top left repeat-x; }
+.secondaryMenu ul li.active a{ background:url(images/tab-active.png) top left repeat-x; }
+
+/******************************************************************************************/
+/* end style for tabs                                                                     */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin style for grid outputs                                                           */
+/******************************************************************************************/
+
+table.pagedList { margin-bottom:14px;margin-left:auto;margin-right:auto;border-collapse:collapse; }
+table.pagedList td { padding:4px; border:1px solid #b6b9bb;}
+table.pagedList th { font-weight: bold; border: 1px solid #b6b9bb; background: #c1c1c1; padding: 4px; }
+table.pagedList th a { color: #000;	font-weight: bold; text-decoration:underline; margin-right: 8px; }
+table.pagedList tr.oddRow { background-color: #dededc; border:solid 1px #FFFFFF; }
+table.pagedList tr.evenRow { background-color: #EEEEEE; border:solid 1px #E1E2E4; }
+table.pagedList tr.empty td { min-width:300px; text-align:center; padding: 10px; font-style:italic; border:1px solid #9a2c5d !important;}
+table.pagedList tr.footer { border-top:solid 2px gray; }
+table.pagedList tr.footer td { border: none; padding:5px; }
+table.pagedList tr.paging td { padding:0; }
+
+table.pagedList th.item,
+table.pagedList td.item {text-align:left;}
+table.pagedList th.sku,
+table.pagedList td.sku {text-align:center;}
+table.pagedList th.price,
+table.pagedList td.price {text-align:center;width:100px;}
+table.pagedList th.quantity,
+table.pagedList td.quantity {text-align:center;width:80px;}
+table.pagedList th.returnQuantity,
+table.pagedList td.returnQuantity {text-align:center;width:80px;}
+#rawDataGrid table.pagedList {width:100%;}
+#rawDataGrid table.pagedList td {text-align:center;}
+
+/* ablegridview pager */
+.ablePager { position:relative;background-color:#E1E2E4; }
+.ablePager .totalMatchedItems { margin:4px; }
+.ablePager .pageNumberDiv { display:inline-block;margin:4px; }
+.ablePager .pageNumberDiv input[type="text"] { width:40px; }
+.ablePager .pageNumberDiv input[type="image"] { vertical-align:middle; }
+.ablePager .pageNumberDiv span { margin-left:4px; }
+.ablePager .pageSizeDiv { display:inline-block;margin:4px;position:absolute;right:5px; }
+.ablePager .pageSizeDiv select { margin:0 4px; }
+
+/* ablegridview action footer */
+#gridFooter { position:relative;background-color:#E1E2E4;line-height:1.5em;border:solid 1px black;padding:6px;margin-top:-15px; }
+
+/******************************************************************************************/
+/* end style for grid outputs                                                             */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin browse catalog footer style                                                      */
+/******************************************************************************************/
+
+#gridFooter span { margin: 0px; padding:0; height:28px; line-height:28px;}
+#gridFooter span.selectHeader { border-right:none;font-weight:bold;width:84px;padding-left:6px; }
+#gridFooter span.selectLinks { border-left:none;width:429px;}
+#gridFooter span.selectLinks a { font-weight:normal;margin:0px 3px;text-decoration:none;}
+#gridFooter span.selectLinks a:hover { text-decoration:underline;}
+
+/******************************************************************************************/
+/* end browse catalog footer style                                                        */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin style for input forms                                                            */
+/******************************************************************************************/
+
+/* styling for tables form */
+table.inputForm
+{
+	width:100%;
+}
+/* user shipping address list table */
+table.ShippingAddressList {
+    width:77% !important;
+}
+/* styling for table headers form */
+table.inputForm th
+{
+	padding: 6px;
+	text-align:right;
+	font-weight:bold;
+}
+
+/* style for links that appear within rowheader */
+table.inputForm th a.header {
+	background-color: #650101;
+	width:100%;
+	color: #FFFFFF;
+	font-weight: normal;
+	font-size: 10px;
+	font-weight:bold;
+	text-align:left;
+	padding: 6px;
+}
+
+table.inputForm td { padding:6px; }
+
+table.inputForm .Backorder{ width:118px; }
+table.inputForm .HandlingCharges{ width:167px; }
+table.inputForm span.billableLink { margin-left: 30px; }
+
+/*style for billable weight dispaly dialog */
+#billableDialog div.productWeightCaption { width:400px; margin:0 auto; }
+#billableDialog div.weightCaption { padding:16px 2px 0 20px; float:left; width:100px; font-weight:bold; }
+#billableDialog div.weight { padding:16px 3px 10px 0;width:230px; }
+#billableDialog div.dimensionalWeight { padding:0 0 10px 20px; float:left; width:400px; font-weight:bold; }
+#billableDialog p { padding:16px 3px 0 20px; }
+#billableDialog div.weightLabel { float:left; width:68px; margin-left:45px; font-weight:bold; }
+#billableDialog div.weightValue { width:230px; }
+#billableDialog div.intelWeight { width:400px; margin:0 auto;padding-bottom:10px; }
+#billableDialog div.intelWeightCaption { float:left; width:84px; margin-left:45px;font-weight:bold; }
+#billableDialog .link { margin-left:80px; }
+
+/* style for page section header */
+.sectionHeader { background: #CECECE; color: #494949; font-weight: bold; }
+div.sectionHeader { padding: 6px 4px; }
+div.componentList div.sectionHeader { margin-bottom:0px; }
+tr.sectionHeader th { padding: 6px 4px; text-align:left; }
+
+.expandColumns { width:100px; }
+.noExpand { width:58px; }
+.expandSmallColumns { width:50px; }
+.nosmallExpand { width:32px; }
+div.enableScrolling { overflow:auto; }
+.hideExportButton { display: none; }
+
+/* set style for other elements within rowheader */
+table.inputForm .colHeader * {	font-weight: bold; font-size: 12px; }
+
+/* style for cell that contains validation summary */
+table.inputForm .validation { margin-top:4px; margin-bottom:8px; }
+
+/* style for cell that contains submit buttons */
+table.inputForm .submit { padding:4px 0px 8px 0px; text-align:left; }
+
+/* style for cell that contains submit buttons */
+table.inputForm .dialogSubmit { padding:4px 0px 8px 0px; text-align:left; }
+
+/* checkbox lists in an input form */
+table.inputForm .checkboxList label { margin-left: 2px; margin-right:8px; }
+
+/* style used to add width to cells for better visuals */
+table.widenCells th.rowHeader {padding-left:30px;}
+table.widenCells td { padding-right: 20px;}
+table.compact { width:auto; }
+
+.searchPanel
+{
+	border:solid 1px #e1e1e1;
+	background-color:#efefef;
+	padding:6px;
+	margin:12px;
+	border-radius:5px
+}
+
+/* link container for the tooltip */
+a.toolTip, a.toolTip:hover
+{	
+	text-decoration:none;
+    padding-right:12px;	
+	background-image:url(images/icons/tooltip.gif);
+	background-repeat:no-repeat !important;		
+	background-position:right top;
+	color:#000;
+	padding-right:15px;
+}
+
+/* style for links that should be highlighted */
+a.highlight { color:#ab1030; background:transparent url(images/Icons/link-arrow2.png) no-repeat scroll right center; padding-right:14px; }
+a.highlight:hover {color:#1D79AA; background-color: #e0e0e0;}
+
+/* style for inline field labels */
+.fieldHeader { font-weight:bold; }
+div.toolbar {text-align:right; background-color:#D9DEE4; margin:5px 0 5px 0;}
+
+/* fix nested table padding for category tree in input forms */
+table.inputForm div.categoryTree { display:inline-block; }
+table.inputForm div.categoryTree td { padding:0px; }
+
+/* sort category buttons css*/
+.sortButton { text-align:left; }
+.hrSort { width:65px;margin-left:5px; }
+
+div.summarySection {float:right;}
+.labelHeadings{text-align:right; padding:0 5px 0 5px; font-weight:normal;padding-left:13px;}
+.totalLabels{text-align:right; padding:0 5px 0 5px; font-weight:bold; padding-left:13px;}
+/******************************************************************************************/
+/* end style for input forms                                                              */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin styles for modal popup dialogs                                                   */
+/******************************************************************************************/
+
+/* background for main page when modal popup is visible */
+.modalBackground
+{
+	background-color:Gray;
+	filter:alpha(opacity=70);
+	opacity:0.7;
+}
+
+/* style for modal popup dialog */
+.modalPopup
+{
+	background-color:#FFF;
+	border-width:2px;
+	border-style:solid;
+	border-color:Gray;
+	padding:4px;
+	width:300px;
+}
+
+/* style for header of modal popup dialog */
+.modalPopupHeader 
+{
+	cursor:move;
+	background-color:#DDDDDD;
+	border:solid 2px Gray;
+	color:Black;
+    font-weight:bold;
+	margin:-4px;
+	padding:6px;
+}
+
+.modalPopupHeader h2{ margin:0px; padding:0px;}
+
+.modalPopup ul.information {padding:0 20px;}
+.modalPopup ul.information li { width:550px; text-align:left;list-style-type:disc;}
+.modalPopup .content li { width:590px;}
+
+/******************************************************************************************/
+/* end styles for modal popup dialogs                                                     */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin styles for auto complete extender                                                */
+/******************************************************************************************/
+
+.autoCompleteList
+{
+    font-size: 11px;
+    color: #000;
+    border: 1px solid #999;
+    background: #fff;
+    float: left;
+    z-index: 1;
+    position:absolute;
+    margin-left:0px;
+    margin-top:0;
+    max-height:200px;
+    overflow: scroll;
+    overflow-x:hidden;
+}
+
+/******************************************************************************************/
+/* end styles for auto complete extender                                                  */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin styles for buttons                                                               */
+/******************************************************************************************/
+
+.button
+{
+	background:url(images/button-bg.png) repeat-x;
+	border: 1px solid #b3b3b3;
+	border-radius: 3px;
+	color:#000;
+	cursor:pointer;
+	font-size:11px;
+	font-weight: bold;
+	padding:0 6px;
+	margin:0 0 2px 4px;
+	text-decoration:none;
+	text-transform: uppercase;
+	vertical-align:middle;
+	position:relative;
+	top:0px;
+	white-space: nowrap;
+	height:21px;
+	line-height:21px;
+	color:white;
+}
+
+.button:hover
+{
+	background:url(images/button-hover-bg.png) repeat-x;
+	color:#333;
+}
+
+a.button
+{
+	display:inline-block;
+	height:19px;
+	line-height:21px;
+}
+
+.button:active
+{
+	position: relative;
+	top: 1px;
+}
+
+/******************************************************************************************/
+/* end styles for buttons                                                                 */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin styles for navigation buttons                                                    */
+/******************************************************************************************/
+
+div.pageHeader div.caption div.links
+{
+	position:absolute;
+	right:10px;
+	top:4px;
+}
+
+div.pageHeader div.caption div.links .button
+{
+    background:#ccc repeat-x;
+	color:#333;
+}
+
+div.pageHeader div.caption div.links .button:hover
+{
+	background:#ccc;
+	color:#fff;
+}
+
+div.pageHeader div.caption div.links .activeButton
+{
+    background:#fff;
+	color:#333;
+}
+
+div.pageHeader div.caption div.links .activeButton:hover
+{
+	background:#fff;
+	color:#333;
+	cursor:default;
+}
+
+/******************************************************************************************/
+/* end styles for navigation buttons                                                      */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin style overrides for special action buttons                                       */
+/******************************************************************************************/
+
+.addButton
+{
+    padding-left:24px;
+	background: url(images/icons/plus.png) 5px center no-repeat, url(images/button-bg.png) repeat-x !important;
+}
+
+.addButton:hover
+{
+	background: url(images/icons/plus.png) 5px center no-repeat, url(images/button-hover-bg.png) repeat-x !important;
+}
+
+.cancelButton
+{
+    background:#ccc repeat-x !important;
+	color:#333 !important;
+}
+
+.cancelButton:hover
+{
+    background:#ccc !important;
+}
+
+.saveButton 
+{
+  background:url(images/button-bg.png) !important;
+  border: 1px solid #406b8b;
+  color:#eee !important;
+}
+
+.saveButton:hover
+{
+  color:#fff !important;
+}
+
+/******************************************************************************************/
+/* end style overrides for special action buttons                                         */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin styles for tiles menu                                                            */
+/******************************************************************************************/
+
+.tilesMenu
+{
+    display: inline-block;
+    transition: ease 0.2s;
+    -moz-transition: ease 0.2s; /* Firefox 4 */
+    -webkit-transition: ease 0.2s; /* Safari and Chrome */
+    -o-transition: ease 0.2s; /* Opera */
+    margin-bottom:2em;
+}
+
+.tilesMenu ul
+{
+    list-style:none;
+    margin:auto;  
+}
+
+.tilesMenu ul li
+{
+    margin:10px;
+    float:left;
+    text-align:left;
+    border-radius:10px;
+}
+
+.tilesMenu ul li div
+{
+    display:table-cell;
+    vertical-align:top;
+    width:220px;
+    height:120px;
+    padding:9px;
+    border-radius:5px;
+    background-color:#fff;
+}
+
+.tilesMenu ul li div span
+{
+   display: block;
+   font-size: 1.3em;
+   font-weight: bold;
+   padding: 3px 0;
+}
+
+.tilesMenu ul li div p
+{
+    font-weight: normal;
+    padding: 2px 0;
+}
+
+.tilesMenu ul li a, .tilesMenu ul li a:hover, .tilesMenu ul li a:active, .tilesMenu ul li a:visited
+{
+    text-decoration:none;
+    color:#9A2C5D;
+    padding:6px;
+}
+
+.tilesMenu .tile_0,
+.tilesMenu .tile_4,
+.tilesMenu .tile_8 { background:#D2D2D0 }
+.tilesMenu .tile_1,
+.tilesMenu .tile_5,
+.tilesMenu .tile_9 { background:#D2D2D0 }
+.tilesMenu .tile_2,
+.tilesMenu .tile_6,
+.tilesMenu .tile_10 { background:#D2D2D0 }
+.tilesMenu .tile_3,
+.tilesMenu .tile_7,
+.tilesMenu .tile_11 { background:#D2D2D0 }
+
+.tipTextCaption { font-weight:bold; margin-right:6px; }
+
+/******************************************************************************************/
+/* end styles for tiles menu                                                              */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin style for reports pages                                                          */
+/******************************************************************************************/
+
+div.reportNav {text-align: center; }
+img.reportChart {display:block;margin-left: auto; margin-right:auto; }
+table.report {margin-bottom:4px;margin-left:auto;margin-right:auto;border-collapse:collapse; }
+table.report td {padding:6px;border:dashed 1px gray; }
+table.report td.amount {text-align:right; }
+table.report th {padding:6px;border:dashed 1px gray;font-weight:bold;text-align:left; }
+table.report tr.oddRow {background-color: #eee; }
+table.report tr.evenRow {background-color: #fff; }
+
+/******************************************************************************************/
+/* end style for reports pages                                                            */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin style for summary tables                                                         */
+/******************************************************************************************/
+
+table.summary { margin-bottom:4px;border-collapse:collapse; }
+table.summary td { padding:6px;padding-right:12px;border:none; }
+table.summary td.amount { text-align:right; }
+table.summary th { padding:6px;border:none;font-weight:bold;text-align:left; }
+table.summary tr.oddRow { background-color: #eee; border:#00FF33 solid 1px;}
+table.summary tr.evenRow { background-color: #fff; }
+
+/******************************************************************************************/
+/* end style for summary tables                                                           */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin style for notifications                                                          */
+/******************************************************************************************/
+
+.ui-notify-container { margin:10px; }
+.ui-notify { width:350px; position:fixed; top:10px; right:10px; }
+.ui-notify-message { padding:10px; margin-bottom:15px; -moz-border-radius:8px; -webkit-border-radius:8px; border-radius:8px;height:60px; }
+.ui-notify-message h1 { font-size:16px; margin:0; padding:0 }
+.ui-notify-message p { margin:3px 0; padding:0; line-height:18px;font-size:14px; }
+.ui-notify-message:last-child { margin-bottom:0 }
+.ui-notify-message-style { background:#000; background:rgba(0,0,0,0.8); -moz-box-shadow: 0 0 6px #000; -webkit-box-shadow: 0 0 6px #000; box-shadow: 0 0 6px #000; }
+.goodCondition .ui-notify-message-style { background:#228b22; -moz-box-shadow: 0 0 6px #228b22; -webkit-box-shadow: 0 0 6px #228b22; box-shadow: 0 0 6px #228b22; }
+.errorCondition .ui-notify-message-style { background:#b22222; -moz-box-shadow: 0 0 6px #b22222; -webkit-box-shadow: 0 0 6px #b22222; box-shadow: 0 0 6px #b22222; }
+.warnCondition .ui-notify-message-style { background:#d2691e; -moz-box-shadow: 0 0 6px #d2691e; -webkit-box-shadow: 0 0 6px #d2691e; box-shadow: 0 0 6px #d2691e; }
+.ui-notify-message-style h1 { color:#fff; font-weight:bold }
+.ui-notify-message-style p { color:#fff }
+.ui-notify-message-style li { color:#fff }
+.ui-notify-close { color:#fff; text-decoration:underline }
+.ui-notify-click { cursor:pointer }
+.ui-notify-cross { margin-top:-4px; float:right; cursor:pointer; text-decoration:none; font-size:12px; font-weight:bold; text-shadow:0 1px 1px #fff; padding:2px }
+.ui-notify-cross:hover { color:#ffffab }
+.ui-notify-cross:active { position:relative; top:1px }
+div.EditorWarningMessage { color:#FF0000; padding:6px; }
+
+/******************************************************************************************/
+/* end style for notifications                                                            */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin style for packing slips                                                          */
+/******************************************************************************************/
+
+.packingSlip { margin:0 auto 2em auto; width:600px; }
+.packingSlip h2 { margin:0px; padding: 8px; border: 1px solid black; }
+.packingSlip div.orderSummary { border: 1px solid black; border-bottom:none; border-top:none; margin:0px; padding:6px; }
+.packingSlip div.orderSummary div.row { padding: 6px; display:inline-block; width:270px;}
+.packingSlip div.orderSummary div.row .fieldHeader { margin-right:4px; }
+.packingSlip div.orderSummary div.shipMessage { width:540px;}
+.packingSlip table td, .packingSlip table th { padding: 6px; }
+.packingSlip table.shippingAddresses {  border-collapse:collapse; margin:0; width:100%;}
+.packingSlip table.shippingAddresses th { width:50%; text-align:left; font-weight:bold; border:1px solid black; }
+.packingSlip table.shippingAddresses td { padding-left:30px; border:1px solid black; border-bottom:none; }
+
+table.printableList { border-collapse:collapse; }
+table.printableList td { border:1px solid black; padding:4px; }
+table.printableList th { background-color:#D3D3D3; border:1px solid black; padding:4px; }
+
+/******************************************************************************************/
+/* end style for packing slips                                                            */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin misc style adjustments                                                           */
+/******************************************************************************************/
+
+/* style for UPS registration and licensing */
+div.license { border:solid 1px black; padding:10px; height:300px; overflow:auto; }
+
+/* special styling for dashboard welcome message */
+p.dashboardWelcome { float:right;height:0px;margin:8px 8px 0 0;overflow:visible; }
+
+/* updown control when creating orders */
+.quantityUpDown #Up{ background: url(images/up.gif) center no-repeat; display:block; width:12px; height:12px; }
+.quantityUpDown #Down{ background: url(images/down.gif) center no-repeat;  display:block; width:12px; height:12px;  }
+
+div.componentList { position:relative;}
+div.componentList div.header { position:absolute;right:10px;top:4px; }
+div.componentList div.options { float:right; margin:-20px 8px 0 0; }
+
+/* styling for validation summary lists */
+.validationSummary { margin-bottom:6px; }
+.validationSummary ul { margin-left:25px; list-style-type:disc; }
+.validationSummary ul li { color:#f00; list-style-type:disc;}
+
+/* styling for required fields */
+.requiredField {color: #FF0000; padding-bottom: 3px; margin-left:3px;}
+/******************************************************************************************/
+/* end misc style adjustments                                                             */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* Beging styles for dashboard                                             */
+/******************************************************************************************/
+.navigationOptions { padding: 10px 10px 10px 10px;}
+.navigationOptions .helpLink { float:left;}
+.navigationOptions .instructions { float:right;}
+
+/* dashboard order summary control */
+div.orderSummary { position:relative;}
+div.orderSummary div.header div.options { position:absolute;right:10px;top:4px; }
+div.orderItemDetail table td {border:none;}
+
+/* view order page */
+ul.inputList {list-style:none; padding:0;margin-top:0;}
+
+/* dashboard navigation tab */
+div.dashboardNavigation {}
+div.dashboardNavigation div.leftMenu {float:left; padding-top:20px; padding-left:50px;}
+div.dashboardNavigation div.leftMenu div.icon {width:120px; height:90px;margin-right:10px;}
+div.dashboardNavigation div.rightMenu {float:left;}
+div.dashboardNavigation div.manage div.icon {background-image:url(images/dashboard/manage.jpg);}
+div.dashboardNavigation div.people div.icon {background-image:url(images/dashboard/people.jpg);}
+div.dashboardNavigation div.marketing div.icon {background-image:url(images/dashboard/marketing.jpg);}
+div.dashboardNavigation div.catalog div.icon {background-image:url(images/dashboard/products.jpg);}
+div.dashboardNavigation div.website div.icon {background-image:url(images/dashboard/website.jpg);}
+div.dashboardNavigation div.help div.icon {background-image:url(images/dashboard/help.jpg);}
+div.dashboardNavigation div.store div.icon {background-image:url(images/dashboard/configurestore.jpg);}
+div.dashboardNavigation div.regions div.icon {background-image:url(images/dashboard/regions.jpg);}
+div.dashboardNavigation div.shipping div.icon {background-image:url(images/dashboard/shipping.jpg);}
+div.dashboardNavigation div.payments div.icon {background-image:url(images/dashboard/payment.jpg);}
+div.dashboardNavigation div.security div.icon {background-image:url(images/dashboard/security.jpg);}
+div.dashboardNavigation div.email div.icon {background-image:url(images/dashboard/email.jpg);}
+div.dashboardNavigation div.taxes div.icon {background-image:url(images/dashboard/taxes.jpg);}
+div.dashboardNavigation div.seo div.icon {background-image:url(images/dashboard/seo.gif);}
+
+
+/******************************************************************************************/
+/* end styles for dashboard                                         */
+/******************************************************************************************/
+
+.invoice td.dataSheet {padding:0;}
+.invoice td.dataSheet table.printableList { }
+.invoice td.dataSheet table.printableList td { border:1px solid black; padding:4px; }
+.invoice td.dataSheet table.printableList th { background-color:#D3D3D3; border-top:none; padding:4px; }
+.invoice td.dataSheet table.printableList td:first-child { border-left: none; }
+.invoice td.dataSheet table.printableList td:last-child { border-right: none; }
+.invoice td.dataSheet table.printableList th:first-child { border-left: none; }
+.invoice td.dataSheet table.printableList th:last-child { border-right: none; } 
+.invoice table.dataSheet {margin-bottom: 5px;}
+.invoice table.dataSheet td {padding-right:3px;}
+
+/******************************************************************************************/
+/* Beging styles for the screen when an ajax progress update is displayed */
+/******************************************************************************************/
+
+#ajaxProgressBg { border: 0px; padding: 0px; margin: 0px; width: 100%; position: absolute; background-color: #000000; opacity: 0.5; filter: Alpha(opacity:50); z-index: 10; }
+#ajaxProgress { border: 0px; padding: 0px; position: absolute; background-color: #FFFFFF; background: #FFFFFF url(images/processing.gif) no-repeat 50%; z-index: 11; left:50%; margin-left:-100px; width:300px; height:200px; }
+
+/******************************************************************************************/
+/* end styles for dashboard                                         */
+/******************************************************************************************/
+
+/* close the @media screen rule */
+}

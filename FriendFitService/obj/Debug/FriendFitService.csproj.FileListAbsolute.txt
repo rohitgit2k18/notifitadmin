@@ -1,0 +1,24 @@
+D:\Projects\FriendFitAdmin\FriendFitService\bin\Debug\FriendFitService.dll
+D:\Projects\FriendFitAdmin\FriendFitService\bin\Debug\FriendFitService.pdb
+D:\Projects\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.csprojAssemblyReference.cache
+D:\Projects\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.csproj.CoreCompileInputs.cache
+D:\Projects\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.dll
+D:\Projects\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.pdb
+D:\RamProject\FriendFitAdmin\FriendFitAdmin\FriendFitService\bin\Debug\FriendFitService.dll
+D:\RamProject\FriendFitAdmin\FriendFitAdmin\FriendFitService\bin\Debug\FriendFitService.pdb
+D:\RamProject\FriendFitAdmin\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.csprojAssemblyReference.cache
+D:\RamProject\FriendFitAdmin\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.csproj.CoreCompileInputs.cache
+D:\RamProject\FriendFitAdmin\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.dll
+D:\RamProject\FriendFitAdmin\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.pdb
+D:\Shrawan Work\FriendFitAdmin\FriendFitAdmin\FriendFitAdmin\FriendFitService\bin\Debug\FriendFitService.dll
+D:\Shrawan Work\FriendFitAdmin\FriendFitAdmin\FriendFitAdmin\FriendFitService\bin\Debug\FriendFitService.pdb
+D:\Shrawan Work\FriendFitAdmin\FriendFitAdmin\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.csprojAssemblyReference.cache
+D:\Shrawan Work\FriendFitAdmin\FriendFitAdmin\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.csproj.CoreCompileInputs.cache
+D:\Shrawan Work\FriendFitAdmin\FriendFitAdmin\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.dll
+D:\Shrawan Work\FriendFitAdmin\FriendFitAdmin\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.pdb
+D:\Shrawan Work\FitAdmin\FriendFitAdmin\FriendFitService\bin\Debug\FriendFitService.dll
+D:\Shrawan Work\FitAdmin\FriendFitAdmin\FriendFitService\bin\Debug\FriendFitService.pdb
+D:\Shrawan Work\FitAdmin\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.csproj.CoreCompileInputs.cache
+D:\Shrawan Work\FitAdmin\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.dll
+D:\Shrawan Work\FitAdmin\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.pdb
+D:\Shrawan Work\FitAdmin\FriendFitAdmin\FriendFitService\obj\Debug\FriendFitService.csprojAssemblyReference.cache

@@ -1,0 +1,24 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Install.master.cs" Inherits="AbleCommerce.Install.Install" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Install AbleCommerce</title>
+    <link rel="Stylesheet" href="install.css" type="text/css" media="all" />
+    <asp:ContentPlaceHolder ID="HtmlHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+<form id="form1" runat="server">
+<asp:ScriptManager ID="ScriptManager" runat="server" EnablePartialRendering="true"></asp:ScriptManager>
+<div id="container">
+<div id="headerLogo"><img src="ablecommerce_logo.jpg" alt="" width="960" height="77" /></div>
+<hr class="border" />
+<div id="pageBody">
+<asp:ContentPlaceHolder ID="Content" runat="server">
+</asp:ContentPlaceHolder>
+</div>
+<hr class="border" />
+</div>
+</form>
+</body>
+</html>

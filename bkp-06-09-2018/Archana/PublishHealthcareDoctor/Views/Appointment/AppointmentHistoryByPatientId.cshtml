@@ -1,0 +1,266 @@
+﻿@model HealthcareSoft.Data.Model.AppointmentHistoryModel
+
+@{
+    //Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AppointmentHistoryByPatientId</title>
+</head>
+<body>
+    <div>
+        <h4>Appointment History Of Patient</h4>
+        <hr />
+        @if (Model.MedicineList != null)
+        {
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.QueueNumber)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.QueueNumber)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ReasonForVisit)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ReasonForVisit)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AppointmentDate)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AppointmentDate)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AppointmentTime)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AppointmentTime)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.PatientSymptoms)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.PatientSymptoms)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.DiseaseName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DiseaseName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.SymptomName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.SymptomName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AllergyName)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AllergyName)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.AllergyType)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.AllergyType)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.RevisitTime)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.RevisitTime)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.ClinicalNotes)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.ClinicalNotes)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Duration)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Duration)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Interval)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Interval)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Medicine)
+                </dt>
+
+                <dd>
+
+                    <div>
+                        @foreach (var item in Model.MedicineList)
+                        {
+                            <p>@item.Medicine</p>
+
+                        }
+                    </div>
+
+                </dd>
+
+            </dl>
+        }
+        else
+        {
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.QueueNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.QueueNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ReasonForVisit)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ReasonForVisit)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AppointmentDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AppointmentDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AppointmentTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AppointmentTime)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PatientSymptoms)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PatientSymptoms)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.DiseaseName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DiseaseName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SymptomName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SymptomName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AllergyName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AllergyName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AllergyType)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AllergyType)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RevisitTime)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RevisitTime)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ClinicalNotes)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ClinicalNotes)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Duration)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Duration)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Interval)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Interval)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Medicine)
+            </dt>
+
+            <dd>
+                <p></p>
+
+            </dd>
+
+        </dl>
+
+        }
+       
+    </div>
+   
+</body>
+</html>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<FriendFitAdmin.Models.Logo>
+@{
+    ViewBag.Title = "display";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="color: #367fa9;font-size: 22px;padding-left: 59px;
+    padding-right: 40px; padding-top:20px">
+    Logo View
+</div>
+@{ if (@TempData["Mgs"] != null)
+    {
+        <div id="HideMgs" class="alert alert-success fade in" style="text-align: center; margin: 22px 17px;">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Success!</strong> @TempData["Mgs"].ToString()
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#HideMgs').delay(5000).fadeOut();
+            });
+        </script>
+    }
+    else
+    {
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('#HideMgs').delay(5000).fadeOut();
+            });
+        </script>
+    }
+}
+
+<section class="content">
+<div class="row">
+    <div class="col-md-6">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Bordered Table</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Id</th>
+                        <th>Image</th>
+                        <th>Action</th>
+                    </tr>
+                    @foreach (var item in Model)
+                    {
+                       
+                        <tr>
+                            <td>@item.Id</td>
+                            <td><img src="~/images/@item.ImagePath" width="200" height="200" /></td>
+                          
+                            <td>
+                                @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { onclick = "return confirm('Are you sure you wish to delete?');" })
+                            </td>
+                        </tr>
+
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+<!-- /.row -->
+    </section>
+

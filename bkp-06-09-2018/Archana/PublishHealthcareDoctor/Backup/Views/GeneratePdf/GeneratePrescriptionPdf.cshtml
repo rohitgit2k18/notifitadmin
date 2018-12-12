@@ -1,0 +1,54 @@
+﻿@model IEnumerable<HealthcareSoft.Data.Model.Response>
+
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>   
+</head>
+<body>
+    
+   @foreach (var detail in Model) {
+    <div style="text-align:center">        
+        <label style="align-content:center"> <b>Dr.@detail.DoctorName </b></label><br/>
+        <p><span>(@detail.DepartmentName,@detail.QualificationName)</span></p>
+        <p style="align-content:center"><b>@detail.HospitalName</b></p><br/>
+    </div>
+    <div style="text-align:left">
+        <b>@detail.PatientName</b>
+    </div>   
+   }
+    <hr/> 
+    <br/>
+    <table style="margin-left: 50px; margin-right:50px;">
+        <tr>
+            <th><b>MEDICINE</b></th>
+            <th style="margin-left: 50px;"><b>FREQUENCY</b></th>
+            <th><b>DURATION</b></th>
+        </tr>
+        @foreach (var item in Model)
+        { 
+        foreach (var i in item.TabletList)
+        {
+                <tr>
+                    <td width="50%">
+                        @i.TabletName   
+                    </td>
+                    <td width="50%">
+                        @i.Repetaion
+                    </td>
+                    <td width="50%">
+                        @i.Days
+                    </td>
+                </tr>
+            }
+        }
+        
+    </table>   
+</body>
+</html>

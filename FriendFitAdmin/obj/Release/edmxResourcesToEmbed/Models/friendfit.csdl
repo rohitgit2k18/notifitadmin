@@ -1,0 +1,225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FriendFitDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FriendsInvitation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="DeliveryTypeId" Type="Int32" />
+    <Property Name="FriendsName" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="DurationId" Type="Int32" />
+    <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="SubscriptionTypeId" Type="Int32" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsRowActive" Type="Boolean" />
+    <Property Name="Email" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="UserTokens" Relationship="Self.FK__UserToken__RoleI__22AA2996" FromRole="UserRole" ToRole="UserToken" />
+    <NavigationProperty Name="UserProfiles" Relationship="FriendFitDBModel.FK__UserProfi__Creat__1920BF5C" FromRole="UserRole" ToRole="UserProfile" />
+    <NavigationProperty Name="UserProfiles1" Relationship="FriendFitDBModel.FK__UserProfi__RoleI__182C9B23" FromRole="UserRole" ToRole="UserProfile" />
+    <NavigationProperty Name="UserProfiles2" Relationship="FriendFitDBModel.FK__UserProfi__Updat__1A14E395" FromRole="UserRole" ToRole="UserProfile" />
+  </EntityType>
+  <EntityType Name="UserToken">
+    <Key>
+      <PropertyRef Name="TokenId" />
+    </Key>
+    <Property Name="TokenId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="TokenCode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="UserRole" Relationship="Self.FK__UserToken__RoleI__22AA2996" FromRole="UserToken" ToRole="UserRole" />
+    <NavigationProperty Name="UserProfile" Relationship="FriendFitDBModel.FK__UserToken__UserI__21B6055D" FromRole="UserToken" ToRole="UserProfile" />
+  </EntityType>
+  <Association Name="FK__UserToken__RoleI__22AA2996">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+    <End Role="UserToken" Type="Self.UserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserToken">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FriendFitDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FriendsInvitations" EntityType="Self.FriendsInvitation" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+    <EntitySet Name="UserTokens" EntityType="Self.UserToken" />
+    <AssociationSet Name="FK__UserToken__RoleI__22AA2996" Association="Self.FK__UserToken__RoleI__22AA2996">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="UserToken" EntitySet="UserTokens" />
+    </AssociationSet>
+    <EntitySet Name="Transactions" EntityType="FriendFitDBModel.Transaction" />
+    <EntitySet Name="Logoes" EntityType="FriendFitDBModel.Logo" />
+    <EntitySet Name="EditPrices" EntityType="FriendFitDBModel.EditPrice" />
+    <EntitySet Name="Links" EntityType="FriendFitDBModel.Link" />
+    <EntitySet Name="UserProfiles" EntityType="FriendFitDBModel.UserProfile" />
+    <AssociationSet Name="FK__UserProfi__Creat__1920BF5C" Association="FriendFitDBModel.FK__UserProfi__Creat__1920BF5C">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserProfi__RoleI__182C9B23" Association="FriendFitDBModel.FK__UserProfi__RoleI__182C9B23">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserProfi__Updat__1A14E395" Association="FriendFitDBModel.FK__UserProfi__Updat__1A14E395">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserToken__UserI__21B6055D" Association="FriendFitDBModel.FK__UserToken__UserI__21B6055D">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="UserToken" EntitySet="UserTokens" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="transdetailid" />
+      <PropertyRef Name="transid" />
+      <PropertyRef Name="paymentid" />
+      <PropertyRef Name="transactionType" />
+      <PropertyRef Name="debitaccount" />
+      <PropertyRef Name="creditaccount" />
+      <PropertyRef Name="amount" />
+      <PropertyRef Name="isdebit" />
+      <PropertyRef Name="isactive" />
+    </Key>
+    <Property Name="transdetailid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="transid" Type="Int32" Nullable="false" />
+    <Property Name="paymentid" Type="Int32" Nullable="false" />
+    <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="transactionType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="debitaccount" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="creditaccount" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="isdebit" Type="Boolean" Nullable="false" />
+    <Property Name="isactive" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Logo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="EditPrice">
+    <Key>
+      <PropertyRef Name="EditPriceId" />
+    </Key>
+    <Property Name="EditPriceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="OptionToEditPrice" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Link">
+    <Key>
+      <PropertyRef Name="LinkId" />
+    </Key>
+    <Property Name="LinkId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Link1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LinkType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NoOfTimeAcc" Type="Int32" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int64" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="EmailConfirmed" Type="Boolean" />
+    <Property Name="OTP" Type="Int64" />
+    <Property Name="ProfilePic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceTypeId" Type="Int32" />
+    <Property Name="AutoSMSSignUp" Type="Boolean" />
+    <Property Name="FullWorkoutStatus" Type="Boolean" />
+    <Property Name="WorkoutStatus" Type="Boolean" />
+    <Property Name="Remember" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="UserRole" Relationship="FriendFitDBModel.FK__UserProfi__Creat__1920BF5C" FromRole="UserProfile" ToRole="UserRole" />
+    <NavigationProperty Name="UserRole1" Relationship="FriendFitDBModel.FK__UserProfi__RoleI__182C9B23" FromRole="UserProfile" ToRole="UserRole" />
+    <NavigationProperty Name="UserRole2" Relationship="FriendFitDBModel.FK__UserProfi__Updat__1A14E395" FromRole="UserProfile" ToRole="UserRole" />
+    <NavigationProperty Name="UserTokens" Relationship="FriendFitDBModel.FK__UserToken__UserI__21B6055D" FromRole="UserProfile" ToRole="UserToken" />
+  </EntityType>
+  <Association Name="FK__UserProfi__Creat__1920BF5C">
+    <End Type="FriendFitDBModel.UserRole" Role="UserRole" Multiplicity="0..1" />
+    <End Type="FriendFitDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserProfi__RoleI__182C9B23">
+    <End Type="FriendFitDBModel.UserRole" Role="UserRole" Multiplicity="0..1" />
+    <End Type="FriendFitDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserProfi__Updat__1A14E395">
+    <End Type="FriendFitDBModel.UserRole" Role="UserRole" Multiplicity="0..1" />
+    <End Type="FriendFitDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserToken__UserI__21B6055D">
+    <End Type="FriendFitDBModel.UserProfile" Role="UserProfile" Multiplicity="0..1" />
+    <End Type="FriendFitDBModel.UserToken" Role="UserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserToken">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

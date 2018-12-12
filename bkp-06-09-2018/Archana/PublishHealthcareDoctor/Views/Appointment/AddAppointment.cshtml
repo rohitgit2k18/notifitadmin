@@ -1,0 +1,207 @@
+﻿@model HealthcareSoft.Data.Model.AddAppoinmentModel
+
+@{
+    //Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    HealthcareSoft.Data.Model.AddAppoinmentModel obj = new HealthcareSoft.Data.Model.AddAppoinmentModel();
+}
+@if (@ViewBag.Message != null)
+{
+    <script type="text/javascript" language="javascript">
+        alert('@ViewBag.Message');</script>}
+
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        //option A
+        $("form").submit(function (e) {
+            var name = document.getElementById('p-name').value;
+                if(name == '') {
+                    alert("First Name is required");
+                } else if(!name.includes(' ')) {
+                    alert("Last Name is required");
+                    e.preventDefault(e);
+                }
+        });
+
+        $('#datepicker').datepicker({
+            format: 'DD/MM/YYYY',
+            minDate: new Date()
+        });
+    });
+</script>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <style type="text/css">
+        .icon-addon .my_timepick span {
+            position: relative;
+            margin: 0px;
+            padding: 3px 4px;
+            width: 40px;
+            left: 0;
+            top: 0;
+            border-left: solid 1px #d8d8d8;
+        }
+
+        .icon-addon .my_timepick table tr td a i {
+            position: relative;
+            left: 0 !important;
+            top: 0 !important;
+        }
+        .icon-addon .my_timepick table tr td input {
+            padding: 10px 16px 10px 15px !important;
+        }
+        .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br {z-index:9 !important;}
+
+        .bootstrap-timepicker-widget.dropdown-menu {min-width: 200px;}
+    </style>
+</head>
+<body>
+   
+    <link href="~/TimePicker/bootstrap-timepicker.css" rel="stylesheet" />
+    
+    @using (Html.BeginForm("AddAppointment", "Appointment", FormMethod.Post))
+    {
+        @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        <section>
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="db-main-outer">
+                        <div class="db-main-inner">
+                            <div class="inner-menu-navigation">
+                                <p><a href="#">Dashboard</a> <span> > </span> <a class="active" href="#">Add Appointment</a></p>
+                            </div>
+                            <div class="add-appoint-form">
+                                <form>
+                                    <h3>Add Appointment</h3>
+                                    <div class="form-group w-30">
+                                        <div class="icon-addon addon-lg" id="PN">
+                                            @Html.TextBoxFor(m => m.PatientName, new { placeholder = "Patient Name", required = "required", @class = "form-control", id = "p-name" })
+                                            <label for="p-name" rel="tooltip" title="p-name"><span><img src="~/assets/images/form-user.png" alt="user-icon"></span></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group w-30">
+                                        <div class="icon-addon addon-lg">
+                                            @Html.TextBoxFor(m => m.Email, new { placeholder = "Email", @class = "form-control", id = "email" })
+                                            <label for="p-name" rel="tooltip" title="email"><span><img src="~/assets/images/form-email.png" alt="email-icon"></span></label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group w-30">
+                                        <div class="icon-addon addon-lg">
+
+                                            @Html.TextBoxFor(m => m.PhoneNo, new { placeholder = "Phone Number", required = "required", @class = "form-control", @id = "phone", onkeyup = "testIt(this.value);", maxlength = "10" })
+                                            <label for="p-name" rel="tooltip" title="name"><span><img src="~/assets/images/form-phone.png" alt="Phone-Icon"></span></label>
+                                        </div>
+                                        </div>
+                                            <div class="form-group w-half">
+                                                <div class="icon-addon addon-lg">
+                                                    @Html.TextBoxFor(m => m.Address, new { placeholder = "Address", @class = "form-control", @id = "address" })
+                                                    <label for="p-name" rel="tooltip" title="address"><span><img src="~/assets/images/form-location.png" alt="Location-Icon"></span></label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group w-half-l">
+                                                <div class="icon-addon addon-lg" id="visit_reason">
+                                                    <select class="form-control" id="ReasonVisit" name="ReasonForVisit" Model="ReasonForVisit" required="required">
+                                                        <option>Select Reason For Visit</option>
+                                                        <option>Follow-Up Visit</option>
+                                                        <option>New Visit</option>
+                                                    </select>
+                                                    <label for="p-name" rel="tooltip" title="visit_reason"><span><img src="~/assets/images/form-reason.png" alt="form reason icon"></span></label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group w-small">
+                                                <div class="icon-addon addon-lg">
+                                                    @Html.TextBoxFor(m => m.Selectdate, new { placeholder = "Select Date", @class = "form-control", @id = "datepicker" })
+                                                    <label for="p-name" rel="tooltip" title="s-date"><span><img src="~/assets/images/form-calender.png" alt="calender-icon"></span></label>
+                                                </div>
+                                            </div>
+                                            <div class="form-group w-small">
+                                                <div class="icon-addon addon-lg">
+                                                    <div class="input-group bootstrap-timepicker timepicker my_timepick">
+                                                        @Html.TextBoxFor(m => m.SelectTime, new { placeholder = "Select Time", required = "required", @class = "form-control input-small", @name = "SelectedTime", @id = "timepicker1", @type = "text" })
+                                                        <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group w-half-l">
+                                                <div class="icon-addon addon-lg">
+                                                    @Html.TextBoxFor(m => m.Illness, new { @class = "form-control", placeholder = "Illness", required = "required" })
+                                                    <label for="p-name" rel="tooltip" title="s-time"><span><img src="~/assets/images/form-reason.png" alt="form-reason-icon"></span></label>
+                                                </div>
+                                            </div>
+                                            <button class="appoint-sub" type="submit" onclick="validatenamevalue();">Submit</button>
+                                </form>
+                            </div>
+                            <div class="bottom-copyright-text text-center">
+                                <p>© Copyright2018 STETHO | All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+
+  
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="~/TimePicker/bootstrap-timepicker.js" type="text/javascript"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    @*<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>*@
+
+    <script>
+        function formatAMPM(date) {
+            var hours = date.getHours();
+            var minutes = date.getMinutes();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12; // the hour '0' should be '12'
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+            var strTime = hours + ':' + minutes + ' ' + ampm;
+            return strTime;
+        }
+    </script>
+    <script type="text/javascript">
+        var dt = new Date();
+        var hour = dt.getHours();
+        var time = formatAMPM(dt);
+        $('#timepicker1').timepicker({
+
+        });
+        $('#timepicker1').val(time);
+      
+
+        var testIt = function testIt(num) {
+
+            if (num.length === 10) {
+                var phonenum = $("#phone").val();
+                $('#hdnfld').val(phonenum);
+                console.log(phonenum);
+                $.post("/Appointment/GetDetailByPhone", { PhoneNo: phonenum }, function (data) {
+                    if (data != null) {
+                        console.log(data);
+                        for (var x = 0; x < data.length; x++) {
+                            $("#p-name").val(data[x].PatientName);
+                            $("#email").val(data[x].Email);
+                            $("#phone").val(data[x].PhoneNo);
+                            $("#address").val(data[x].Address);
+                        }
+                    }
+                });
+            }
+        }
+    </script>
+
+    
+</body>
+</html>

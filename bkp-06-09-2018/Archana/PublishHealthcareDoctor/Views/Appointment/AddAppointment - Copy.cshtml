@@ -1,0 +1,180 @@
+﻿@model HealthcareSoft.Data.Model.AddAppoinmentModel
+@using MvcBootstrapTimepicker;
+
+@{
+    //Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    HealthcareSoft.Data.Model.AddAppoinmentModel obj = new HealthcareSoft.Data.Model.AddAppoinmentModel();
+}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+@*<link rel="stylesheet" type="text/css" href="css/bootstrap-timepicker.min.css">*@
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+@*<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>*@
+@*<script type="text/javascript" src="js/bootstrap-timepicker.min.js"></script>*@
+
+<script type="text/javascript">
+    //$(document).ready(function () {
+    //    alert($(this).val());
+    //    $("#PN").autocomplete({
+    //        source: function (request, response) {
+    //            $.ajax({
+    //                url: "/Appointment/GetPatientName",
+    //                type: "POST",
+    //                dataType: "json",
+    //                data: { PatientName: $("#p-name input").val() },
+    //                success: function (data) {
+    //                    alert(JSON.stringify(data));
+    //                    response($.map(data, function (item) {
+    //                        return { label: item.PatientName, value: item.id };
+    //                    }))
+
+    //                }
+    //            })
+    //        },
+    //        messages: {
+    //            noResults: "", results: ""
+    //        }
+    //    });
+    //})
+
+
+    $(document).ready(function () {
+        $("#Selectdate").datepicker();
+    });
+</script>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stetho - Dashboard</title>
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+    <style type="text/css">
+        .icon-addon .my_timepick span {
+            position: relative;
+            margin: 0px;
+            padding: 3px 4px;
+            width: 40px;
+            left: 0;
+            top: 0;
+            border-left: solid 1px #d8d8d8;
+        }
+
+        .icon-addon .my_timepick table tr td a i {
+            position: relative;
+            left: 0 !important;
+            top: 0 !important;
+        }
+
+        .icon-addon .my_timepick table tr td input {
+            padding: 10px 16px 10px 25px !important;
+        }
+    </style>
+</head>
+<body>
+    @*<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />*@
+    <link href="~/TimePicker/bootstrap-timepicker.css" rel="stylesheet" />
+    @*<link href="~/TimePicker/MvcBootstrapTimepicker.css" rel="stylesheet" />*@
+    @*<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" type="text/javascript"></script>*@
+    @*<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>*@
+    <script src="~/TimePicker/bootstrap-timepicker.js" type="text/javascript"></script>
+    @*<script src="~/TimePicker/MvcBootstrapTimepicker.js" type="text/javascript"></script>*@
+    @using (Html.BeginForm("AddAppointment", "Appointment", FormMethod.Post))
+    {
+
+        <section>
+            <div class="container-fluid">
+                <div class="row">
+
+                    <div class="db-main-outer">
+                        <div class="db-main-inner">
+                            <div class="inner-menu-navigation">
+                                <p><a href="#">Dashboard</a> <span> > </span> <a class="active" href="#">Add Appointment</a></p>
+                            </div>
+                            <div class="add-appoint-form">
+                                <form>
+                                    <h3>Add Appointment</h3>
+                                    <!-- <input type="text" name="" id="" placeholder="Patient Name"> -->
+                                    <div class="form-group w-30">
+                                        <div class="icon-addon addon-lg" id="PN">
+                                            @Html.TextBoxFor(m => m.PatientName, new { placeholder = "patient name", required = "required", @class = "form-control", id = "p-name" })
+                                            <label for="p-name" rel="tooltip" title="p-name"><span><img src="~/assets/images/form-user.png" alt=""></span></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group w-30">
+                                        <div class="icon-addon addon-lg">
+                                            @Html.TextBoxFor(m => m.Email, new { placeholder = "Email", required = "required", @class = "form-control" })
+                                            <label for="p-name" rel="tooltip" title="email"><span><img src="~/assets/images/form-email.png" alt=""></span></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group w-30">
+                                        <div class="icon-addon addon-lg">
+                                            @Html.TextBoxFor(m => m.PhoneNumber, new { placeholder = "Phone Number", required = "required", @class = "form-control", @id = "phone" })
+                                            <label for="p-name" rel="tooltip" title="name"><span><img src="~/assets/images/form-phone.png" alt=""></span></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group w-half">
+                                        <div class="icon-addon addon-lg">
+                                            @Html.TextBoxFor(m => m.Address, new { placeholder = "Address", required = "required", @class = "form-control", @id = "address" })
+                                            <label for="p-name" rel="tooltip" title="address"><span><img src="~/assets/images/form-location.png" alt=""></span></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group w-half-l">
+                                        <div class="icon-addon addon-lg">
+                                            @Html.TextBoxFor(m => m.ReasonForVisit, new { placeholder = "Reason For Visit", required = "required", @class = "form-control", @id = "visit_reason" })
+                                            <label for="p-name" rel="tooltip" title="visit_reason"><span><img src="~/assets/images/form-reason.png" alt=""></span></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group w-small">
+                                        <div class="icon-addon addon-lg">
+                                            @Html.TextBoxFor(m => m.Selectdate, new { placeholder = "Select Date", required = "required", @class = "form-control" })
+                                            <label for="p-name" rel="tooltip" title="s-date"><span><img src="~/assets/images/form-calender.png" alt=""></span></label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group w-small">
+                                        <div class="icon-addon addon-lg">
+                                            <div class="input-group bootstrap-timepicker timepicker my_timepick">
+                                                @*<input id="timepicker1" type="text" class="form-control input-small" name="SelectedTime">*@
+                                                @Html.TextBoxFor(m => m.SelectTime, new { placeholder = "Select Time", required = "required", @class = "form-control input-small", @name = "SelectedTime", @id = "timepicker1", @type = "text" })
+
+
+                                                <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
+                                            </div>
+
+
+                                            @*@Html.BootstrapTimePicker("SelectedTime").ContainerClass("TimePickerWidth");*@
+                                            @*@Html.TextBoxFor(m => m.selectTime, new { placeholder = "Select Time", required = "required", @class = "form-control", @id = "s-time" })*@
+                                            @*<label for="p-name" rel="tooltip" title="s-time"><span><img src="~/assets/images/form-calender.png" alt=""></span></label>*@
+                                        </div>
+                                    </div>
+                                    <div class="form-group w-half-l">
+                                        <div class="icon-addon addon-lg">
+                                            @Html.DropDownListFor(m => m.IllnessId, new SelectList(Model.IllnessList, "Id", "Discription"), new { @class = "form-control" })
+                                            <label for="p-name" rel="tooltip" title="s-time"><span><img src="~/assets/images/form-reason.png" alt=""></span></label>
+                                        </div>
+                                    </div>
+                                    <button class="appoint-sub" type="submit">Submit</button>
+                                </form>
+                            </div>
+                            <div class="bottom-copyright-text text-center">
+                                <p>© Copyright2018 STETHO | All Rights Reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript">
+        $('#timepicker1').timepicker();
+    </script>
+</body>
+</html>

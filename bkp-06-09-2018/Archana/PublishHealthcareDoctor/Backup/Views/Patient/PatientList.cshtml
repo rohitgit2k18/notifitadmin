@@ -1,0 +1,132 @@
+﻿@model IEnumerable<HealthcareSoft.Data.Model.PatientModel>
+
+@{
+//Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stetho - Dashboard</title>
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/assets/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="~/assets/css/style.css">
+</head>
+<body>
+@using (Html.BeginForm(null, null, FormMethod.Post, new {  id = "signupform" }))
+{
+@*@using (Html.BeginForm("PatientList", "Patient", FormMethod.Post, new { @class = "form-horizontal", id = "frm0", name = "frm0", autocomplete = "off" }))
+{*@
+    @Html.AntiForgeryToken()
+    <div class="db-main-outer">
+        <div class="db-main-inner appoint-details-upper">
+            <div class="inner-menu-navigation">
+                <p><a href="#">Dashboard</a> <span> > </span> <a class="active" href="#">Patients</a></p>
+                <div class="patient-filter">
+                    <span>Sort By: </span>
+                    <select>
+                        <option>Date</option>
+                        <option>ABC</option>
+                        <option>ABC</option>
+                        <option>ABC</option>
+                    </select>
+                </div>
+            </div>
+            <div class="patient-detail-header">
+                <h3>Search Option</h3>
+                <div class="patient-detail-form">
+                    <form>
+                        <div class="form-group p-input">
+                            <div class="icon-addon addon-lg">
+                                <input type="text" name="name" placeholder="Patient Name" class="form-control" id="p-name"/>
+                                @*<input type="text" placeholder="Patient Name" class="form-control" id="p-name">*@
+                                <label for="p-name" rel="tooltip" title="p-name"><span><img src="~/assets/images/form-user.png" alt="user-icon"></span></label>
+                            </div>
+                        </div>
+                        <div class="form-group p-input">
+                            <div class="icon-addon addon-lg">
+                                @*<select id="package_master" name="name">*@
+                                <select id="name" name="value">
+                                    <option value="">Please select Gender</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Male">Male</option>
+                                </select>
+                                @*<label for="p-name" rel="tooltip" title="s-time"><span><img src="~/assets/images/form-reason.png" alt=""></span></label>*@
+                            </div>
+                        </div>
+                        @*<div class="form-group p-input">
+                            <div class="icon-addon addon-lg">
+                                <input type="text" placeholder="Patient Name" class="form-control" id="p-name">
+                                <label for="p-name" rel="tooltip" title="p-name"><span><img src="~/assets/images/form-gender.png" alt=""></span></label>
+                            </div>
+                        </div>*@
+                        <button class="search-patient" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="current-encounter-form view-patients-sec">
+            <ul class="list-unstyled list-inline text-center">
+              
+                    @foreach (var item in  Model)
+                    {
+
+                    <li>
+                        <a href="/Appointment/AppoinmentDetails?DoctorId=@item.DoctorId&AppointmentId=@item.AppointmentId">
+                            <div class="patient-profile-view">                                
+                                    <span class="patient-profile-pic">
+                                        <img src="@item.ProfilePicture" alt="Doctor-Picture">
+                                    </span>
+                                    <span class="view-patient-description">
+                                        <h3>@item.Name</h3>
+                                        <p>@item.Gender| @item.BloodGroup</p>
+                                        <p>@item.Discription</p>
+                                    </span>
+                              
+                            </div>
+                        </a>
+                      </li>
+
+                    }
+            </ul>
+        </div>
+        <div class="bottom-copyright-text text-center">
+            <p>© Copyright2018 STETHO | All Rights Reserved.</p>
+        </div>
+    </div>
+}
+</body>
+</html>
+<script src="~/Scripts/jquery-3.2.1.js"></script>
+
+<script type="text/javascript">
+   // $(document).ready(function () {
+   //     $(function() {
+   //         $("#name").change(function () {
+   //            // alert($('option:selected', this).text());
+
+   //             $.ajax({  
+   //                 type: "GET",  
+   //                 url: "/Patient/FilterByGender?gender=" + $('option:selected', this).text(),
+   //                 dataType: "json",
+   //                 success: function (model) {
+   //                     console.log(model);
+   //             },  
+   //             error: function() {  
+   //                 alert("Error occured!!")  
+   //             }  
+   //         });  
+   //         });
+   //     });
+   //});
+      
+    function SubmitForm() {
+        document.frm0.action = "/Patient/PatientList";
+        document.frm0.submit();
+        return;
+    }
+ </script>

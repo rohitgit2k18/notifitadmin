@@ -1,0 +1,40 @@
+﻿@model FriendFitAdmin.Models.UserProfile
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div style="color: #367fa9;font-size: 22px;padding-left: 59px;
+    padding-right: 40px; padding-top:20px">
+    Update User
+</div>
+
+
+@using (Html.BeginForm("Updateuser", "ManageUser"))
+{
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(m => m.Id, new {@id="rId" });
+    <div style="padding-left: 46px;">
+        <div>
+            <div class="form-group">
+                @Html.Label("First Name", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.FirstName, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Last Name", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.LastName, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.Email, htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.Email, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Mobile Number", htmlAttributes: new { @class = "control-label" })
+                @Html.TextBoxFor(m => m.MobileNumber, htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                <button type="submit" value="Change password" class="btn btn-success">Update User Profile</button>
+            </div>
+        </div>
+    </div>
+}

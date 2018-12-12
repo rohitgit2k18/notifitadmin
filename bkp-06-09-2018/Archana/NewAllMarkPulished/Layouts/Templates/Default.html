@@ -1,0 +1,118 @@
+<%-- This file is a generated file. Do not modify. See customization guide for details. --%>
+<%@ Master Language="C#" AutoEventWireup="true" MasterPageFile="~/Layouts/Base.Master" Inherits="AbleCommerce.Layouts.Base" %>
+<%--
+<layout>
+<description>$description</description>
+</layout>
+--%>
+$registeredControls
+<asp:Content ID="Content1" ContentPlaceHolderID="NestedMaster" runat="server">
+#if ($headerControls.Length > 0)
+    <div id="header">
+        <div class="zone">
+            <div class="section">
+                <div class="content">
+                    <asp:ContentPlaceHolder ID="PageHeader" runat="server">
+                        $headerControls
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </div>
+#end
+#if ($name == "LeftSidebarResponsive")
+<div id="contentContainer" class="leftSidebarResponsive">
+#else
+<div id="contentContainer">
+#end
+    #if ($leftControls.Length == 0 && $rightControls.Length == 0)
+    <div id="mainColumn" class="oneColumnLayout">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="PageContent" runat="server">
+                [page body]
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    #elseif ($leftControls.Length > 0 && $rightControls.Length == 0 && $name == "LeftSidebarResponsive")
+    <div id="mainColumn" class="leftSidebarLayout">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="PageContent" runat="server">
+                [page body]
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="leftColumn">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="LeftSidebar" runat="server">
+                $leftControls
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    #elseif ($leftControls.Length > 0 && $rightControls.Length == 0)
+    <div id="leftColumn">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="LeftSidebar" runat="server">
+                $leftControls
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="mainColumn" class="leftSidebarLayout">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="PageContent" runat="server">
+                [page body]
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    #elseif ($leftControls.Length == 0 && $rightControls.Length > 0)
+    <div id="mainColumn" class="rightSidebarLayout">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="PageContent" runat="server">
+                [page body]
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="rightColumn">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="RightSidebar" runat="server">
+                $rightControls
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    #else
+    <div id="leftColumn">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="LeftSidebar" runat="server">
+                $leftControls
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="mainColumn" class="threeColumnLayout">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="PageContent" runat="server">
+                [page body]
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="rightColumn">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="RightSidebar" runat="server">
+                $rightControls
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    #end
+</div>
+#if ($footerControls.Length > 0)
+<div id="footer">
+    <div class="zone">
+        <div class="section">
+            <div class="content">
+                <asp:ContentPlaceHolder ID="PageFooter" runat="server">
+                    $footerControls
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+</div>
+#end
+</asp:Content>

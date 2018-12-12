@@ -1,0 +1,1065 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FriendFitDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="FriendsInvitation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="DeliveryTypeId" Type="Int32" />
+    <Property Name="FriendsName" Type="String" MaxLength="450" FixedLength="false" Unicode="true" />
+    <Property Name="DurationId" Type="Int32" />
+    <Property Name="PurchaseDate" Type="DateTime" Precision="3" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+    <Property Name="SubscriptionTypeId" Type="Int32" />
+    <Property Name="Cost" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="IsRowActive" Type="Boolean" />
+    <Property Name="Email" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int64" />
+    <Property Name="RecFlag" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentDone" Type="Int32" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleType" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="UserTokens" Relationship="Self.FK__UserToken__RoleI__22AA2996" FromRole="UserRole" ToRole="UserToken" />
+    <NavigationProperty Name="UserProfiles" Relationship="FriendFitDBModel.FK__UserProfi__Creat__1920BF5C" FromRole="UserRole" ToRole="UserProfile" />
+    <NavigationProperty Name="UserProfiles1" Relationship="FriendFitDBModel.FK__UserProfi__RoleI__182C9B23" FromRole="UserRole" ToRole="UserProfile" />
+    <NavigationProperty Name="UserProfiles2" Relationship="FriendFitDBModel.FK__UserProfi__Updat__1A14E395" FromRole="UserRole" ToRole="UserProfile" />
+  </EntityType>
+  <EntityType Name="UserToken">
+    <Key>
+      <PropertyRef Name="TokenId" />
+    </Key>
+    <Property Name="TokenId" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="TokenCode" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedOn" Type="DateTime" Precision="3" />
+    <Property Name="ExpiryDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="UserRole" Relationship="Self.FK__UserToken__RoleI__22AA2996" FromRole="UserToken" ToRole="UserRole" />
+    <NavigationProperty Name="UserProfile" Relationship="FriendFitDBModel.FK__UserToken__UserI__21B6055D" FromRole="UserToken" ToRole="UserProfile" />
+  </EntityType>
+  <Association Name="FK__UserToken__RoleI__22AA2996">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+    <End Role="UserToken" Type="Self.UserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserToken">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FriendFitDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="FriendsInvitations" EntityType="Self.FriendsInvitation" />
+    <EntitySet Name="UserRoles" EntityType="Self.UserRole" />
+    <EntitySet Name="UserTokens" EntityType="Self.UserToken" />
+    <AssociationSet Name="FK__UserToken__RoleI__22AA2996" Association="Self.FK__UserToken__RoleI__22AA2996">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="UserToken" EntitySet="UserTokens" />
+    </AssociationSet>
+    <EntitySet Name="Transactions" EntityType="FriendFitDBModel.Transaction" />
+    <EntitySet Name="Logoes" EntityType="FriendFitDBModel.Logo" />
+    <EntitySet Name="EditPrices" EntityType="FriendFitDBModel.EditPrice" />
+    <EntitySet Name="Links" EntityType="FriendFitDBModel.Link" />
+    <EntitySet Name="UserProfiles" EntityType="FriendFitDBModel.UserProfile" />
+    <AssociationSet Name="FK__UserProfi__Creat__1920BF5C" Association="FriendFitDBModel.FK__UserProfi__Creat__1920BF5C">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserProfi__RoleI__182C9B23" Association="FriendFitDBModel.FK__UserProfi__RoleI__182C9B23">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserProfi__Updat__1A14E395" Association="FriendFitDBModel.FK__UserProfi__Updat__1A14E395">
+      <End Role="UserRole" EntitySet="UserRoles" />
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserToken__UserI__21B6055D" Association="FriendFitDBModel.FK__UserToken__UserI__21B6055D">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="UserToken" EntitySet="UserTokens" />
+    </AssociationSet>
+    <EntitySet Name="ActualDistanceExercises" EntityType="FriendFitDBModel.ActualDistanceExercise" />
+    <EntitySet Name="ActualExcerciseSets" EntityType="FriendFitDBModel.ActualExcerciseSet" />
+    <EntitySet Name="ActualFreeTextExercises" EntityType="FriendFitDBModel.ActualFreeTextExercise" />
+    <EntitySet Name="ActualLevelExercises" EntityType="FriendFitDBModel.ActualLevelExercise" />
+    <EntitySet Name="ActualRepsExercises" EntityType="FriendFitDBModel.ActualRepsExercise" />
+    <EntitySet Name="ActualTimedExercises" EntityType="FriendFitDBModel.ActualTimedExercise" />
+    <EntitySet Name="ActualWeightExercises" EntityType="FriendFitDBModel.ActualWeightExercise" />
+    <EntitySet Name="Countries" EntityType="FriendFitDBModel.Country" />
+    <EntitySet Name="DeliveryTypeMasters" EntityType="FriendFitDBModel.DeliveryTypeMaster" />
+    <EntitySet Name="DeviceMasters" EntityType="FriendFitDBModel.DeviceMaster" />
+    <EntitySet Name="DistanceExercises" EntityType="FriendFitDBModel.DistanceExercise" />
+    <EntitySet Name="DistanceExerciseSets" EntityType="FriendFitDBModel.DistanceExerciseSet" />
+    <EntitySet Name="DurationMasters" EntityType="FriendFitDBModel.DurationMaster" />
+    <EntitySet Name="ExcerciseSets" EntityType="FriendFitDBModel.ExcerciseSet" />
+    <EntitySet Name="Exercises" EntityType="FriendFitDBModel.Exercise" />
+    <EntitySet Name="ExerciseTypeMasters" EntityType="FriendFitDBModel.ExerciseTypeMaster" />
+    <EntitySet Name="FreeTextExercises" EntityType="FriendFitDBModel.FreeTextExercise" />
+    <EntitySet Name="FrequencyMasters" EntityType="FriendFitDBModel.FrequencyMaster" />
+    <EntitySet Name="LevelExercises" EntityType="FriendFitDBModel.LevelExercise" />
+    <EntitySet Name="MailTimeLogs" EntityType="FriendFitDBModel.MailTimeLog" />
+    <EntitySet Name="Payments" EntityType="FriendFitDBModel.Payment" />
+    <EntitySet Name="PurchaseProductsLists" EntityType="FriendFitDBModel.PurchaseProductsList" />
+    <EntitySet Name="Recurrences" EntityType="FriendFitDBModel.Recurrence" />
+    <EntitySet Name="RepsExercises" EntityType="FriendFitDBModel.RepsExercise" />
+    <EntitySet Name="ScheduleActualDistanceExercises" EntityType="FriendFitDBModel.ScheduleActualDistanceExercise" />
+    <EntitySet Name="ScheduleActualExcerciseSets" EntityType="FriendFitDBModel.ScheduleActualExcerciseSet" />
+    <EntitySet Name="ScheduleActualFreeTextExercises" EntityType="FriendFitDBModel.ScheduleActualFreeTextExercise" />
+    <EntitySet Name="ScheduleActualLevelExercises" EntityType="FriendFitDBModel.ScheduleActualLevelExercise" />
+    <EntitySet Name="ScheduleActualRepsExercises" EntityType="FriendFitDBModel.ScheduleActualRepsExercise" />
+    <EntitySet Name="ScheduleActualTimedExercises" EntityType="FriendFitDBModel.ScheduleActualTimedExercise" />
+    <EntitySet Name="ScheduleActualWeightExercises" EntityType="FriendFitDBModel.ScheduleActualWeightExercise" />
+    <EntitySet Name="ScheduleExercises" EntityType="FriendFitDBModel.ScheduleExercise" />
+    <EntitySet Name="ScheduleGoalDistanceExercises" EntityType="FriendFitDBModel.ScheduleGoalDistanceExercise" />
+    <EntitySet Name="ScheduleGoalExcerciseSets" EntityType="FriendFitDBModel.ScheduleGoalExcerciseSet" />
+    <EntitySet Name="ScheduleGoalFreeTextExercises" EntityType="FriendFitDBModel.ScheduleGoalFreeTextExercise" />
+    <EntitySet Name="ScheduleGoalLevelExercises" EntityType="FriendFitDBModel.ScheduleGoalLevelExercise" />
+    <EntitySet Name="ScheduleGoalRepsExercises" EntityType="FriendFitDBModel.ScheduleGoalRepsExercise" />
+    <EntitySet Name="ScheduleGoalTextExercises" EntityType="FriendFitDBModel.ScheduleGoalTextExercise" />
+    <EntitySet Name="ScheduleGoalTimedExercises" EntityType="FriendFitDBModel.ScheduleGoalTimedExercise" />
+    <EntitySet Name="ScheduleGoalWeightExercises" EntityType="FriendFitDBModel.ScheduleGoalWeightExercise" />
+    <EntitySet Name="ScheduleWeeklyMasters" EntityType="FriendFitDBModel.ScheduleWeeklyMaster" />
+    <EntitySet Name="StatusMasters" EntityType="FriendFitDBModel.StatusMaster" />
+    <EntitySet Name="SubscriptionTypeMasters" EntityType="FriendFitDBModel.SubscriptionTypeMaster" />
+    <EntitySet Name="sysdiagrams" EntityType="FriendFitDBModel.sysdiagram" />
+    <EntitySet Name="tblPrices" EntityType="FriendFitDBModel.tblPrice" />
+    <EntitySet Name="TextExercises" EntityType="FriendFitDBModel.TextExercise" />
+    <EntitySet Name="TimedExercises" EntityType="FriendFitDBModel.TimedExercise" />
+    <EntitySet Name="WeightExercises" EntityType="FriendFitDBModel.WeightExercise" />
+    <EntitySet Name="WorkOuts" EntityType="FriendFitDBModel.WorkOut" />
+    <EntitySet Name="WorkOutSchedules" EntityType="FriendFitDBModel.WorkOutSchedule" />
+    <AssociationSet Name="FK__Exercise__Exerci__3B40CD36" Association="FriendFitDBModel.FK__Exercise__Exerci__3B40CD36">
+      <End Role="ExerciseTypeMaster" EntitySet="ExerciseTypeMasters" />
+      <End Role="Exercise" EntitySet="Exercises" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Exercise__UserId__3C34F16F" Association="FriendFitDBModel.FK__Exercise__UserId__3C34F16F">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="Exercise" EntitySet="Exercises" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Exercise__WorkOu__3A4CA8FD" Association="FriendFitDBModel.FK__Exercise__WorkOu__3A4CA8FD">
+      <End Role="WorkOut" EntitySet="WorkOuts" />
+      <End Role="Exercise" EntitySet="Exercises" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PurchaseP__Payme__7093AB15" Association="FriendFitDBModel.FK__PurchaseP__Payme__7093AB15">
+      <End Role="Payment" EntitySet="Payments" />
+      <End Role="PurchaseProductsList" EntitySet="PurchaseProductsLists" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkOut__UserId__3E1D39E1" Association="FriendFitDBModel.FK__WorkOut__UserId__3E1D39E1">
+      <End Role="UserProfile" EntitySet="UserProfiles" />
+      <End Role="WorkOut" EntitySet="WorkOuts" />
+    </AssociationSet>
+    <FunctionImport Name="GetTransaction" ReturnType="Collection(FriendFitDBModel.GetTransaction_Result)" />
+    <FunctionImport Name="GetTransactionForFriend" ReturnType="Collection(FriendFitDBModel.GetTransactionForFriend_Result)" />
+    <FunctionImport Name="GetTransactionForUser" ReturnType="Collection(FriendFitDBModel.GetTransactionForUser_Result)" />
+    <FunctionImport Name="GetTransactionForUser1" ReturnType="Collection(FriendFitDBModel.GetTransactionForUser1_Result)" />
+    <FunctionImport Name="GetTransactionForUser11" ReturnType="Collection(FriendFitDBModel.GetTransactionForUser11_Result)" />
+  </EntityContainer>
+  <EntityType Name="Transaction">
+    <Key>
+      <PropertyRef Name="transdetailid" />
+      <PropertyRef Name="transid" />
+      <PropertyRef Name="paymentid" />
+      <PropertyRef Name="transactionType" />
+      <PropertyRef Name="debitaccount" />
+      <PropertyRef Name="creditaccount" />
+      <PropertyRef Name="amount" />
+      <PropertyRef Name="isdebit" />
+      <PropertyRef Name="isactive" />
+    </Key>
+    <Property Name="transdetailid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="transid" Type="Int32" Nullable="false" />
+    <Property Name="paymentid" Type="Int32" Nullable="false" />
+    <Property Name="IPAddress" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="transactionType" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="debitaccount" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="creditaccount" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="amount" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="isdebit" Type="Boolean" Nullable="false" />
+    <Property Name="isactive" Type="Boolean" Nullable="false" />
+    <Property Name="CreateDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Logo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="Status" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="EditPrice">
+    <Key>
+      <PropertyRef Name="EditPriceId" />
+    </Key>
+    <Property Name="EditPriceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="OptionToEditPrice" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Link">
+    <Key>
+      <PropertyRef Name="LinkId" />
+    </Key>
+    <Property Name="LinkId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Link1" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LinkType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NoOfTimeAcc" Type="Int32" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MobileNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="CountryId" Type="Int64" />
+    <Property Name="RoleId" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="EmailConfirmed" Type="Boolean" />
+    <Property Name="OTP" Type="Int64" />
+    <Property Name="ProfilePic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="DeviceTypeId" Type="Int32" />
+    <Property Name="AutoSMSSignUp" Type="Boolean" />
+    <Property Name="FullWorkoutStatus" Type="Boolean" />
+    <Property Name="WorkoutStatus" Type="Boolean" />
+    <Property Name="Remember" Type="Boolean" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="UserRole" Relationship="FriendFitDBModel.FK__UserProfi__Creat__1920BF5C" FromRole="UserProfile" ToRole="UserRole" />
+    <NavigationProperty Name="UserRole1" Relationship="FriendFitDBModel.FK__UserProfi__RoleI__182C9B23" FromRole="UserProfile" ToRole="UserRole" />
+    <NavigationProperty Name="UserRole2" Relationship="FriendFitDBModel.FK__UserProfi__Updat__1A14E395" FromRole="UserProfile" ToRole="UserRole" />
+    <NavigationProperty Name="UserTokens" Relationship="FriendFitDBModel.FK__UserToken__UserI__21B6055D" FromRole="UserProfile" ToRole="UserToken" />
+    <NavigationProperty Name="Exercises" Relationship="FriendFitDBModel.FK__Exercise__UserId__3C34F16F" FromRole="UserProfile" ToRole="Exercise" />
+    <NavigationProperty Name="WorkOuts" Relationship="FriendFitDBModel.FK__WorkOut__UserId__3E1D39E1" FromRole="UserProfile" ToRole="WorkOut" />
+    <Property Name="DistenceImperial" Type="Int32" />
+    <Property Name="WeightImperial" Type="Int32" />
+    <Property Name="UserInvitationId" Type="Int32" />
+  </EntityType>
+  <Association Name="FK__UserProfi__Creat__1920BF5C">
+    <End Type="FriendFitDBModel.UserRole" Role="UserRole" Multiplicity="0..1" />
+    <End Type="FriendFitDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserProfi__RoleI__182C9B23">
+    <End Type="FriendFitDBModel.UserRole" Role="UserRole" Multiplicity="0..1" />
+    <End Type="FriendFitDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserProfi__Updat__1A14E395">
+    <End Type="FriendFitDBModel.UserRole" Role="UserRole" Multiplicity="0..1" />
+    <End Type="FriendFitDBModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserToken__UserI__21B6055D">
+    <End Type="FriendFitDBModel.UserProfile" Role="UserProfile" Multiplicity="0..1" />
+    <End Type="FriendFitDBModel.UserToken" Role="UserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserToken">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ActualDistanceExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RepsSetsTime" Type="Int32" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="ActualExerciseSetId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ActualExcerciseSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExcerciseId" Type="Int64" />
+    <Property Name="SetsNumber" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="DistanceInKm" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="ImperialType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ActualFreeTextExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExerciseId" Type="Int64" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ActualLevelExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActualExerciseSetId" Type="Int64" />
+    <Property Name="TotalWeight" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
+    <Property Name="TotalRaps" Type="Int64" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="ImperialType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ActualRepsExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActualExerciseSetId" Type="Int64" />
+    <Property Name="RepsSets" Type="Int32" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ActualTimedExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActualExerciseSetId" Type="Int64" />
+    <Property Name="TimedSet" Type="Int32" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ActualWeightExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TotalWeight" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TotalRaps" Type="Int64" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="ActualExerciseSetId" Type="Int64" />
+    <Property Name="ImperialType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CountryName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <Property Name="CountryCode" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DeliveryTypeMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DeviceMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DeviceName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DistanceExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RepsSetsTime" Type="Int32" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="ExerciseSetId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="DistanceExerciseSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" />
+    <Property Name="DiastanceInKM" Type="Decimal" Nullable="false" Precision="10" Scale="6" />
+    <Property Name="ExerciseId" Type="Int64" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="DurationMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TotalMonths" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ExcerciseSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExcerciseId" Type="Int64" />
+    <Property Name="SetsNumber" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="DistanceInKm" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="ImperialType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Exercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="WorkOutId" Type="Int64" />
+    <Property Name="ExerciseName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="ExerciseTypeId" Type="Int64" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="Updatedate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="IsActual" Type="Boolean" />
+    <NavigationProperty Name="ExerciseTypeMaster" Relationship="FriendFitDBModel.FK__Exercise__Exerci__3B40CD36" FromRole="Exercise" ToRole="ExerciseTypeMaster" />
+    <NavigationProperty Name="UserProfile" Relationship="FriendFitDBModel.FK__Exercise__UserId__3C34F16F" FromRole="Exercise" ToRole="UserProfile" />
+    <NavigationProperty Name="WorkOut" Relationship="FriendFitDBModel.FK__Exercise__WorkOu__3A4CA8FD" FromRole="Exercise" ToRole="WorkOut" />
+  </EntityType>
+  <EntityType Name="ExerciseTypeMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TypeName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <NavigationProperty Name="Exercises" Relationship="FriendFitDBModel.FK__Exercise__Exerci__3B40CD36" FromRole="ExerciseTypeMaster" ToRole="Exercise" />
+  </EntityType>
+  <EntityType Name="FreeTextExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExerciseId" Type="Int64" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="FrequencyMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Frequency" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="LevelExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TotalWeight" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
+    <Property Name="TotalRaps" Type="Int64" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="ExerciseSetId" Type="Int64" />
+    <Property Name="ImperialType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="MailTimeLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="ResetMail" Type="Boolean" />
+    <Property Name="VerifyMail" Type="Boolean" />
+    <Property Name="MailSentTime" Type="Time" Precision="7" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="ActiveRow" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaypalId" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Intent" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Cart" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Create_time" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Update_time" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Payer_PaymentMethod" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Payer_info_Email" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Payer_info_FirstName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Payer_info_LastName" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Payer_info_Payer_Id" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Payer_info_Country_Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Shipping_Address_Recipient_Name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Shipping_Address_Line1" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Shipping_Address_Line2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Shipping_Address_City" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Shipping_Address_Country_Code" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Shipping_Address_PostedCode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Shipping_Address_State" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Transactions_Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Transactions_InvoiceNum" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="RowInsert" Type="DateTime" Precision="3" />
+    <Property Name="UserId" Type="Int32" />
+    <NavigationProperty Name="PurchaseProductsLists" Relationship="FriendFitDBModel.FK__PurchaseP__Payme__7093AB15" FromRole="Payment" ToRole="PurchaseProductsList" />
+  </EntityType>
+  <EntityType Name="PurchaseProductsList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentId" Type="Int32" />
+    <Property Name="SKU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Currency" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RowInsert" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Payment" Relationship="FriendFitDBModel.FK__PurchaseP__Payme__7093AB15" FromRole="PurchaseProductsList" ToRole="Payment" />
+  </EntityType>
+  <EntityType Name="Recurrence">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="RecurrenceType" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="RepsExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExerciseSetId" Type="Int64" />
+    <Property Name="RepsSets" Type="Int32" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ScheduleActualDistanceExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RepsSetsTime" Type="Int32" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="ActualExerciseSetId" Type="Int64" />
+    <Property Name="DistanceInKM" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ScheduleActualExcerciseSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExcerciseId" Type="Int64" />
+    <Property Name="SetsNumber" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="DistanceInKm" Type="Decimal" Precision="18" Scale="6" />
+  </EntityType>
+  <EntityType Name="ScheduleActualFreeTextExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExerciseId" Type="Int64" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ScheduleActualLevelExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActualExerciseSetId" Type="Int64" />
+    <Property Name="TotalWeight" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
+    <Property Name="TotalRaps" Type="Int64" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ScheduleActualRepsExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActualExerciseSetId" Type="Int64" />
+    <Property Name="RepsSets" Type="Int32" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ScheduleActualTimedExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ActualExerciseSetId" Type="Int64" />
+    <Property Name="TimedSet" Type="Int32" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ScheduleActualWeightExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TotalWeight" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TotalRaps" Type="Int64" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="ActualExerciseSetId" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ScheduleExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="WorkOutScheduleId" Type="Int64" />
+    <Property Name="ExerciseName" Type="String" MaxLength="350" FixedLength="false" Unicode="true" />
+    <Property Name="ExerciseTypeId" Type="Int64" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="Updatedate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalDistanceExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RepsSetsTime" Type="Int32" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="ExerciseSetId" Type="Int64" />
+    <Property Name="DistenceInKm" Type="Int64" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalExcerciseSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ScheduleExerciseId" Type="Int64" />
+    <Property Name="SetsNumber" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="DistanceInKm" Type="Decimal" Precision="18" Scale="6" />
+    <Property Name="ImperialType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalFreeTextExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ExerciseSetId" Type="Int64" Nullable="false" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalLevelExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TotalWeight" Type="Decimal" Nullable="false" Precision="18" Scale="6" />
+    <Property Name="TotalRaps" Type="Int64" Nullable="false" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="ExerciseSetId" Type="Int64" />
+    <Property Name="ImperialType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalRepsExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExerciseSetId" Type="Int64" />
+    <Property Name="RepsSets" Type="Int32" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalTextExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="ExerciseId" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalTimedExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExerciseSetId" Type="Int64" />
+    <Property Name="TimedSet" Type="Int32" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalWeightExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ScheduleGoalExcerciseSetsId" Type="Int64" Nullable="false" />
+    <Property Name="TotalWeight" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TotalRaps" Type="Int64" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="ImperialType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="ScheduleWeeklyMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="StatusMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SubscriptionTypeMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SubcriptionType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="tblPrice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Recurring" Type="Double" />
+    <Property Name="One_Off" Type="Double" />
+    <Property Name="IsSMS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RowInsert" Type="DateTime" Precision="3" />
+    <Property Name="RowUpdate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="TextExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Text" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Createddate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="ExerciseId" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TimedExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ExerciseSetId" Type="Int64" />
+    <Property Name="TimedSet" Type="Int32" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="WeightExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TotalWeight" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TotalRaps" Type="Int64" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="ExerciseSetId" Type="Int64" />
+    <Property Name="ImperialType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="WorkOut">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfWorkout" Type="DateTime" Precision="3" />
+    <Property Name="StartTime" Type="Time" Precision="7" />
+    <Property Name="FinishTime" Type="Time" Precision="7" />
+    <Property Name="WorkoutNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="Updatedate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int64" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="StatusId" Type="Int32" />
+    <Property Name="AutoFinishTime" Type="Boolean" />
+    <Property Name="ScheduleWorkout" Type="Boolean" />
+    <Property Name="Actual_StartTime" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Exercises" Relationship="FriendFitDBModel.FK__Exercise__WorkOu__3A4CA8FD" FromRole="WorkOut" ToRole="Exercise" />
+    <NavigationProperty Name="UserProfile" Relationship="FriendFitDBModel.FK__WorkOut__UserId__3E1D39E1" FromRole="WorkOut" ToRole="UserProfile" />
+    <Property Name="ScheduleId" Type="Int64" />
+    <Property Name="SendSMSToUser" Type="Int32" />
+    <Property Name="SendSMSToFriends" Type="Int32" />
+  </EntityType>
+  <EntityType Name="WorkOutSchedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Monday" Type="Boolean" />
+    <Property Name="Tuesday" Type="Boolean" />
+    <Property Name="Wednesday" Type="Boolean" />
+    <Property Name="Thursday" Type="Boolean" />
+    <Property Name="Friday" Type="Boolean" />
+    <Property Name="Saturday" Type="Boolean" />
+    <Property Name="Sunday" Type="Boolean" />
+    <Property Name="RecurrenceId" Type="Int32" />
+    <Property Name="ScheduleTime" Type="Time" Precision="7" />
+    <Property Name="TextMeTime" Type="Time" Precision="7" />
+    <Property Name="TextFriendTime" Type="Time" Precision="7" />
+    <Property Name="StartDate" Type="DateTime" Precision="3" />
+    <Property Name="EndDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="Int64" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="RowStatus" Type="Boolean" />
+    <Property Name="UserId" Type="Int64" />
+    <Property Name="WorkoutId" Type="Int64" />
+    <Property Name="WorkoutText" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK__Exercise__Exerci__3B40CD36">
+    <End Type="FriendFitDBModel.ExerciseTypeMaster" Role="ExerciseTypeMaster" Multiplicity="0..1" />
+    <End Type="FriendFitDBModel.Exercise" Role="Exercise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExerciseTypeMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exercise">
+        <PropertyRef Name="ExerciseTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Exercise__UserId__3C34F16F">
+    <End Type="FriendFitDBModel.UserProfile" Role="UserProfile" Multiplicity="0..1" />
+    <End Type="FriendFitDBModel.Exercise" Role="Exercise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exercise">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Exercise__WorkOu__3A4CA8FD">
+    <End Type="FriendFitDBModel.WorkOut" Role="WorkOut" Multiplicity="0..1" />
+    <End Type="FriendFitDBModel.Exercise" Role="Exercise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkOut">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exercise">
+        <PropertyRef Name="WorkOutId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PurchaseP__Payme__7093AB15">
+    <End Type="FriendFitDBModel.Payment" Role="Payment" Multiplicity="0..1" />
+    <End Type="FriendFitDBModel.PurchaseProductsList" Role="PurchaseProductsList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PurchaseProductsList">
+        <PropertyRef Name="PaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkOut__UserId__3E1D39E1">
+    <End Type="FriendFitDBModel.UserProfile" Role="UserProfile" Multiplicity="0..1" />
+    <End Type="FriendFitDBModel.WorkOut" Role="WorkOut" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkOut">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GetTransaction_Result">
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="PaypalId" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="state" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="RowInsert" Nullable="true" Precision="23" />
+    <Property Type="String" Name="SKU" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ProductName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Quantity" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Price" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetTransactionForFriend_Result">
+    <Property Type="Int64" Name="Id" Nullable="false" />
+    <Property Type="String" Name="DeliveryType" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="Duration" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="PurchaseDate" Nullable="true" />
+    <Property Type="DateTime" Name="ExpiryDate" Nullable="true" />
+    <Property Type="String" Name="SubscriptionType" Nullable="true" />
+    <Property Type="Decimal" Name="Cost" Nullable="true" Precision="18" Scale="4" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="250" />
+    <Property Type="Int64" Name="CountryId" Nullable="true" />
+    <Property Type="String" Name="FriendsName" Nullable="true" MaxLength="450" />
+  </ComplexType>
+  <ComplexType Name="GetTransactionForUser_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="DeliveryType" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="Duration" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="PurchaseDate" Nullable="true" />
+    <Property Type="DateTime" Name="ExpiryDate" Nullable="true" />
+    <Property Type="String" Name="SubscriptionType" Nullable="true" />
+    <Property Type="Decimal" Name="Cost" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="10" />
+    <Property Type="Int64" Name="CountryId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="GetTransactionForUser1_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="DeliveryType" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="Duration" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="PurchaseDate" Nullable="true" />
+    <Property Type="DateTime" Name="ExpiryDate" Nullable="true" />
+    <Property Type="String" Name="SubscriptionType" Nullable="true" />
+    <Property Type="Decimal" Name="Cost" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="10" />
+    <Property Type="Int64" Name="CountryId" Nullable="true" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="GetTransactionForUser11_Result">
+    <Property Type="Int32" Name="Id" Nullable="false" />
+    <Property Type="String" Name="DeliveryType" Nullable="false" MaxLength="3" />
+    <Property Type="String" Name="Duration" Nullable="true" MaxLength="200" />
+    <Property Type="DateTime" Name="PurchaseDate" Nullable="true" />
+    <Property Type="DateTime" Name="ExpiryDate" Nullable="true" />
+    <Property Type="String" Name="SubscriptionType" Nullable="true" />
+    <Property Type="Decimal" Name="Cost" Nullable="true" Precision="18" Scale="0" />
+    <Property Type="String" Name="FirstName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="LastName" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="MobileNumber" Nullable="true" MaxLength="10" />
+    <Property Type="Int64" Name="CountryId" Nullable="true" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="250" />
+  </ComplexType>
+</Schema>

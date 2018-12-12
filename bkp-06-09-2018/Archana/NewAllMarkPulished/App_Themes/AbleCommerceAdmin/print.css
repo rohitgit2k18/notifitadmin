@@ -1,0 +1,152 @@
+﻿@media print {
+
+/* default font styling for all elements */
+html * { font-family: Georgia, "Times New Roman", Times, serif; font-size: 16px; }
+
+/* style for a caption that is inline with other text */
+.inlineCaption {display:inline;font-size:150%;font-weight:bold;color: #333333;}
+.fieldHeader { font-weight:bold; }
+
+/* class to specifically hide element during printing */
+.noPrint { display:none; }
+
+/* class to indicate that a page break should follow the element */
+.breakAfter { page-break-after:always; }
+
+/* class to indicate that a page break should follow the element */
+.breakBefore { page-break-before:always; }
+
+a { text-decoration:none;color:Black; }
+
+th a { font-weight: bold; }
+
+#adminHeader { display:none; }
+#menuBar { display:none; }
+#adminBreadCrumbs { display:none; }
+#adminFooter { display:none; }
+.secondaryMenu { display:none; }
+
+/******************************************************************************************/
+/* styles that control the layout of the admin page                                       */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* styles for the standard page header                                                    */
+/******************************************************************************************/
+
+/* container for the page header */
+div.pageHeader { margin-bottom:6px; }
+
+/* page caption container */
+div.pageHeader div.caption { }
+
+/* page caption */
+div.pageHeader div.caption h1
+{
+	margin: 0 0 12px 0;
+	color: #232323;
+	font-size: 24px;
+	border-bottom:solid 1px black;
+}
+
+/* usually for instructional text for top of page */
+div.pageHeader div.content { }
+
+/* for subcaption */
+div.pageHeader div.content h2
+{
+	display:inline;
+	margin:0px;
+	font-size:16px;
+}
+
+h2.conlib
+{
+	margin:12px 0px 4px 0px;
+	font-size:larger;
+	font-weight:bold;
+}
+
+/* default styling for definition lists */
+dt { font-weight:bold;font-style:italic; }
+dd { text-indent:0px;padding:0px;margin-left:12px; }
+
+/******************************************************************************************/
+/* end styles for the standard page header                                                */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin style for reports pages                                                          */
+/******************************************************************************************/
+
+div.searchPanel { display: none; }
+img.reportChart { display:block;margin-left: auto; margin-right:auto; }
+table.report { margin-bottom:4px;margin-left:auto;margin-right:auto;border-collapse:collapse; }
+table.report td { padding:6px;border:dashed 1px gray; }
+table.report td.amount { text-align:right; }
+table.report th { padding:6px;border:dashed 1px gray;font-weight:bold;text-align:left; }
+table.report tr.oddRow { background-color: #eee; }
+table.report tr.evenRow { background-color: #fff; }
+
+table.pagedList { margin-bottom:4px;margin-left:auto;margin-right:auto;border-collapse:collapse; }
+table.pagedList td { padding:6px;border:dashed 1px gray; }
+table.pagedList td.amount { text-align:right; }
+table.pagedList th { padding:6px;border:dashed 1px gray;font-weight:bold; }
+table.pagedList tr.oddRow { background-color: #eee; }
+table.pagedList tr.evenRow { background-color: #fff; }
+table.pagedList tr.footer { border-top:solid 2px gray; }
+table.pagedList tr.footer td { border: none; padding:5px; }
+
+/******************************************************************************************/
+/* end style for reports pages                                                            */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin style for logical page divisions                                                 */
+/******************************************************************************************/
+
+div.section { margin-bottom:20px; }
+div.section div.header { padding:6px; }
+div.section div.header h2 { font-size:1.5em;margin:0px; }
+
+/******************************************************************************************/
+/* end style for logical page divisions                                                   */
+/******************************************************************************************/
+
+/******************************************************************************************/
+/* begin style for packing slips                                                          */
+/******************************************************************************************/
+
+.packingSlip { margin:0; }
+.packingSlip div.logo { margin-bottom:2em; }
+.packingSlip h2 { margin:0; padding: 8px; border: 1px solid black; }
+.packingSlip div.orderSummary { border: 1px solid black; border-top:none; margin: 0 0 2em 0; padding:6px; }
+.packingSlip div.orderSummary div.row { padding: 6px; }
+.packingSlip div.orderSummary div.row .fieldHeader { margin-right:4px; }
+.packingSlip table td, .packingSlip table th { padding: 6px; }
+.packingSlip table.shippingAddresses {  border-collapse:collapse; margin:2em 0; width:100%;}
+.packingSlip table.shippingAddresses th { width:50%; text-align:left; font-weight:bold; border:1px solid black; }
+.packingSlip table.shippingAddresses td { padding-left:30px; border:1px solid black; }
+
+table.printableList { border-collapse:collapse; }
+table.printableList td { border:1px solid black; padding:4px; }
+table.printableList th { background-color:#D3D3D3; border:1px solid black; padding:4px; }
+
+
+
+/******************************************************************************************/
+/* end style for packing slips                                                            */
+/******************************************************************************************/
+
+.invoice td.dataSheet {padding:0;}
+.invoice td.dataSheet table.printableList { }
+.invoice td.dataSheet table.printableList td { border:1px solid black; padding:4px; }
+.invoice td.dataSheet table.printableList th { background-color:#D3D3D3; border-top:none; padding:4px; }
+.invoice td.dataSheet table.printableList td:first-child { border-left: none; }
+.invoice td.dataSheet table.printableList td:last-child { border-right: none; }
+.invoice td.dataSheet table.printableList th:first-child { border-left: none; }
+.invoice td.dataSheet table.printableList th:last-child { border-right: none; } 
+.invoice table.dataSheet {margin-bottom: 5px;}
+.invoice table.dataSheet td {padding-right:3px;}
+/* close the print media selector */
+}

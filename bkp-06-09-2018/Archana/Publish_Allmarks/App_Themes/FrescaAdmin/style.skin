@@ -1,0 +1,198 @@
+﻿<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
+
+<cb:StylePlaceHolder runat="server">
+    <cb:Style runat="server" CssUrl="normalize.css" TargetMedia="screen"></cb:Style>
+    <cb:Style runat="server" CssUrl="grid.css" TargetMedia="screen"></cb:Style>
+    <cb:Style runat="server" CssUrl="style.css" TargetMedia="screen"></cb:Style>
+    <cb:Style runat="server" CssUrl="menubar.css" TargetMedia="screen"></cb:Style>
+    <cb:Style runat="server" CssUrl="jquery-ui.css" TargetMedia="screen"></cb:Style>
+    <cb:Style runat="server" CssUrl="print.css" TargetMedia="print"></cb:Style>
+</cb:StylePlaceHolder>
+
+<asp:Image SkinId="Logo" runat="server" ImageUrl="Images/logo.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="Progress" runat="server" ImageUrl="Images/progress.gif" ImageAlign="AbsMiddle" />
+
+<%-- set style on all buttons --%>
+<asp:Button runat="server" CssClass="button" />
+<asp:Button SkinId="Button" runat="server" CssClass="button" />
+<asp:HyperLink SkinId="Button" runat="server" CssClass="button" />
+<asp:LinkButton SkinId="Button" runat="server" CssClass="button" />
+<asp:Button SkinId="SaveButton" runat="server" CssClass="button saveButton" />
+<asp:HyperLink SkinId="SaveButton" runat="server" CssClass="button saveButton" />
+<asp:LinkButton SkinId="SaveButton" runat="server" CssClass="button saveButton" />
+<asp:Button SkinId="AddButton" runat="server" CssClass="button addButton" />
+<asp:HyperLink SkinId="AddButton" runat="server" CssClass="button addButton" />
+<asp:LinkButton SkinId="AddButton" runat="server" CssClass="button addButton" />
+<asp:Button SkinId="CancelButton" runat="server" CssClass="button cancelButton" />
+<asp:HyperLink SkinId="CancelButton" runat="server" CssClass="button cancelButton" />
+<asp:LinkButton SkinId="CancelButton" runat="server" CssClass="button cancelButton" />
+<cb:NavigationLink SkinId="Button" runat="server" CssClass="button" />
+<cb:NavigationLink SkinId="ActiveButton" runat="server" CssClass="button activeButton" />
+<asp:HyperLink SkinId="ActiveButton" runat="server" CssClass="button activeButton" />
+<asp:Button skinId="SortButton" runat="server" CssClass="button sortButton" />
+
+<%-- style for validation summary --%>
+<asp:ValidationSummary runat="server" CssClass="validationSummary" />
+<asp:RequiredFieldValidator runat="server" CssClass="requiredField" />
+<asp:CustomValidator runat="server" CssClass="requiredField" />
+<asp:CompareValidator runat="server" CssClass="requiredField" />
+<cb:EmailAddressValidator runat="server" CssClass="requiredField" />
+<cb:RequiredRegularExpressionValidator runat="server" CssClass="requiredField" />
+
+<%-- style for inline captions --%>
+<asp:Label SkinId="FieldHeader" runat="server" CssClass="fieldHeader" />
+<cb:ToolTipLabel SkinId="FieldHeader" runat="server" LabelCssClass="fieldHeader" />
+
+<asp:ImageButton SkinId="CategoryIcon" runat="server" ImageUrl="Images/Icons/category.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="ProductIcon" runat="server" ImageUrl="Images/Icons/product.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="WebpageIcon" runat="server" ImageUrl="Images/Icons/webpage.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="LinkIcon" runat="server" ImageUrl="Images/Icons/link.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="BigCategoryIcon" runat="server" ImageUrl="Images/Icons/BigCategory.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="BigProductIcon" runat="server" ImageUrl="Images/Icons/BigProduct.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="BigWebpageIcon" runat="server" ImageUrl="Images/Icons/BigWebpage.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="BigLinkIcon" runat="server" ImageUrl="Images/Icons/BigLink.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="UpIcon" runat="server" ImageUrl="Images/Icons/arrow_up.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="DownIcon" runat="server" ImageUrl="Images/Icons/arrow_down.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="EditIcon" runat="server" ImageUrl="Images/Icons/edit.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="MoveIcon" runat="server" ImageUrl="Images/Icons/Move.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="FileChangeIcon" runat="server" ImageUrl="Images/Icons/file_change.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="DeleteIcon" runat="server" ImageUrl="Images/Icons/delete.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="SearchIcon" runat="server" ImageUrl="Images/Icons/search.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="CmsPublicIcon" runat="server" ImageUrl="Images/Icons/CmsPublic.gif" ImageAlign="AbsBottom" />
+<asp:ImageButton SkinId="CmsHiddenIcon" runat="server" ImageUrl="Images/Icons/CmsHidden.gif" ImageAlign="AbsBottom" />
+<asp:ImageButton SkinId="CmsPrivateIcon" runat="server" ImageUrl="Images/Icons/CmsPrivate.gif" ImageAlign="AbsBottom" />
+<asp:ImageButton SkinId="AddIcon" runat="server" ImageUrl="Images/Icons/add.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="AddFileIcon" runat="server" ImageUrl="Images/Icons/file_add.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="BlockIcon" runat="server" ImageUrl="Images/Icons/block.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="CancelIcon" runat="server" ImageUrl="Images/Icons/cancel.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="CopyIcon" runat="server" ImageUrl="Images/Icons/copy.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="DownloadIcon" runat="server" ImageUrl="Images/Icons/download.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="EmailIcon" runat="server" ImageUrl="Images/Icons/email.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="FindIcon" runat="server" ImageUrl="Images/Icons/find.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="GroupIcon" runat="server" ImageUrl="Images/Icons/group.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="PreviewIcon" runat="server" ImageUrl="Images/Icons/preview.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="SaveIcon" runat="server" ImageUrl="Images/Icons/save.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="GoIcon" runat="server" ImageUrl="Images/Icons/play.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="CodeYellow" runat="server" ImageUrl="Images/Icons/CodeYellow.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="CodeRed" runat="server" ImageUrl="Images/Icons/CodeRed.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="CodeGreen" runat="server" ImageUrl="Images/Icons/CodeGreen.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="UpdateRate" runat="server" ImageUrl="Images/Icons/Update_Rate.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="HelpIcon" runat="server" ImageUrl="Images/Icons/help.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="LoginIcon" runat="server" ImageUrl="Images/Icons/login.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="HtmlIcon" runat="server" ImageUrl="Images/Icons/html.png" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="ReplyIcon" runat="server" ImageUrl="Images/Icons/reply.gif" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="OptionsIcon" runat="server" ImageUrl="Images/Icons/options.png" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="ParentCategoryIcon" runat="server" ImageUrl="Images/Icons/ParentCategory.png" ImageAlign="AbsMiddle" />
+<asp:ImageButton SkinId="PlusIcon" runat="server" ImageUrl="Images/Icons/plus.png" ImageAlign="AbsBottom" />
+<asp:ImageButton SkinId="MinusIcon" runat="server" ImageUrl="Images/Icons/minus.png" ImageAlign="AbsBottom" />
+
+<asp:Image SkinId="CategoryIcon" runat="server" ImageUrl="Images/Icons/category.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="ProductIcon" runat="server" ImageUrl="Images/Icons/product.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="WebpageIcon" runat="server" ImageUrl="Images/Icons/webpage.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="LinkIcon" runat="server" ImageUrl="Images/Icons/link.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="BigCategoryIcon" runat="server" ImageUrl="Images/Icons/BigCategory.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="BigProductIcon" runat="server" ImageUrl="Images/Icons/BigProduct.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="BigWebpageIcon" runat="server" ImageUrl="Images/Icons/BigWebpage.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="BigLinkIcon" runat="server" ImageUrl="Images/Icons/BigLink.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="UpIcon" runat="server" ImageUrl="Images/Icons/arrow_up.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="DownIcon" runat="server" ImageUrl="Images/Icons/arrow_down.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="EditIcon" runat="server" ImageUrl="Images/Icons/edit.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="MoveIcon" runat="server" ImageUrl="Images/Icons/Move.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="DeleteIcon" runat="server" ImageUrl="Images/Icons/delete.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="SearchIcon" runat="server" ImageUrl="Images/Icons/search.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="CmsPublicIcon" runat="server" ImageUrl="Images/Icons/CmsPublic.gif" ImageAlign="AbsBottom" />
+<asp:Image SkinId="CmsHiddenIcon" runat="server" ImageUrl="Images/Icons/CmsHidden.gif" ImageAlign="AbsBottom" />
+<asp:Image SkinId="CmsPrivateIcon" runat="server" ImageUrl="Images/Icons/CmsPrivate.gif" ImageAlign="AbsBottom" />
+<asp:Image SkinId="AddIcon" runat="server" ImageUrl="Images/Icons/add.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="BlockIcon" runat="server" ImageUrl="Images/Icons/block.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="CancelIcon" runat="server" ImageUrl="Images/Icons/cancel.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="CopyIcon" runat="server" ImageUrl="Images/Icons/copy.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="DownloadIcon" runat="server" ImageUrl="Images/Icons/download.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="EmailIcon" runat="server" ImageUrl="Images/Icons/email.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="FindIcon" runat="server" ImageUrl="Images/Icons/find.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="GroupIcon" runat="server" ImageUrl="Images/Icons/group.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="PreviewIcon" runat="server" ImageUrl="Images/Icons/preview.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="SaveIcon" runat="server" ImageUrl="Images/Icons/save.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="GoIcon" runat="server" ImageUrl="Images/Icons/play.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="CodeYellow" runat="server" ImageUrl="Images/Icons/CodeYellow.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="CodeRed" runat="server" ImageUrl="Images/Icons/CodeRed.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="CodeGreen" runat="server" ImageUrl="Images/Icons/CodeGreen.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="UpdateRate" runat="server" ImageUrl="Images/Icons/Update_Rate.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="HelpIcon" runat="server" ImageUrl="Images/Icons/help.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="LoginIcon" runat="server" ImageUrl="Images/Icons/login.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="HtmlIcon" runat="server" ImageUrl="Images/Icons/html.png" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="ReplyIcon" runat="server" ImageUrl="Images/Icons/reply.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="AcceptIcon" runat="server" ImageUrl="Images/Icons/accept.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="FileIcon" runat="server" ImageUrl="Images/Icons/file.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="GiftCertIcon" runat="server" ImageUrl="Images/Icons/icon_giftcertificate.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="OptionsIcon" runat="server" ImageUrl="Images/Icons/options.png" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="ParentCategoryIcon" runat="server" ImageUrl="Images/Icons/ParentCategory.png" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="ImageIcon" runat="server" ImageUrl="Images/Icons/image_icon.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="NewOrderIcon" runat="server" ImageUrl="Images/Icons/cart_add.gif" ImageAlign="AbsMiddle" />
+<asp:Image SkinId="DigitalGoodIcon" runat="server" ImageUrl="Images/Icons/download.gif" ImageAlign="AbsMiddle" />
+
+<asp:GridView runat="server" SkinId="PagedList" CssClass="pagedList" GridLines="None">
+    <RowStyle CssClass="oddRow" />
+    <AlternatingRowStyle CssClass="evenRow" />
+    <EmptyDataRowStyle CssClass="empty" />
+    <FooterStyle CssClass="footer" />
+</asp:GridView>
+<cb:SortedGridView runat="server" SkinId="PagedList" CssClass="pagedList" GridLines="None" SortAscImageUrl="~/App_Themes/FrescaAdmin/images/sort-order-ascending.gif" SortDescImageUrl="~/App_Themes/FrescaAdmin/images/sort-order-descending.gif">
+    <RowStyle CssClass="oddRow" />
+    <AlternatingRowStyle CssClass="evenRow" />
+    <EmptyDataRowStyle CssClass="empty" />
+    <FooterStyle CssClass="footer" />
+</cb:SortedGridView>
+<cb:AbleGridView runat="server" SkinId="PagedList" CssClass="pagedList" GridLines="None" PagerSettings-Position="Top" FirstButtonImageUrl="Images/Icons/resultset_first.png"
+    LastButtonImageUrl="Images/Icons/resultset_last.png" NextButtonImageUrl="Images/Icons/resultset_next.png" 
+    PreviousButtonImageUrl="Images/Icons/resultset_previous.png" TotalMatchedItemsCssClass="totalMatchedItems" PageNumberPanelCssClass="pageNumberDiv" PageSizePanelCssClass="pageSizeDiv" 
+    SortAscImageUrl="~/App_Themes/FrescaAdmin/images/sort-order-ascending.gif" SortDescImageUrl="~/App_Themes/FrescaAdmin/images/sort-order-descending.gif">
+    <RowStyle CssClass="oddRow" />
+    <AlternatingRowStyle CssClass="evenRow" />
+    <PagerStyle CssClass="paging" HorizontalAlign="Left" />
+    <EmptyDataRowStyle CssClass="empty" />
+    <FooterStyle CssClass="footer" />
+</cb:AbleGridView>
+<asp:GridView runat="server" SkinId="PrintableList" CssClass="printableList" GridLines="None">
+    <RowStyle CssClass="oddRow" />
+    <AlternatingRowStyle CssClass="evenRow" />
+    <EmptyDataRowStyle CssClass="empty" />
+    <FooterStyle CssClass="footer" />
+</asp:GridView>
+
+<%-- implement consistent styling for tabs --%>
+<ajaxToolkit:TabContainer runat="server" CssClass="tabs" />
+
+<%-- implement standard styling for report charts --%>
+<asp:Chart SkinId="Report" runat="server" 
+    RenderType="ImageTag" 
+    ImageStorageMode="UseImageLocation" 
+    BackColor="#E4E7EC"    
+    Color="#000000"    
+    Font="Arial, 7pt"
+    BorderColor="#C6CFD6"
+    CssClass="reportChart">        
+    <ChartAreas>
+        <asp:ChartArea Name="MainChartArea" BackColor="#EEEEEE">
+            <axisy TitleFont="Arial, 7pt" Minimum="0" IsLabelAutoFit="true">
+                <LabelStyle ForeColor="#000000" />
+                <MajorGrid LineColor="#dddddd" />
+            </axisy>
+            <axisx TitleFont="Arial, 6pt" IsLabelAutoFit="true">
+                <LabelStyle ForeColor="#000000" />
+                <MajorGrid LineColor="#dddddd" />
+            </axisx>
+        </asp:ChartArea>
+    </ChartAreas>
+</asp:Chart>
+
+<%-- styling for notifications --%>
+<cb:Notification SkinId="GoodCondition" runat="server" Caption="Confirmation" CssClass="goodCondition" />
+<cb:Notification SkinId="WarnCondition" runat="server" Caption="Warning" CssClass="warnCondition" />
+<cb:Notification SkinId="ErrorCondition" runat="server" Caption="Error" CssClass="errorCondition" />
+
+<%-- CHECKOUT IMAGES --%>
+<asp:Image SkinID="CheckHelp" runat="server" ImageUrl="Images/PaymentInstruments/checkhelp.jpg" Width="250" />
+<asp:Image SkinID="CID" runat="server" ImageUrl="Images/PaymentInstruments/cvv_visa.gif" hspace="4" width="100" height="66" />
+<asp:Image SkinID="AmexCID" runat="server" ImageUrl="Images/PaymentInstruments/cvv_amex.gif" hspace="4" width="100" height="66" />

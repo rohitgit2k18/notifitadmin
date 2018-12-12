@@ -1,0 +1,990 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FriendFitDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ActualDistanceExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RepsSetsTime" Type="int" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="ActualExerciseSetId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ActualExcerciseSets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExcerciseId" Type="bigint" />
+    <Property Name="SetsNumber" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="DistanceInKm" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="ImperialType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ActualFreeTextExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExerciseId" Type="bigint" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="ActualLevelExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActualExerciseSetId" Type="bigint" />
+    <Property Name="TotalWeight" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+    <Property Name="TotalRaps" Type="bigint" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="ImperialType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ActualRepsExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActualExerciseSetId" Type="bigint" />
+    <Property Name="RepsSets" Type="int" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="ActualTimedExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActualExerciseSetId" Type="bigint" />
+    <Property Name="TimedSet" Type="int" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="ActualWeightExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TotalWeight" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TotalRaps" Type="bigint" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="ActualExerciseSetId" Type="bigint" />
+    <Property Name="ImperialType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CountryName" Type="nvarchar" MaxLength="300" />
+    <Property Name="CountryCode" Type="nvarchar" MaxLength="20" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="DeliveryTypeMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="DeviceMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeviceName" Type="nvarchar" MaxLength="200" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="DistanceExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RepsSetsTime" Type="int" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="ExerciseSetId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="DistanceExerciseSet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" Nullable="false" />
+    <Property Name="DiastanceInKM" Type="decimal" Precision="10" Scale="6" Nullable="false" />
+    <Property Name="ExerciseId" Type="bigint" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="DurationMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TotalMonths" Type="nvarchar" MaxLength="200" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="EditPrice">
+    <Key>
+      <PropertyRef Name="EditPriceId" />
+    </Key>
+    <Property Name="EditPriceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Price" Type="money" />
+    <Property Name="OptionToEditPrice" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="ExcerciseSets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExcerciseId" Type="bigint" />
+    <Property Name="SetsNumber" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="DistanceInKm" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="ImperialType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Exercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="WorkOutId" Type="bigint" />
+    <Property Name="ExerciseName" Type="nvarchar" MaxLength="350" />
+    <Property Name="ExerciseTypeId" Type="bigint" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="Updatedate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="IsActual" Type="bit" />
+  </EntityType>
+  <EntityType Name="ExerciseTypeMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TypeName" Type="nvarchar" MaxLength="350" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="FreeTextExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExerciseId" Type="bigint" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="FrequencyMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Frequency" Type="nvarchar" MaxLength="400" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="FriendsInvitation">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="DeliveryTypeId" Type="int" />
+    <Property Name="FriendsName" Type="nvarchar" MaxLength="450" />
+    <Property Name="DurationId" Type="int" />
+    <Property Name="PurchaseDate" Type="datetime" />
+    <Property Name="ExpiryDate" Type="datetime" />
+    <Property Name="SubscriptionTypeId" Type="int" />
+    <Property Name="Cost" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="IsRowActive" Type="bit" />
+    <Property Name="Email" Type="nvarchar" MaxLength="350" />
+    <Property Name="MobileNumber" Type="nvarchar(max)" />
+    <Property Name="CountryId" Type="bigint" />
+    <Property Name="RecFlag" Type="varchar" MaxLength="4" />
+    <Property Name="PaymentDone" Type="int" />
+  </EntityType>
+  <EntityType Name="LevelExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TotalWeight" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+    <Property Name="TotalRaps" Type="bigint" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="ExerciseSetId" Type="bigint" />
+    <Property Name="ImperialType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Link">
+    <Key>
+      <PropertyRef Name="LinkId" />
+    </Key>
+    <Property Name="LinkId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Link" Type="varchar" MaxLength="200" />
+    <Property Name="UserName" Type="varchar" MaxLength="100" />
+    <Property Name="Email" Type="varchar" MaxLength="100" />
+    <Property Name="LinkType" Type="varchar" MaxLength="50" />
+    <Property Name="NoOfTimeAcc" Type="int" />
+  </EntityType>
+  <EntityType Name="Logo">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImagePath" Type="nvarchar(max)" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="Status" Type="bit" />
+  </EntityType>
+  <EntityType Name="MailTimeLogs">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="ResetMail" Type="bit" />
+    <Property Name="VerifyMail" Type="bit" />
+    <Property Name="MailSentTime" Type="time" Precision="7" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="ActiveRow" Type="bit" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaypalId" Type="varchar" MaxLength="500" />
+    <Property Name="Intent" Type="varchar" MaxLength="500" />
+    <Property Name="Cart" Type="varchar" MaxLength="500" />
+    <Property Name="State" Type="varchar" MaxLength="500" />
+    <Property Name="Create_time" Type="varchar" MaxLength="500" />
+    <Property Name="Update_time" Type="varchar" MaxLength="500" />
+    <Property Name="Payer_PaymentMethod" Type="varchar" MaxLength="500" />
+    <Property Name="Status" Type="varchar" MaxLength="500" />
+    <Property Name="Payer_info_Email" Type="varchar" MaxLength="500" />
+    <Property Name="Payer_info_FirstName" Type="varchar" MaxLength="500" />
+    <Property Name="Payer_info_LastName" Type="varchar" MaxLength="500" />
+    <Property Name="Payer_info_Payer_Id" Type="varchar" MaxLength="500" />
+    <Property Name="Payer_info_Country_Code" Type="varchar" MaxLength="500" />
+    <Property Name="Shipping_Address_Recipient_Name" Type="varchar" MaxLength="500" />
+    <Property Name="Shipping_Address_Line1" Type="varchar" MaxLength="500" />
+    <Property Name="Shipping_Address_Line2" Type="varchar" MaxLength="500" />
+    <Property Name="Shipping_Address_City" Type="varchar" MaxLength="500" />
+    <Property Name="Shipping_Address_Country_Code" Type="varchar" MaxLength="500" />
+    <Property Name="Shipping_Address_PostedCode" Type="varchar" MaxLength="500" />
+    <Property Name="Shipping_Address_State" Type="varchar" MaxLength="500" />
+    <Property Name="Transactions_Description" Type="varchar" MaxLength="500" />
+    <Property Name="Transactions_InvoiceNum" Type="varchar" MaxLength="500" />
+    <Property Name="RowInsert" Type="datetime" />
+    <Property Name="UserId" Type="int" />
+  </EntityType>
+  <EntityType Name="PurchaseProductsList">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentId" Type="int" />
+    <Property Name="SKU" Type="varchar" MaxLength="50" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="Quantity" Type="varchar" MaxLength="50" />
+    <Property Name="Price" Type="varchar" MaxLength="50" />
+    <Property Name="Currency" Type="varchar" MaxLength="50" />
+    <Property Name="RowInsert" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Recurrence">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="RecurrenceType" Type="nvarchar" MaxLength="250" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RepsExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExerciseSetId" Type="bigint" />
+    <Property Name="RepsSets" Type="int" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="ScheduleActualDistanceExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RepsSetsTime" Type="int" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="ActualExerciseSetId" Type="bigint" />
+    <Property Name="DistanceInKM" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ScheduleActualExcerciseSets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExcerciseId" Type="bigint" />
+    <Property Name="SetsNumber" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="DistanceInKm" Type="decimal" Precision="18" Scale="6" />
+  </EntityType>
+  <EntityType Name="ScheduleActualFreeTextExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExerciseId" Type="bigint" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="ScheduleActualLevelExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActualExerciseSetId" Type="bigint" />
+    <Property Name="TotalWeight" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+    <Property Name="TotalRaps" Type="bigint" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="ScheduleActualRepsExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActualExerciseSetId" Type="bigint" />
+    <Property Name="RepsSets" Type="int" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="ScheduleActualTimedExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ActualExerciseSetId" Type="bigint" />
+    <Property Name="TimedSet" Type="int" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="ScheduleActualWeightExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TotalWeight" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TotalRaps" Type="bigint" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="ActualExerciseSetId" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ScheduleExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="WorkOutScheduleId" Type="bigint" />
+    <Property Name="ExerciseName" Type="nvarchar" MaxLength="350" />
+    <Property Name="ExerciseTypeId" Type="bigint" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="Updatedate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalDistanceExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RepsSetsTime" Type="int" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="ExerciseSetId" Type="bigint" />
+    <Property Name="DistenceInKm" Type="bigint" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalExcerciseSets">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ScheduleExerciseId" Type="bigint" />
+    <Property Name="SetsNumber" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="DistanceInKm" Type="decimal" Precision="18" Scale="6" />
+    <Property Name="ImperialType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalFreeTextExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="ExerciseSetId" Type="bigint" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalLevelExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TotalWeight" Type="decimal" Precision="18" Scale="6" Nullable="false" />
+    <Property Name="TotalRaps" Type="bigint" Nullable="false" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="ExerciseSetId" Type="bigint" />
+    <Property Name="ImperialType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalRepsExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExerciseSetId" Type="bigint" />
+    <Property Name="RepsSets" Type="int" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalTextExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="ExerciseId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalTimedExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExerciseSetId" Type="bigint" />
+    <Property Name="TimedSet" Type="int" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <EntityType Name="ScheduleGoalWeightExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ScheduleGoalExcerciseSetsId" Type="bigint" Nullable="false" />
+    <Property Name="TotalWeight" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TotalRaps" Type="bigint" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="ImperialType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ScheduleWeeklyMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="StatusMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="Createddate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SubscriptionTypeMaster">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SubcriptionType" Type="nvarchar(max)" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="tblPrice">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Duration" Type="varchar" MaxLength="50" />
+    <Property Name="Recurring" Type="float" />
+    <Property Name="One_Off" Type="float" />
+    <Property Name="IsSMS" Type="varchar" MaxLength="50" />
+    <Property Name="RowInsert" Type="datetime" />
+    <Property Name="RowUpdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="TextExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Text" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Createddate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="ExerciseId" Type="bigint" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TimedExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ExerciseSetId" Type="bigint" />
+    <Property Name="TimedSet" Type="int" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'FriendFitDB.dbo.Transactions' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Transactions">
+    <Key>
+      <PropertyRef Name="transdetailid" />
+      <PropertyRef Name="transid" />
+      <PropertyRef Name="paymentid" />
+      <PropertyRef Name="transactionType" />
+      <PropertyRef Name="debitaccount" />
+      <PropertyRef Name="creditaccount" />
+      <PropertyRef Name="amount" />
+      <PropertyRef Name="isdebit" />
+      <PropertyRef Name="isactive" />
+    </Key>
+    <Property Name="transdetailid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="transid" Type="int" Nullable="false" />
+    <Property Name="paymentid" Type="int" Nullable="false" />
+    <Property Name="IPAddress" Type="varchar" MaxLength="20" />
+    <Property Name="transactionType" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="debitaccount" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="creditaccount" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="amount" Type="money" Nullable="false" />
+    <Property Name="isdebit" Type="bit" Nullable="false" />
+    <Property Name="isactive" Type="bit" Nullable="false" />
+    <Property Name="CreateDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserProfile">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="nvarchar" MaxLength="250" />
+    <Property Name="MiddleName" Type="nvarchar" MaxLength="250" />
+    <Property Name="LastName" Type="nvarchar" MaxLength="250" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MobileNumber" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="CountryId" Type="bigint" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="int" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="EmailConfirmed" Type="bit" />
+    <Property Name="OTP" Type="bigint" />
+    <Property Name="ProfilePic" Type="nvarchar(max)" />
+    <Property Name="DeviceTypeId" Type="int" />
+    <Property Name="AutoSMSSignUp" Type="bit" />
+    <Property Name="FullWorkoutStatus" Type="bit" />
+    <Property Name="WorkoutStatus" Type="bit" />
+    <Property Name="Remember" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="DistenceImperial" Type="int" />
+    <Property Name="WeightImperial" Type="int" />
+    <Property Name="UserInvitationId" Type="int" />
+  </EntityType>
+  <EntityType Name="UserRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoleType" Type="varchar" MaxLength="100" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="UserToken">
+    <Key>
+      <PropertyRef Name="TokenId" />
+    </Key>
+    <Property Name="TokenId" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="RoleId" Type="int" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="TokenCode" Type="nvarchar" MaxLength="500" />
+    <Property Name="CreatedOn" Type="datetime" />
+    <Property Name="ExpiryDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="WeightExercise">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TotalWeight" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="TotalRaps" Type="bigint" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="ExerciseSetId" Type="bigint" />
+    <Property Name="ImperialType" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="WorkOut">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="DateOfWorkout" Type="datetime" />
+    <Property Name="StartTime" Type="time" Precision="7" />
+    <Property Name="FinishTime" Type="time" Precision="7" />
+    <Property Name="WorkoutNotes" Type="nvarchar(max)" />
+    <Property Name="Createdate" Type="datetime" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="Updatedate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="StatusId" Type="int" />
+    <Property Name="AutoFinishTime" Type="bit" />
+    <Property Name="ScheduleWorkout" Type="bit" />
+    <Property Name="Actual_StartTime" Type="datetime" />
+    <Property Name="ScheduleId" Type="bigint" />
+    <Property Name="SendSMSToUser" Type="int" />
+    <Property Name="SendSMSToFriends" Type="int" />
+  </EntityType>
+  <EntityType Name="WorkOutSchedule">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Monday" Type="bit" />
+    <Property Name="Tuesday" Type="bit" />
+    <Property Name="Wednesday" Type="bit" />
+    <Property Name="Thursday" Type="bit" />
+    <Property Name="Friday" Type="bit" />
+    <Property Name="Saturday" Type="bit" />
+    <Property Name="Sunday" Type="bit" />
+    <Property Name="RecurrenceId" Type="int" />
+    <Property Name="ScheduleTime" Type="time" Precision="7" />
+    <Property Name="TextMeTime" Type="time" Precision="7" />
+    <Property Name="TextFriendTime" Type="time" Precision="7" />
+    <Property Name="StartDate" Type="datetime" />
+    <Property Name="EndDate" Type="datetime" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="bigint" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="RowStatus" Type="bit" />
+    <Property Name="UserId" Type="bigint" />
+    <Property Name="WorkoutId" Type="bigint" />
+    <Property Name="WorkoutText" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <Association Name="FK__Exercise__Exerci__3B40CD36">
+    <End Role="ExerciseTypeMaster" Type="Self.ExerciseTypeMaster" Multiplicity="0..1" />
+    <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ExerciseTypeMaster">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exercise">
+        <PropertyRef Name="ExerciseTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Exercise__UserId__3C34F16F">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="0..1" />
+    <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exercise">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Exercise__WorkOu__3A4CA8FD">
+    <End Role="WorkOut" Type="Self.WorkOut" Multiplicity="0..1" />
+    <End Role="Exercise" Type="Self.Exercise" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WorkOut">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Exercise">
+        <PropertyRef Name="WorkOutId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PurchaseP__Payme__7093AB15">
+    <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+    <End Role="PurchaseProductsList" Type="Self.PurchaseProductsList" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PurchaseProductsList">
+        <PropertyRef Name="PaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserProfi__Creat__1920BF5C">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserProfi__RoleI__182C9B23">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserProfi__Updat__1A14E395">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserProfile">
+        <PropertyRef Name="UpdatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserToken__RoleI__22AA2996">
+    <End Role="UserRole" Type="Self.UserRole" Multiplicity="0..1" />
+    <End Role="UserToken" Type="Self.UserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserRole">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserToken">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__UserToken__UserI__21B6055D">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="0..1" />
+    <End Role="UserToken" Type="Self.UserToken" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="UserToken">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__WorkOut__UserId__3E1D39E1">
+    <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="0..1" />
+    <End Role="WorkOut" Type="Self.WorkOut" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="UserProfile">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="WorkOut">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="GetTransaction" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetTransactionForFriend" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetTransactionForUser1" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="FriendFitDBModelStoreContainer">
+    <EntitySet Name="ActualDistanceExercise" EntityType="Self.ActualDistanceExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActualExcerciseSets" EntityType="Self.ActualExcerciseSets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActualFreeTextExercise" EntityType="Self.ActualFreeTextExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActualLevelExercise" EntityType="Self.ActualLevelExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActualRepsExercise" EntityType="Self.ActualRepsExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActualTimedExercise" EntityType="Self.ActualTimedExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ActualWeightExercise" EntityType="Self.ActualWeightExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeliveryTypeMaster" EntityType="Self.DeliveryTypeMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DeviceMaster" EntityType="Self.DeviceMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DistanceExercise" EntityType="Self.DistanceExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DistanceExerciseSet" EntityType="Self.DistanceExerciseSet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DurationMaster" EntityType="Self.DurationMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EditPrice" EntityType="Self.EditPrice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExcerciseSets" EntityType="Self.ExcerciseSets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exercise" EntityType="Self.Exercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ExerciseTypeMaster" EntityType="Self.ExerciseTypeMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FreeTextExercise" EntityType="Self.FreeTextExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FrequencyMaster" EntityType="Self.FrequencyMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FriendsInvitation" EntityType="Self.FriendsInvitation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LevelExercise" EntityType="Self.LevelExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Link" EntityType="Self.Link" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Logo" EntityType="Self.Logo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MailTimeLogs" EntityType="Self.MailTimeLogs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PurchaseProductsList" EntityType="Self.PurchaseProductsList" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Recurrence" EntityType="Self.Recurrence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RepsExercise" EntityType="Self.RepsExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleActualDistanceExercise" EntityType="Self.ScheduleActualDistanceExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleActualExcerciseSets" EntityType="Self.ScheduleActualExcerciseSets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleActualFreeTextExercise" EntityType="Self.ScheduleActualFreeTextExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleActualLevelExercise" EntityType="Self.ScheduleActualLevelExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleActualRepsExercise" EntityType="Self.ScheduleActualRepsExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleActualTimedExercise" EntityType="Self.ScheduleActualTimedExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleActualWeightExercise" EntityType="Self.ScheduleActualWeightExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleExercise" EntityType="Self.ScheduleExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleGoalDistanceExercise" EntityType="Self.ScheduleGoalDistanceExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleGoalExcerciseSets" EntityType="Self.ScheduleGoalExcerciseSets" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleGoalFreeTextExercise" EntityType="Self.ScheduleGoalFreeTextExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleGoalLevelExercise" EntityType="Self.ScheduleGoalLevelExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleGoalRepsExercise" EntityType="Self.ScheduleGoalRepsExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleGoalTextExercise" EntityType="Self.ScheduleGoalTextExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleGoalTimedExercise" EntityType="Self.ScheduleGoalTimedExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleGoalWeightExercise" EntityType="Self.ScheduleGoalWeightExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ScheduleWeeklyMaster" EntityType="Self.ScheduleWeeklyMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="StatusMaster" EntityType="Self.StatusMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SubscriptionTypeMaster" EntityType="Self.SubscriptionTypeMaster" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblPrice" EntityType="Self.tblPrice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TextExercise" EntityType="Self.TextExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TimedExercise" EntityType="Self.TimedExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserRole" EntityType="Self.UserRole" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserToken" EntityType="Self.UserToken" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WeightExercise" EntityType="Self.WeightExercise" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkOut" EntityType="Self.WorkOut" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WorkOutSchedule" EntityType="Self.WorkOutSchedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Transactions" EntityType="Self.Transactions" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Transactions].[transdetailid] AS [transdetailid], 
+    [Transactions].[transid] AS [transid], 
+    [Transactions].[paymentid] AS [paymentid], 
+    [Transactions].[IPAddress] AS [IPAddress], 
+    [Transactions].[transactionType] AS [transactionType], 
+    [Transactions].[debitaccount] AS [debitaccount], 
+    [Transactions].[creditaccount] AS [creditaccount], 
+    [Transactions].[amount] AS [amount], 
+    [Transactions].[isdebit] AS [isdebit], 
+    [Transactions].[isactive] AS [isactive], 
+    [Transactions].[CreateDate] AS [CreateDate]
+    FROM [dbo].[Transactions] AS [Transactions]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__Exercise__Exerci__3B40CD36" Association="Self.FK__Exercise__Exerci__3B40CD36">
+      <End Role="ExerciseTypeMaster" EntitySet="ExerciseTypeMaster" />
+      <End Role="Exercise" EntitySet="Exercise" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Exercise__UserId__3C34F16F" Association="Self.FK__Exercise__UserId__3C34F16F">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="Exercise" EntitySet="Exercise" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Exercise__WorkOu__3A4CA8FD" Association="Self.FK__Exercise__WorkOu__3A4CA8FD">
+      <End Role="WorkOut" EntitySet="WorkOut" />
+      <End Role="Exercise" EntitySet="Exercise" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PurchaseP__Payme__7093AB15" Association="Self.FK__PurchaseP__Payme__7093AB15">
+      <End Role="Payment" EntitySet="Payment" />
+      <End Role="PurchaseProductsList" EntitySet="PurchaseProductsList" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserProfi__Creat__1920BF5C" Association="Self.FK__UserProfi__Creat__1920BF5C">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserProfi__RoleI__182C9B23" Association="Self.FK__UserProfi__RoleI__182C9B23">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserProfi__Updat__1A14E395" Association="Self.FK__UserProfi__Updat__1A14E395">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="UserProfile" EntitySet="UserProfile" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserToken__RoleI__22AA2996" Association="Self.FK__UserToken__RoleI__22AA2996">
+      <End Role="UserRole" EntitySet="UserRole" />
+      <End Role="UserToken" EntitySet="UserToken" />
+    </AssociationSet>
+    <AssociationSet Name="FK__UserToken__UserI__21B6055D" Association="Self.FK__UserToken__UserI__21B6055D">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="UserToken" EntitySet="UserToken" />
+    </AssociationSet>
+    <AssociationSet Name="FK__WorkOut__UserId__3E1D39E1" Association="Self.FK__WorkOut__UserId__3E1D39E1">
+      <End Role="UserProfile" EntitySet="UserProfile" />
+      <End Role="WorkOut" EntitySet="WorkOut" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

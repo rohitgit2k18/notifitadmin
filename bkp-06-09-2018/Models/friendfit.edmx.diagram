@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="39ae45003d2e425b9135f843e9309fbf" Name="Diagram1">
+        <EntityTypeShape EntityType="FriendFitDBModel.FriendsInvitation" Width="1.5" PointX="7.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="FriendFitDBModel.UserRole" Width="1.5" PointX="0.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FriendFitDBModel.UserToken" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <AssociationConnector Association="FriendFitDBModel.FK__UserToken__RoleI__22AA2996" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="FriendFitDBModel.Transaction" Width="1.5" PointX="9.5" PointY="3.25" />
+        <EntityTypeShape EntityType="FriendFitDBModel.Logo" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="FriendFitDBModel.EditPrice" Width="1.5" PointX="3.375" PointY="7.75" />
+        <EntityTypeShape EntityType="FriendFitDBModel.Link" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="FriendFitDBModel.UserProfile" Width="1.5" PointX="3" PointY="0.75" />
+        <AssociationConnector Association="FriendFitDBModel.FK__UserProfi__Creat__1920BF5C" />
+        <AssociationConnector Association="FriendFitDBModel.FK__UserProfi__RoleI__182C9B23" />
+        <AssociationConnector Association="FriendFitDBModel.FK__UserProfi__Updat__1A14E395" />
+        <AssociationConnector Association="FriendFitDBModel.FK__UserToken__UserI__21B6055D" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

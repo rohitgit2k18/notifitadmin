@@ -1,0 +1,54 @@
+<%-- This file is a generated file. Do not modify. See customization guide for details. --%>
+<%@ Master Language="C#" AutoEventWireup="true" MasterPageFile="~/Layouts/Base.Master" Inherits="AbleCommerce.Layouts.Base" %>
+<%--
+<layout>
+<description>Default layout for category pages.</description>
+</layout>
+--%>
+<%@ Register src="~/ConLib/StoreHeader.ascx" tagname="StoreHeader" tagprefix="uc" %>
+<%@ Register src="~/ConLib/MiniBasket.ascx" tagname="MiniBasket" tagprefix="uc" %>
+<%@ Register src="~/ConLib/SocialMediaLinksDialog.ascx" tagname="SocialMediaLinksDialog" tagprefix="uc" %>
+<%@ Register src="~/ConLib/ProductSpecialsDialog.ascx" tagname="ProductSpecialsDialog" tagprefix="uc" %>
+<%@ Register src="~/ConLib/StoreFooter.ascx" tagname="StoreFooter" tagprefix="uc" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="NestedMaster" runat="server">
+    <div id="header">
+        <div class="zone">
+            <div class="section">
+                <div class="content">
+                    <asp:ContentPlaceHolder ID="PageHeader" runat="server">
+                        <uc:StoreHeader ID="StoreHeader_H" runat="server" />
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="contentContainer">
+        <div id="mainColumn" class="rightSidebarLayout">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="PageContent" runat="server">
+                [page body]
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div id="rightColumn">
+        <div class="zone">
+            <asp:ContentPlaceHolder ID="RightSidebar" runat="server">
+                <uc:MiniBasket ID="MiniBasket_Right" runat="server" />
+                <uc:SocialMediaLinksDialog ID="SocialMediaLinksDialog_Right" runat="server" />
+                <uc:ProductSpecialsDialog ID="ProductSpecialsDialog_Right" runat="server" />
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    </div>
+    <div id="footer">
+    <div class="zone">
+        <div class="section">
+            <div class="content">
+                <asp:ContentPlaceHolder ID="PageFooter" runat="server">
+                    <uc:StoreFooter ID="StoreFooter_F" runat="server" />
+                </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+    </div>
+</asp:Content>

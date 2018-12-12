@@ -1,0 +1,48 @@
+AuditEventId,StoreId,EventDate,EventTypeId,Successful,UserId,RelatedId,RemoteIP,Comment
+1,1,2017-11-14 17:37:48,1000,1,0,,,
+2,1,2017-11-14 17:39:31,7000,1,0,0,103.14.127.74,
+3,1,2017-11-14 17:41:44,5000,1,1,0,103.14.127.74,archana.bharti@mail.vinove.com
+4,1,2017-11-14 17:57:53,6000,1,1,0,103.14.127.74,
+5,1,2017-11-14 17:58:22,5000,1,1,0,103.14.127.74,archana.bharti@mail.vinove.com
+6,1,2017-11-14 18:18:49,5000,1,1,0,103.14.127.74,archana.bharti@mail.vinove.com
+7,1,2017-11-14 18:19:13,6000,1,1,0,103.14.127.74,
+8,1,2017-11-15 11:41:20,5000,1,1,0,103.14.127.77,archana.bharti@mail.vinove.com
+9,1,2017-11-15 12:35:07,5000,1,1,0,103.14.127.77,archana.bharti@mail.vinove.com
+10,1,2017-11-15 15:17:05,5000,1,1,0,103.14.127.77,archana.bharti@mail.vinove.com
+11,1,2017-11-20 12:49:28,5000,0,0,0,103.14.127.74,Invalid username: rahul.sharma1@mail.vinove.com
+12,1,2017-11-20 12:49:52,5000,0,0,0,103.14.127.74,Invalid username: rahul.sharma1@mail.vinove.com
+13,1,2017-11-20 12:50:28,5000,0,0,0,103.14.127.74,Invalid username: rahul.sharma1@mail.vinove.com
+14,1,2017-11-20 12:50:41,5000,0,0,0,103.14.127.74,Invalid username: rahul.sharma1@mail.vinove.com
+15,1,2017-11-20 12:51:26,5000,0,0,0,103.14.127.74,Invalid username: rahul.sharma1@mail.vinove.com
+16,1,2017-11-20 12:51:54,5000,0,0,0,103.14.127.74,Invalid username: rahul.sharma1@mail.vinove.com
+17,1,2017-11-20 12:53:20,5000,0,0,0,103.14.127.74,Invalid username: rahul.sharma1@mail.vinove.com
+18,1,2017-11-20 12:59:31,5000,1,1,0,103.14.127.74,archana.bharti@mail.vinove.com
+19,1,2017-12-04 15:13:21,5000,0,0,0,127.0.0.1,Invalid username: rahul.sharma1@mail.vinove.com
+20,1,2017-12-04 16:38:52,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+21,1,2017-12-04 16:38:55,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+22,1,2017-12-04 16:38:57,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+23,1,2017-12-04 16:38:59,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+24,1,2017-12-04 16:39:02,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+25,1,2017-12-04 16:39:05,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+26,1,2017-12-04 16:39:07,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+27,1,2017-12-04 16:39:08,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+28,1,2017-12-04 16:39:10,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+29,1,2017-12-04 16:39:12,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+30,1,2017-12-04 16:39:12,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+31,1,2017-12-07 12:52:37,5000,0,1,0,127.0.0.1,Invalid password.
+32,1,2017-12-07 12:52:39,5000,0,1,0,127.0.0.1,Invalid password.
+33,1,2017-12-07 12:52:42,5000,0,1,0,127.0.0.1,Invalid password.
+34,1,2017-12-07 12:53:15,8000,1,23,0,127.0.0.1,
+35,1,2017-12-07 12:54:42,8000,1,23,0,127.0.0.1,
+36,1,2017-12-07 12:59:26,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+37,1,2017-12-07 12:59:28,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+38,1,2017-12-07 12:59:34,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+39,1,2017-12-07 13:40:46,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+40,1,2017-12-07 14:26:50,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+41,1,2017-12-07 16:14:19,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+42,1,2017-12-07 16:14:21,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+43,1,2017-12-07 16:40:29,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+44,1,2017-12-07 17:05:42,5000,1,1,0,127.0.0.1,archana.bharti@mail.vinove.com
+45,1,2017-12-11 15:41:40,5000,1,1,0,103.14.127.74,archana.bharti@mail.vinove.com
+46,1,2017-12-11 16:47:08,5000,0,0,0,103.14.127.74,Invalid username: rahul.sharma1@mail.vinove.com
+47,1,2017-12-11 16:47:34,5000,1,1,0,103.14.127.74,archana.bharti@mail.vinove.com

@@ -1,0 +1,170 @@
+﻿@model IEnumerable<HealthcareSoft.Data.Model.NotificationModel>
+
+@if (@ViewBag.Message != null)
+{
+    <script type="text/javascript" language="javascript">
+        alert('@ViewBag.Message');</script>}
+
+@if (@ViewBag.IsCompleted != null)
+{
+    <script type="text/javascript" language="javascript">
+        alert('@ViewBag.IsCompleted');</script>}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>GetNotifications</title>   
+
+</head>
+
+<body>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PatientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReasonForVisit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AppointmentTime)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.DoctorId)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.ProfilePicture)
+            </th>
+            <th>
+                Action
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PatientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReasonForVisit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentTime)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.DoctorId)
+                </td>*@
+                <td>
+                    <div class="IMG">
+                        <input type="image" src="@item.ProfilePicture" alt=""/>
+                        </div>
+                   </td>
+                <td>
+                    
+                    <a href="@Url.Action("CancelAppointment", "Notification", new { id = @item.Id })" onclick="return confirm('Are you sure you want to Cancel this Appointment?');"><i title="Cancel" class="fa fa-close"></i></a>
+                    @if (item.IsCompleted == false)
+                    {
+                        <a href="@Url.Action("CompleteAppointment", "Notification", new { id = @item.Id })" onclick="return confirm('Are you sure you want to mark this Appointment as Completed?');"><i title="Completed" class="fa fa-check"></i></a>
+                    }
+                    @if (item.IsCompleted == true)
+                    {
+                        <b style="color:green">Completed</b>
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>
+
+<style>
+    .IMG input[type="image"] {
+        width: 30px !important;
+        height: auto !important;
+    }
+
+    .content label {
+        float: right;
+        margin-top: 9px;
+    }
+</style>
+
+
+
+<script src="~/Scripts/jquery-3.2.1.js"></script>
+@*<script>
+    window.setInterval(function(){
+        /// call your function here
+        alert("hi");
+    }, 5000);
+    setInterval(functionName, 60000);
+    </script>*@
+
+
+<script type="text/javascript">
+    window.setInterval(function () {
+        //alert("Sec alert");
+        UpdateNotifications();
+    }, 5000);
+
+
+
+    function UpdateNotifications() {
+        // alert("help");
+        //debugger;
+        $.ajax({
+            type: "GET",
+            url: "/Notification/GetNotificationsLive",
+            data: 'notification',
+            contentType: "application/json;",
+            success: function (data) {
+                //debugger;
+                var count = data.count;
+                if (data != null) {
+
+                    $('#notificationdiv').empty();
+                    $('#notifinum').html(count);
+                    ///data.NotificationList[i].AppointmentDate
+                    var notificationdiv = "<ul class='list-unstyled'>"
+                    for (var i = 0; i < data.NotificationList.length; i++) {
+                        notificationdiv += "<li> <div class='notifi-outer'> <div class='notif-image'> <img src='" + data.NotificationList[i].ProfilePicture + "'/> </div>";
+                        notificationdiv += "<div id='notificationdiv' class='notifi-description'>";
+                        notificationdiv += "<p>" + data.NotificationList[i].PatientName + "</p>";
+                        notificationdiv += "<span>" + data.NotificationList[i].AppointmentTime + "</span>";
+                        notificationdiv += "</div>";
+                       // notificationdiv += "<span><img src='~/assets/images/notifi_bin.png'></span>";
+                        notificationdiv += "</div>";
+                        notificationdiv += "</li>";
+                    }
+
+                    notificationdiv += "</ul>"
+                    notificationdiv += "<div class='notifi-show'> <a href='/Notification/GetNotifications'>Show More</a></div>";
+
+                    $('#notificationdiv').append(notificationdiv);
+                }
+            },
+            failure: function (response) {
+                alert(response.d);
+            }
+        });
+    }
+
+</script>

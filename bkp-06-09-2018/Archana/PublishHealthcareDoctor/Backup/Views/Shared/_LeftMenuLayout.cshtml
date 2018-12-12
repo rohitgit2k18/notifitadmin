@@ -1,0 +1,26 @@
+﻿   <div class="col-md-3 doc-profile-sec no-padding no-margin text-center">
+        <div class="profile-upper-sec">
+            <div class="profile-pic">
+                <figure>
+                    <img src="@HealthcareSoft.Web.Models.ApplicationSession.CurrentUser.ProfilePicture" alt="logo" class="img-circle m-b">
+                    @*<img src="~/assets/images/doc-pic.png" alt="Doctor-Picture">*@
+                </figure>
+            </div>
+            <div class="doc-description">
+                <h3>Dr. @HealthcareSoft.Web.Models.ApplicationSession.UserName<span><img src="~/assets/images/doc_check.png" alt="~/Content/ProfileImages/Image-Icon.jpg"></span></h3>
+                @*<h3>Dr. John Doe<span><img src="~/assets/images/doc_check.png" alt=""></span></h3>*@
+                <p>@HealthcareSoft.Web.Models.ApplicationSession.QualificationName - @HealthcareSoft.Web.Models.ApplicationSession.DepartmentName</p>
+                <p>@HealthcareSoft.Web.Models.ApplicationSession.HospitalName</p>
+                <a class="edit-doc-profile" href="/UserProfile/EditProfile">EDIT PROFILE</a>
+</div>
+        </div>
+        <div class="dashboard-menu-list">
+            <ul class="list-unstyled">
+                <li><a href="/Notification/GetNotifications"><span class="appoint-no"></span>Today's Appointments</a></li>
+                <li class="active"><a href="/Dashboard/Index"><span><img src="~/assets/images/dashboard-icon.png" alt="~/Content/ProfileImages/Image-Icon.jpg"></span>Dashboard</a></li>
+                <li><a href="/Patient/PatientList"><span><img src="~/assets/images/patient-icon.png" alt="~/Content/ProfileImages/Image-Icon.jpg"></span>Patients</a></li>
+                <li><a href="/Patient/ReferPatient"><span><img src="~/assets/images/r-patient-icon.png" alt="~/Content/ProfileImages/Image-Icon.jpg"></span>Referred Patients</a></li>
+                <li><a href="/MySchedule/Index"><span><img src="~/assets/images/schedule-icon.png" alt="~/Content/ProfileImages/Image-Icon.jpg"></span>My Schedule</a></li>
+            </ul>
+        </div>
+    </div>

@@ -1,0 +1,69 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Admin.Master.cs" Inherits="AbleCommerce.Admin.Admin" %>
+<%@ Register src="~/Admin/ConLib/AdminHeader.ascx" tagname="AdminHeader" tagprefix="uc" %>
+<%@ Register src="~/Admin/ConLib/AdminBreadCrumbs.ascx" tagname="AdminBreadCrumbs" tagprefix="uc" %>
+<%@ Register src="~/Admin/ConLib/AdminFooter.ascx" tagname="AdminFooter" tagprefix="uc" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="head1" runat="server">
+    <title>AbleCommerce: Software that Sells!(TM)</title>
+    <asp:ContentPlaceHolder ID="HtmlHeader" runat="server">
+    </asp:ContentPlaceHolder>
+    <cb:StylePlaceHolder ID="StylePlaceHolder1" runat="server"></cb:StylePlaceHolder>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <script language="javascript" type="text/javascript">
+        function initAjaxProgress() {
+             var pageHeight = (document.documentElement && document.documentElement.scrollHeight) ? document.documentElement.scrollHeight : (document.body.scrollHeight > document.body.offsetHeight) ? document.body.scrollHeight : document.body.offsetHeight;
+             //SET HEIGHT OF BACKGROUND
+             var bg = document.getElementById('ajaxProgressBg');
+             bg.style.height = pageHeight + 'px';
+             //POSITION THE PROGRESS INDICATOR ON INITIAL LOAD
+             reposAjaxProgress();
+             //REPOSITION THE PROGRESS INDICATOR ON SCROLL
+             window.onscroll = reposAjaxProgress;
+         }
+
+         function reposAjaxProgress() {
+             var div = document.getElementById('ajaxProgress');
+             var st = document.body.scrollTop;
+             if (st == 0) {
+                 if (window.pageYOffset) st = window.pageYOffset;
+                 else st = (document.body.parentElement) ? document.body.parentElement.scrollTop : 0;
+             }
+             div.style.top = 150 + st + "px";
+         }
+    </script>
+</head>
+<body onload="initAjaxProgress();">
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true" AsyncPostBackTimeOut="600" />
+    <asp:UpdateProgress ID="UpdateProgress1" runat="server" DisplayAfter="2000">
+        <ProgressTemplate>
+            <div id="ajaxProgressBg"></div>
+            <div id="ajaxProgress"></div>
+        </ProgressTemplate>
+    </asp:UpdateProgress>
+    <div class="container_12" id="grid">
+        <uc:AdminHeader ID="AdminHeader1" runat="server" />
+        <asp:ContentPlaceHolder ID="BreadCrumbs" runat="server">
+            <uc:AdminBreadCrumbs ID="AdminBreadCrumbs1" runat="server" />
+        </asp:ContentPlaceHolder>
+        <asp:ContentPlaceHolder ID="PageHeader" runat="server">
+        </asp:ContentPlaceHolder>
+        <div class="clear"></div>
+        <div class="grid_12" id="mainContent">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                [MainContent]
+            </asp:ContentPlaceHolder>
+        </div>
+        <uc:AdminFooter ID="AdminFooter" runat="server" EnableTheming="false" />
+    </div>
+    </form>
+    <script language="javascript" type="text/javascript">
+        // sticky actions bar
+        $(window).load(function () {
+          $("#stickyActions").sticky({ topSpacing: 0, center: true, className: "stickyActions" });
+        });
+    </script>
+</body>
+</html>
